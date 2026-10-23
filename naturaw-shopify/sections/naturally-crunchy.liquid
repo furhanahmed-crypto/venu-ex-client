@@ -1,0 +1,271 @@
+<section class="custom-hero" 
+         style="height: {{ section.settings.hero_height_desktop }}px;"
+         data-height-desktop="{{ section.settings.hero_height_desktop }}"
+         data-height-tablet="{{ section.settings.hero_height_tablet }}"
+         data-height-mobile="{{ section.settings.hero_height_mobile }}">
+  <!-- Background -->
+  <div class="hero-bg" 
+       style="background-image: url('{{ section.settings.background_image | img_url: '2048x2048' }}');">
+  </div>
+
+  <!-- Centered Content -->
+  <div class="hero-content">
+    <h1 class="hero-heading">{{ section.settings.heading }}</h1>
+    <p class="hero-text">{{ section.settings.subheading }}</p>
+    {% if section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="hero-button">
+        {{ section.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+
+  <!-- Bottom-left Small Image -->
+  {% if section.settings.small_image %}
+    <div class="hero-small-image">
+      <img src="{{ section.settings.small_image | img_url: '800x' }}" alt="Small Image">
+    </div>
+  {% endif %}
+</section>
+
+<style>
+/* --------------------- Hero Container --------------------- */
+.custom-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: height 0.3s ease;
+  height: 1270px;
+}
+
+/* --------------------- Background --------------------- */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  
+}
+
+@keyframes bgZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+/* --------------------- Centered Content --------------------- */
+.hero-content {
+  color: #fff;
+  z-index: 1;
+  width: 800px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: contentFadeIn 1s forwards 0.3s;
+}
+
+@keyframes contentFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-heading {
+  font-size: 60px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  margin: 0 20px;
+  font-weight:700;
+  line-height:70px;
+}
+
+.hero-text {
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'Carlito', sans-serif;
+  text-align: center;
+  margin: 20px 20px 40px 20px;
+}
+
+/* --------------------- Button --------------------- */
+.hero-button {
+font-family: 'Carlito', sans-serif;
+font-size: 16px; text-transform: uppercase; background-color: #fc2d9a; color:#FFF; 
+border-radius: 30px; padding:12px 40px 9px 40px;
+text-decoration:none;
+font-weight:normal;
+align-self: flex-start;
+display: inline-block;
+}
+
+.hero-button:hover {
+  opacity: 0.7;
+  transform: scale(1.0);
+}
+
+/* --------------------- Bottom-left Small Image --------------------- */
+.hero-small-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+.hero-small-image img {
+  width: 200px;  
+  height: auto;
+}
+
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* --------------------- Responsive --------------------- */
+@media (max-width: 1024px) {
+  .hero-content {
+    width: 90%;
+  }
+
+  .hero-heading {
+    font-size: 40px;
+  }
+
+  .hero-text {
+    font-size: 30px;
+  }
+
+  .hero-small-image img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+      .hero-content {
+    width: 100%;
+  }
+  .hero-heading {
+    font-size: 25px;
+    line-height:25px;
+  }
+
+  .hero-text {
+    font-size: 20px;
+     line-height:20px;
+  }
+
+  .hero-small-image img {
+    width: 120px;
+  }
+}
+</style>
+
+<script>
+  // Dynamically adjust hero height for tablet and mobile
+  function updateHeroHeight() {
+    const hero = document.querySelector('.custom-hero');
+    if (!hero) return;
+
+    const desktopHeight = hero.dataset.heightDesktop;
+    const tabletHeight = hero.dataset.heightTablet;
+    const mobileHeight = hero.dataset.heightMobile;
+    const width = window.innerWidth;
+
+    if (width <= 768) {
+      hero.style.height = mobileHeight + 'px';
+    } else if (width <= 1024) {
+      hero.style.height = tabletHeight + 'px';
+    } else {
+      hero.style.height = desktopHeight + 'px';
+    }
+  }
+
+  window.addEventListener('resize', updateHeroHeight);
+  window.addEventListener('load', updateHeroHeight);
+</script>
+
+{% schema %}
+{
+  "name": "Custom Hero Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Naturally Crunchy. Naturally Happy."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "“Chips that make you groove!”"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "image_picker",
+      "id": "small_image",
+      "label": "Bottom-left Small Image"
+    },
+    {
+      "type": "range",
+      "id": "hero_height_desktop",
+      "label": "Hero Height (Desktop, px)",
+      "default": 700,
+      "min": 300,
+      "max": 1200,
+      "step": 10
+    },
+    {
+      "type": "range",
+      "id": "hero_height_tablet",
+      "label": "Hero Height (Tablet, px)",
+      "default": 500,
+      "min": 300,
+      "max": 1200,
+      "step": 10
+    },
+    {
+      "type": "range",
+      "id": "hero_height_mobile",
+      "label": "Hero Height (Mobile, px)",
+      "default": 400,
+      "min": 300,
+      "max": 1200,
+      "step": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Hero Section"
+    }
+  ]
+}
+{% endschema %}

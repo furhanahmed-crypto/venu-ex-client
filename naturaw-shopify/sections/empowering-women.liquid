@@ -1,0 +1,316 @@
+{% comment %}
+  Empowering Women – Fully Responsive / Top Heading / Bottom Centered Text / Top Left Image / Right Bottom Image
+{% endcomment %}
+
+<section class="empower-section"
+  style="background-image:url('{{ section.settings.bg_image | img_url: '2000x' }}'); min-height: {{ section.settings.desktop_height }}px;">
+
+  <!-- TOP LEFT IMAGE -->
+  {% if section.settings.top_left_image %}
+    <div class="empower-top-left-image">
+      <img src="{{ section.settings.top_left_image | img_url: '600x' }}" alt="Top Left Image">
+    </div>
+  {% endif %}
+
+  <!-- TOP HEADING -->
+  <div class="empower-heading">
+    <h2>{{ section.settings.heading }}</h2>
+  </div>
+
+  <!-- BOTTOM AREA -->
+  <div class="empower-bottom-wrap">
+    <!-- TEXT (CENTERED W.R.T IMAGE) -->
+    <div class="empower-bottom-text">
+      {{ section.settings.text }}
+    </div>
+  </div>
+
+  <!-- RIGHT BOTTOM IMAGE -->
+  {% if section.settings.corner_image %}
+    <div class="empower-corner-image">
+      <img src="{{ section.settings.corner_image | img_url: '600x' }}" alt="Corner Image">
+    </div>
+  {% endif %}
+</section>
+
+<style>
+/* ---------- Base Section ---------- */
+.empower-section {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: visible;
+  padding: 60px;
+}
+
+/* ---------- Top Left Image ---------- */
+.empower-top-left-image {
+  position: absolute;
+  top: -24px;
+  left: 158px;
+  z-index: 2;
+}
+
+.empower-top-left-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Heading (TOP) ---------- */
+.empower-heading {
+  max-width: 520px;
+  animation: fadeDown 1s ease forwards;
+  position: relative;
+  z-index: 3;
+}
+
+.empower-heading h2 {
+  font-size: 52px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* ---------- Bottom Wrap ---------- */
+.empower-bottom-wrap {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%); /* ⭐ REAL CENTER */
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+
+/* ---------- Bottom Text ---------- */
+.empower-bottom-text {
+  width: 100%;
+  max-width: none; /* remove previous limit */
+  text-align: center;
+  animation: fadeUp 1s ease forwards;
+  margin-top: -250px;
+  padding: 0 20px; /* optional padding for very large screens */
+  box-sizing: border-box;
+line-height:45px;
+ font-size:45px; color:#FFF; font-family: 'Carlito', sans-serif; font-weight:500; font-style:italic; text-align:center;
+}
+
+
+.empower-bottom-text p {
+  font-size: 40px;
+  line-height: 50px;
+  font-weight:600;
+  font-style:italic;
+  font-family: 'Carlito', sans-serif;
+  color: #ffffff;
+  margin: auto;
+  width: 60%;
+}
+
+/* ---------- Corner Image (Right Bottom) ---------- */
+.empower-corner-image {
+  position: absolute;
+  right: 40px;
+  bottom: -40px;
+  animation: floatImg 4s ease-in-out infinite;
+  z-index: 3;
+}
+
+.empower-corner-image img {
+  width: 200px;
+  height: auto;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatImg {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .empower-section {
+    min-height: {{ section.settings.tablet_height }}px;
+    padding: 40px;
+  }
+
+  .empower-heading h2 {
+    font-size: 40px;
+  }
+
+  .empower-bottom-text p {
+    font-size: 20px;
+  }
+
+  .empower-corner-image {
+    right: 30px;
+    bottom: -40px;
+  }
+
+  .empower-corner-image img {
+    width: 100px;
+  }
+
+  .empower-top-left-image {
+    top: -40px;
+    left: 40px;
+  }
+
+  .empower-top-left-image img {
+    width: 100%;
+  }
+  .empower-bottom-text {
+  width: 100%;
+  max-width: none;
+  text-align: center;
+  animation: fadeUp 1s ease forwards;
+  margin-top: -172px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  line-height:25px;
+ font-size:25px; color:#FFF; font-family: 'Carlito', sans-serif; font-weight:500; font-style:italic; text-align:center;
+
+}
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .empower-bottom-text {
+  width: 100%;
+  max-width: none;
+  text-align: center;
+  animation: fadeUp 1s ease forwards;
+ margin-top:400px !important;
+  padding: 0 20px;
+  box-sizing: border-box;
+   line-height:16px;
+ font-size:16px; color:#FFF; font-family: 'Carlito', sans-serif; font-weight:500; font-style:italic; text-align:center;
+}
+  .empower-section {
+    min-height: {{ section.settings.mobile_height }}px;
+    padding: 30px 20px;
+  }
+
+  .empower-heading {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .empower-heading h2 {
+    font-size: 28px;
+  }
+
+  .empower-bottom-wrap {
+    position: static;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform: none;
+  }
+
+  .empower-bottom-text {
+    max-width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .empower-bottom-text p {
+    font-size: 16px;
+  }
+
+  .empower-corner-image {
+    bottom: -20px;
+    right: 20px;
+  }
+
+  .empower-corner-image img {
+    width: 80px;
+  }
+
+  .empower-top-left-image {
+    top: -20px;
+    left: 10px;
+  }
+
+  .empower-top-left-image img {
+    width: 100%;
+  }
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Empowering Women",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_left_image",
+      "label": "Top Left Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Empowering Women – The Heart of Naturaw"
+    },
+   {
+  "type": "richtext",
+  "id": "text",
+  "label": "Bottom Text",
+  "default": "<p>Women form the backbone of Naturaw’s vision and operations. From production to packaging, women play a central role in every stage of our journey.</p>"
+},
+    {
+      "type": "image_picker",
+      "id": "corner_image",
+      "label": "Right Bottom Image"
+    },
+    {
+      "type": "number",
+      "id": "desktop_height",
+      "label": "Desktop Height (px)",
+      "default": 720
+    },
+    {
+      "type": "number",
+      "id": "tablet_height",
+      "label": "Tablet Height (px)",
+      "default": 620
+    },
+    {
+      "type": "number",
+      "id": "mobile_height",
+      "label": "Mobile Height (px)",
+      "default": 540
+    }
+  ],
+  "presets": [
+    {
+      "name": "Empowering Women"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,477 @@
+<section id="playlist-{{ section.id }}" class="playlist-section">
+
+  <!-- Corner Decorations -->
+  {% if section.settings.decor_top_left %}
+    <img class="decor decor-top-left" src="{{ section.settings.decor_top_left | image_url }}" alt="">
+  {% endif %}
+  {% if section.settings.decor_top_right %}
+    <img class="decor decor-top-right" src="{{ section.settings.decor_top_right | image_url }}" alt="">
+  {% endif %}
+  {% if section.settings.decor_bottom_left %}
+    <img class="decor decor-bottom-left" src="{{ section.settings.decor_bottom_left | image_url }}" alt="">
+  {% endif %}
+  {% if section.settings.decor_bottom_right %}
+    <img class="decor decor-bottom-right" src="{{ section.settings.decor_bottom_right | image_url }}" alt="">
+  {% endif %}
+
+  <div class="playlist-inner">
+
+    <!-- Heading -->
+    {% if section.settings.heading_decor or section.settings.heading_text %}
+      <div class="heading-wrap">
+
+        {% if section.settings.heading_decor %}
+          <div class="heading-image">
+            <img src="{{ section.settings.heading_decor | image_url }}" class="heading-decor" alt="">
+          </div>
+        {% endif %}
+
+        <div class="heading-text">
+          <div class="heading-line small">
+            A PLAYLIST <span class="of">of</span>
+          </div>
+          <div class="heading-line big">PURE GOODNESS</div>
+        </div>
+
+      </div>
+    {% endif %}
+
+    <!-- Slider -->
+    <div class="playlist-slider">
+      <button class="slider-arrow prev" type="button">
+        {% if section.settings.prev_arrow %}
+          <img src="{{ section.settings.prev_arrow | image_url }}" alt="Prev">
+        {% else %}
+          ‹
+        {% endif %}
+      </button>
+
+      <div class="slider-viewport">
+        <div class="slider-track">
+          {% for product in section.settings.products %}
+            <div class="playlist-card">
+              <div class="card-image">
+                <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.title }}">
+              </div>
+              <h3 class="card-title">{{ product.title }}</h3>
+              <a href="{{ product.url }}" class="add-btn">Add to cart</a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <button class="slider-arrow next" type="button">
+        {% if section.settings.next_arrow %}
+          <img src="{{ section.settings.next_arrow | image_url }}" alt="Next">
+        {% else %}
+          ›
+        {% endif %}
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+ @media (min-width: 1440px){
+ #playlist-{{ section.id }} .slider-viewport{
+  max-width:1500px ;
+  margin:auto;
+}
+/* LEFT arrow – item ke bilkul paas */
+#playlist-{{ section.id }} .slider-arrow.prev{
+  left: calc(50% - 750px);
+}
+
+/* RIGHT arrow – item ke bilkul paas */
+#playlist-{{ section.id }} .slider-arrow.next{
+  right: calc(50% - 750px);
+}
+
+}
+ 
+  /* ================= SLIDER ARROWS ================= */
+#playlist-{{ section.id }} .slider-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+  color:#3b5005;
+  z-index:5;
+}
+
+/* LEFT arrow – item ke bilkul paas */
+#playlist-{{ section.id }} .slider-arrow.prev{
+  left: calc(50% - 550px);
+}
+
+/* RIGHT arrow – item ke bilkul paas */
+#playlist-{{ section.id }} .slider-arrow.next{
+  right: calc(50% - 550px);
+}
+
+/* Hover */
+#playlist-{{ section.id }} .slider-arrow:hover{
+  color:#f99f11;
+  transform:translateY(-50%) scale(1.15);
+}
+
+
+/* If image arrows are used */
+#playlist-{{ section.id }} .slider-arrow img{
+  max-width:32px;
+  display:block;
+}
+
+/* ================= SECTION ================= */
+#playlist-{{ section.id }}{
+  position:relative;
+  padding:120px 24px 100px;
+  background:#fff;
+  overflow:visible;
+}
+#playlist-{{ section.id }} .playlist-inner{
+  max-width:1500px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+  margin-top: -120px;
+  padding:0px 20px;
+}
+
+/* Heading layout */
+#playlist-{{ section.id }} .heading-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  margin-bottom:60px;
+}
+
+/* Heading image */
+#playlist-{{ section.id }} .heading-image img{
+  width:620px;
+  display:block;
+}
+
+/* ================= HEADING TEXT (IMAGE STYLE) ================= */
+#playlist-{{ section.id }} .heading-text{
+  text-align:center;
+  line-height:1.05;
+  margin-top: 25px;
+  margin-left: -100px;
+}
+
+#playlist-{{ section.id }} .heading-line{
+  font-family: Inter, Poppins, Montserrat, Arial Black, sans-serif;
+  font-weight:900;
+  color:#fff;
+  -webkit-text-stroke:8px #ffcf67;
+  paint-order: stroke fill;
+}
+
+/* Small line */
+#playlist-{{ section.id }} .heading-line.small{
+  font-size:60px;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+
+/* lowercase OF */
+#playlist-{{ section.id }} .heading-line.small .of{
+  text-transform:lowercase;
+  font-size:0.8em;
+}
+
+/* Big line */
+#playlist-{{ section.id }} .heading-line.big{
+  font-size:62px;
+  text-transform:uppercase;
+}
+
+/* Decorations */
+#playlist-{{ section.id }} .decor{
+  position:absolute;
+  max-width:160px;
+}
+.decor-top-left{ top:20px; left:40px; animation: floatLeft 6s ease-in-out infinite; }
+.decor-top-right{ top:-138px; right:0; }
+.decor-bottom-left{ bottom:20px; left:0; }
+.decor-bottom-right{ bottom:20px; right:0; animation: fadeSlideRight 5s ease-in-out infinite; }
+
+@keyframes floatLeft{
+  0%{transform:translateX(0);}
+  50%{transform:translateX(20px);}
+  100%{transform:translateX(0);}
+}
+@keyframes fadeSlideRight{
+  0%{opacity:0; transform:translateX(-20px);}
+  50%{opacity:1;}
+  100%{opacity:1;}
+}
+
+/* Slider */
+#playlist-{{ section.id }} .playlist-slider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+   position:relative;
+}
+#playlist-{{ section.id }} .slider-viewport{
+  overflow:hidden;
+  width:100%;
+}
+#playlist-{{ section.id }} .slider-track{
+  display:flex;
+  gap:80px;
+  transition:transform .35s ease;
+}
+
+/* Cards */
+#playlist-{{ section.id }} .playlist-card{
+  text-align:center;
+}
+#playlist-{{ section.id }} .card-image img{
+  width:100%;
+  border-radius:22px;
+}
+#playlist-{{ section.id }} .card-title{
+Font-size:20px; color:#3b5005; Font-weight:bold; text-transform: uppercase;   font-family: 'Inter', sans-serif; text-align:center; margin:18px auto; width: 100%; }
+#playlist-{{ section.id }} .add-btn{
+  font-family: 'Carlito', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: #f99f11;
+    color: #FFF;
+    border-radius: 30px;
+    padding: 6px 25px 4px 25px;
+    line-height: 32px !important;
+    text-decoration: none;
+    font-weight: normal;
+    align-self: flex-start;
+    display: inline-block;
+}
+#playlist-{{ section.id }} .slider-viewport{
+  max-width:1000px;
+  margin:auto;
+}
+
+
+/* Desktop */
+#playlist-{{ section.id }} .playlist-card{
+  width:calc((100% - 160px) / 3);
+  min-width:calc((100% - 160px) / 3);
+}
+
+/* Tablet */
+
+@media (max-width: 991px) {
+#playlist-{{ section.id }} .decor{
+  position:absolute;
+  max-width:100px;
+}
+  #playlist-{{ section.id }}{
+  position:relative;
+  padding:120px 24px 150px;
+  background:#fff;
+  overflow:visible;
+}
+
+  /* Heading scale down but same style */
+  #playlist-{{ section.id }} .heading-line.small{
+    font-size:40px;
+    -webkit-text-stroke:6px #ffcf67;
+  }
+
+  #playlist-{{ section.id }} .heading-line.big{
+    font-size:40px;
+    -webkit-text-stroke:6px #ffcf67;
+  }
+
+  #playlist-{{ section.id }} .heading-text{
+    margin-left:-60px;
+    margin-top:20px;
+  }
+
+  #playlist-{{ section.id }} .heading-image img{
+    width:320px;
+  }
+
+  /* Slider width control */
+  #playlist-{{ section.id }} .slider-viewport{
+    max-width:900px;
+  }
+
+ #playlist-{{ section.id }} .playlist-card{
+  width:calc((100% - 160px) / 3);
+  min-width:calc((100% - 160px) / 3);
+}
+
+  /* Arrows closer on tablet */
+  #playlist-{{ section.id }} .slider-arrow.prev{
+    left: calc(50% - 400px);
+  }
+
+  #playlist-{{ section.id }} .slider-arrow.next{
+    right: calc(50% - 400px);
+  }
+  #playlist-{{ section.id }} .playlist-inner{
+
+  margin-top: -30px;
+}
+ #playlist-{{ section.id }} .slider-track{
+    gap:60px;   /* pehle 80px tha */
+  }
+  #playlist-{{ section.id }} .card-title{
+Font-size:20px; color:#3b5005; Font-weight:bold; text-transform: uppercase;   font-family: 'Inter', sans-serif; text-align:center;
+  margin:18px 0;
+}
+.decor-bottom-left {
+  bottom: 20px;
+  left: 0;
+}
+.decor-bottom-right {
+  bottom: 20px;
+  right: 0;
+  animation: fadeSlideRight 5s ease-in-out infinite;
+}
+}
+@media (max-width: 767px){
+#playlist-{{ section.id }} .decor{
+  position:absolute;
+  max-width:80px;
+}
+  #playlist-{{ section.id }} .heading-wrap{
+    flex-direction:column;
+  }
+
+  #playlist-{{ section.id }} .heading-image img{
+    width:100%;
+    max-width:320px;
+  }
+
+  #playlist-{{ section.id }} .heading-text{
+    margin-left:0;
+    margin-top:12px;
+  }
+
+  #playlist-{{ section.id }} .heading-line.small{
+    font-size:34px;
+    -webkit-text-stroke:4px #ffcf67;
+  }
+
+  #playlist-{{ section.id }} .heading-line.big{
+    font-size:40px;
+    -webkit-text-stroke:4px #ffcf67;
+  }
+
+  /* Already correct – just reaffirm */
+  #playlist-{{ section.id }} .slider-arrow{
+    
+  }
+
+  #playlist-{{ section.id }} .playlist-card{
+    width:100%;
+    min-width:100%;
+  }
+}
+
+
+</style>
+
+<script>
+(function(){
+  const section = document.getElementById("playlist-{{ section.id }}");
+  if(!section) return;
+
+  const track = section.querySelector(".slider-track");
+  const cards = track.children;
+  const prev = section.querySelector(".prev");
+  const next = section.querySelector(".next");
+  const viewport = section.querySelector(".slider-viewport");
+
+  let index = 0;
+  let maxIndex = 0;
+  let cardWidth = 0;
+
+  function calculate(){
+    if(!cards.length) return;
+
+    const gap = parseInt(getComputedStyle(track).gap) || 32;
+    cardWidth = cards[0].offsetWidth + gap;
+
+    const trackWidth = cards.length * cardWidth - gap;
+    const viewportWidth = viewport.offsetWidth;
+
+    maxIndex = Math.max(
+      0,
+      Math.ceil((trackWidth - viewportWidth) / cardWidth)
+    );
+  }
+
+  function slide(){
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
+
+  if(next){
+    next.onclick = () => {
+      if(index < maxIndex){
+        index++;
+        slide();
+      }
+    };
+  }
+
+  if(prev){
+    prev.onclick = () => {
+      if(index > 0){
+        index--;
+        slide();
+      }
+    };
+  }
+
+  window.addEventListener("load", () => {
+    calculate();
+    slide();
+  });
+
+  window.addEventListener("resize", () => {
+    index = 0;
+    calculate();
+    slide();
+  });
+})();
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Playlist Slider",
+  "settings": [
+    { "type": "image_picker", "id": "heading_decor", "label": "Heading Image" },
+    { "type": "text", "id": "heading_text", "label": "Heading Text" },
+    { "type": "image_picker", "id": "prev_arrow", "label": "Previous Arrow Image" },
+    { "type": "image_picker", "id": "next_arrow", "label": "Next Arrow Image" },
+    { "type": "image_picker", "id": "decor_top_left", "label": "Top Left Decoration" },
+    { "type": "image_picker", "id": "decor_top_right", "label": "Top Right Decoration" },
+    { "type": "image_picker", "id": "decor_bottom_left", "label": "Bottom Left Decoration" },
+    { "type": "image_picker", "id": "decor_bottom_right", "label": "Bottom Right Decoration" },
+    { "type": "product_list", "id": "products", "label": "Products", "limit": 8 }
+  ],
+  "presets": [
+    { "name": "Playlist Slider" }
+  ]
+}
+{% endschema %}

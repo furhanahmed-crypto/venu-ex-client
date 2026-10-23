@@ -1,0 +1,223 @@
+{% schema %}
+{
+  "name": "About Naturaw Full",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background Image" },
+    { "type": "image_picker", "id": "left_main_image", "label": "Left Main Image" },
+    { "type": "image_picker", "id": "top_left_image", "label": "Top Left Floating Image" },
+    { "type": "image_picker", "id": "top_right_image", "label": "Top Right Floating Image" },
+    { "type": "image_picker", "id": "bottom_right_image", "label": "Bottom Right Floating Image" },
+    { "type": "text", "id": "heading", "default": "ABOUT US", "label": "Heading" },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>At <strong>Naturaw</strong>, we believe good food should come from <strong>good roots</strong>.</p>"
+    },
+    { "type": "text", "id": "button_text", "default": "VIEW MORE", "label": "Button Text" },
+    { "type": "url", "id": "button_link", "label": "Button Link" }
+  ],
+  "presets": [{ "name": "About Naturaw Full Section" }]
+}
+{% endschema %}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Carlito:wght@400&display=swap" rel="stylesheet">
+
+<section class="nw-about-full"
+  {% if section.settings.bg_image %}
+    style="background-image:url({{ section.settings.bg_image | image_url }});"
+  {% endif %}
+>
+
+  {% if section.settings.top_left_image %}
+    <img class="nw-floating nw-top-left" src="{{ section.settings.top_left_image | image_url }}" alt="">
+  {% endif %}
+
+  {% if section.settings.top_right_image %}
+    <img class="nw-floating nw-top-right" src="{{ section.settings.top_right_image | image_url }}" alt="">
+  {% endif %}
+
+  {% if section.settings.bottom_right_image %}
+    <img class="nw-floating nw-bottom-right" src="{{ section.settings.bottom_right_image | image_url }}" alt="">
+  {% endif %}
+
+  <div class="nw-safe-wrap">
+    <div class="nw-container">
+
+      {% if section.settings.left_main_image %}
+        <div class="nw-left">
+          <img src="{{ section.settings.left_main_image | image_url }}" alt="">
+        </div>
+      {% endif %}
+
+      <div class="nw-content">
+        <h2 class="nw-heading">{{ section.settings.heading }}</h2>
+        <div class="nw-text">{{ section.settings.content }}</div>
+
+        {% if section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="nw-btn">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>
+  html, body{
+  overflow-x:hidden;
+}
+
+ @media (min-width: 1440px){
+ .nw-left img{
+  max-width:620px !important;
+  width:100%;
+}
+.nw-top-right{
+  top:-166px;
+  right:0;
+  max-width:460px;
+  animation:rotateFloat 7.5s ease-in-out infinite;
+}
+
+}
+/* ================= DESKTOP ================= */
+.nw-about-full{
+  position:relative;
+  padding:120px 0;
+  background-size:cover;
+  background-position:center;
+  overflow:visible;
+}
+
+.nw-safe-wrap{
+  overflow:hidden;
+  position:relative;
+}
+
+.nw-floating{
+  position:absolute;
+  z-index:3;
+  pointer-events:none;
+  will-change:transform;
+}
+
+/* FLOATING POSITIONS */
+.nw-top-left{
+  top:-60px;
+  left:2px;
+  max-width:140px;
+  animation:floatUpDown 6.5s ease-in-out infinite;
+}
+
+.nw-top-right{
+  top:-166px;
+  right:0;
+  max-width:260px;
+  animation:rotateFloat 7.5s ease-in-out infinite;
+}
+
+.nw-bottom-right{
+  bottom:-80px;
+  right:20px;
+  max-width:180px;
+  animation:sideFloat 6.5s ease-in-out infinite;
+}
+
+/* CONTAINER */
+.nw-container{
+  max-width:1500px;
+  margin:auto;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  gap:60px;
+  position:relative;
+  z-index:2;
+}
+
+.nw-left img{
+  max-width:420px;
+  width:100%;
+}
+
+.nw-content{
+  flex:1;
+  text-align:center;
+}
+
+.nw-heading{
+  font-size:60px;
+  color:#3f520e;
+  font-family:'Inter', Arial, sans-serif;
+  margin-bottom:0px !important;
+  font-weight:700;
+}
+
+.nw-text p{
+  font-size:33px;
+  font-family:'Carlito', Arial, sans-serif;
+  line-height:45px;
+  color:#2a2a2a;
+  margin:20px 0px 30px 0px;
+}
+
+.nw-btn{
+  display:inline-block;
+  padding:12px 40px 9px 40px;
+  background-color:#3b5005 !important;
+  border-radius:30px;
+  color:#FFF !important;
+  font-weight:normal;
+  text-decoration:none;
+  align-self:flex-start;
+  font-size:16px;
+  transition: all 0.5s ease;
+  font-family: 'Carlito';
+}
+.nw-btn:hover{ background-color:#fc2d9a !important;}
+
+/* ================= TABLET ================= */
+@media(max-width:991px){
+  .nw-about-full{ padding:100px 0; }
+  .nw-container{ gap:40px; }
+  .nw-left img{ max-width:360px; }
+  .nw-heading{ font-size:44px; }
+  .nw-text p{ font-size:26px; }
+
+  .nw-top-left{ max-width:110px; top:-60px; left:10px; }
+  .nw-top-right{max-width: 180px;
+    top: -168px;
+    right: 1px; }
+  .nw-bottom-right{ max-width:150px; bottom:-50px; }
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:767px){
+  .nw-about-full{ padding:70px 0; }
+
+  .nw-container{
+    flex-direction:column;
+    gap:35px;
+    text-align:center;
+  }
+
+  .nw-left img{ max-width:280px; }
+  .nw-heading{ font-size:32px; margin:0px; }
+  .nw-text p{ font-size:20px; line-height:22px; }
+  .nw-btn{ margin-top:24px; }
+
+  .nw-top-left {
+    max-width: 100px;
+    top: -50px;
+    left: 5px;
+  }
+   .nw-top-right {
+    max-width: 98px;
+    top: -65px;
+    right: 0px;
+  }
+  .nw-bottom-right{ max-width:100px; bottom:-30px; }
+}
+</style>

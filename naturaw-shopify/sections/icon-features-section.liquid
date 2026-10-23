@@ -1,0 +1,298 @@
+<section class="icon-features-section">
+
+  {% if section.settings.left_image %}
+    <img class="side-image left-image" src="{{ section.settings.left_image | image_url }}" alt="">
+  {% endif %}
+
+  {% if section.settings.right_image %}
+    <img class="side-image right-image" src="{{ section.settings.right_image | image_url }}" alt="">
+  {% endif %}
+
+  <div class="icon-features-wrap">
+
+    {% for block in section.blocks %}
+      <div class="icon-feature">
+
+        {% if block.settings.icon %}
+          <img class="feature-icon" src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.title }}">
+        {% endif %}
+
+        <p class="icon-title">{{ block.settings.title }}</p>
+        <p class="icon-subtitle">{{ block.settings.subtitle }}</p>
+      </div>
+
+      {% unless forloop.last %}
+        <span class="icon-divider"></span>
+      {% endunless %}
+
+    {% endfor %}
+
+  </div>
+</section>
+
+<style>
+
+    @media (min-width: 1440px) {
+.left-image {
+  left: 0;
+  top: -200px ;
+  transform: translateX(-50%);
+  max-width: 350px;
+  animation: floatLeft 6s ease-in-out infinite;
+}
+  }
+
+  @media (min-width: 1200px) and (max-width: 1439px) {
+  /* Aapke styles yahan */
+
+  .left-image {
+  left: 0;
+  top: -22%;
+  transform: translateX(-50%);
+  max-width: 350px ;
+  animation: floatLeft 6s ease-in-out infinite;
+}
+}
+/* ================= SECTION ================= */
+.icon-features-section{
+  padding:0px 0 20px;
+  background:#fff;
+  position:relative;
+  overflow:visible;
+}
+
+/* ================= SIDE IMAGES ================= */
+.side-image{
+  position:absolute;
+  z-index:1;
+  pointer-events:none;
+}
+
+.left-image{
+  left:0;
+  top:-200px;
+  transform:translateY(-50%);
+  max-width:300px;
+  animation:floatLeft 6s ease-in-out infinite;
+}
+
+.right-image{
+  right:20px;
+  top:0;
+  max-width:180px;
+  animation:fadeSlideRight 5s ease-in-out infinite;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes floatLeft{
+  0%{transform:translateX(-50%) translateX(0);}
+  50%{transform:translateX(-50%) translateX(20px);}
+  100%{transform:translateX(-50%) translateX(0);}
+}
+
+@keyframes fadeSlideRight{
+  0%{opacity:0; transform:translateX(20px);}
+  50%{opacity:1; transform:translateX(0);}
+  100%{opacity:1; transform:translateX(0);}
+}
+
+/* ================= FEATURES ================= */
+.icon-features-wrap{
+  max-width:1500px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+  position:relative;
+  z-index:2;
+}
+
+.icon-feature{
+  text-align:center;
+  flex:1;
+  padding:25px;
+  animation:featureReveal .9s ease forwards;
+  opacity:0;
+}
+
+.icon-feature:nth-child(1){animation-delay:.2s;}
+.icon-feature:nth-child(3){animation-delay:.4s;}
+.icon-feature:nth-child(5){animation-delay:.6s;}
+.icon-feature:nth-child(7){animation-delay:.8s;}
+.icon-feature:nth-child(9){animation-delay:.9s;}
+
+@keyframes featureReveal{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.feature-icon{
+  max-width:90px;
+  margin:auto;
+  display:block;
+}
+
+.icon-title{
+  font-size:24px;
+  font-weight:600;
+  line-height:30px;
+  color: #2a2a2a;
+  Font-family: Carlito;
+  max-width: 160px;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.icon-subtitle{
+  font-size:18px;
+  line-height:24px;
+  color:#3f520e;
+  margin-top:0px;
+  font-weight: bold;
+  max-width:180px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.icon-divider{
+  width:1px;
+  height:200px;
+  border-left:2px dotted #536623;
+}
+
+/* ================= TABLET ================= */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .icon-features-section{
+    padding-top:160px;  /* Reduced spacing */
+  }
+
+  .left-image {
+    top: -136px;
+    left: 0px;
+    max-width: 250px;
+    transform: none;
+  }
+
+  .right-image{
+    top:15px;
+    right:0px;
+    max-width:130px;
+  }
+
+  .icon-features-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .icon-feature{
+    
+  }
+
+  /* Default: hide all dividers */
+  
+
+  /* Show divider ONLY between 2 items (center) */
+  .icon-feature:nth-of-type(1) + .icon-divider,
+  .icon-feature:nth-of-type(3) + .icon-divider{
+    display: block;
+    width: 1px;
+    height: 180px;
+    background: #ddd;
+    align-self: center;
+  }
+
+  .icon-title{
+    font-size:24px;
+    line-height:28px;
+  }
+
+
+
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:767px){
+.icon-features-section{
+  padding-top: 50px;
+}
+
+ .left-image {
+    top: -108px;
+    left: 0px;
+    max-width: 150px;
+    transform: none;
+  }
+
+.right-image{
+  top: 10px;
+  right: 0px;
+  max-width: 100px;
+}
+
+.icon-features-wrap{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon-feature{
+    width: 100%;
+    position: relative;
+    padding-bottom: 0px !important;   /* ⬅️ niche ka space kam */
+    margin-bottom: 0px !important;
+    text-align: center;
+  }
+
+  /* HTML divider hide */
+  .icon-divider{
+    display: none !important;
+  }
+
+  /* Divider exactly between items */
+  .icon-feature:not(:last-child)::after{
+    content: "";
+    display: block;
+    width: 75%;
+    margin: 25px auto 0;     /* ⬅️ upar paas, niche kam */
+    border-top: 2px dotted #7b2cbf;
+  }
+
+  .feature-icon{
+    margin-bottom: 6px;    /* ⬅️ icon–text gap tighten */
+  }
+
+  .icon-title{
+    margin-bottom: 0;      /* ⬅️ extra space remove */
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+}
+</style>
+
+{% schema %}
+{
+  "name": "Icon Features",
+  "settings": [
+    { "type": "image_picker", "id": "left_image", "label": "Left Image" },
+    { "type": "image_picker", "id": "right_image", "label": "Right Image" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle Text" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Icon Features" }
+  ]
+}
+{% endschema %}

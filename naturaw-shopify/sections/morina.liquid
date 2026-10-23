@@ -1,0 +1,569 @@
+<section id="moringa-{{ section.id }}" class="moringa-section">
+  <div class="moringa-inner">
+
+    <!-- Heading -->
+    <div class="moringa-heading">
+      <p class="sub">{{ section.settings.subheading }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="moringa-content">
+
+      <!-- LEFT COLUMN -->
+      <div class="benefits left">
+
+        {% if section.settings.left_top_image %}
+          <div class="floating-img left-top float-left">
+            <img src="{{ section.settings.left_top_image | image_url }}" alt="">
+          </div>
+        {% endif %}
+
+        {% for block in section.blocks %}
+          {% if block.settings.position == 'left' %}
+            <div class="benefit reveal-card"
+              style="
+                --offset-desktop: {{ block.settings.offset_desktop }}px;
+                --offset-tablet: {{ block.settings.offset_tablet }}px;
+                --offset-mobile: {{ block.settings.offset_mobile }}px;
+                transform: translateX(var(--offset-desktop));
+              ">
+              {% if block.settings.icon %}
+                <img src="{{ block.settings.icon | image_url }}" alt="">
+              {% endif %}
+              <p>{{ block.settings.text }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% if section.settings.left_bottom_image %}
+          <div class="floating-img left-bottom float-left">
+            <img src="{{ section.settings.left_bottom_image | image_url }}" alt="">
+          </div>
+        {% endif %}
+
+      </div>
+
+      <!-- CENTER IMAGE -->
+      <div class="moringa-center reveal-up">
+        {% if section.settings.center_image %}
+          <img src="{{ section.settings.center_image | image_url: width: 900 }}" alt="">
+        {% endif %}
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="benefits right">
+
+        {% for block in section.blocks %}
+          {% if block.settings.position == 'right' %}
+            <div class="benefit reveal-card"
+              style="
+                --offset-desktop: {{ block.settings.offset_desktop }}px;
+                --offset-tablet: {{ block.settings.offset_tablet }}px;
+                --offset-mobile: {{ block.settings.offset_mobile }}px;
+                transform: translateX(calc(var(--offset-desktop) * -1));
+              ">
+              {% if block.settings.icon %}
+                <img src="{{ block.settings.icon | image_url }}" alt="">
+              {% endif %}
+              <p>{{ block.settings.text }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% if section.settings.right_center_image %}
+          <div class="floating-img right-center float-right">
+            <img src="{{ section.settings.right_center_image | image_url }}" alt="">
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    {% if section.settings.button_text != blank %}
+      <div class="moringa-cta reveal-up">
+        <a href="{{ section.settings.button_link }}" class="btn">
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+
+
+
+  @media (min-width: 1600px) and (max-width: 1799px) {
+     .floating-img.left-top.float-left {
+    width:120px !important;
+  height:120px !important;
+  object-fit:contain !important;
+}
+  .left-top {
+    left:-32% !important;
+  }
+    .right-center {
+  top: 50%;
+  right: -105px !important;
+  transform: translateY(-50%);
+}
+.floating-img img {
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: contain;
+}
+  /* Extra large desktop */
+}
+
+/* =============================== */
+/* Large Desktop (1400px – 1599px) */
+/* =============================== */
+@media (min-width: 1400px) and (max-width: 1599px) {
+  /* Large desktop */
+    .floating-img.left-top.float-left {
+    width:120px !important;
+  height:120px !important;
+  object-fit:contain;
+}
+ .left-top {
+    left: -3% !important;
+  }
+  .floating-img img {
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: contain;
+}
+}
+
+/* =============================== */
+/* Standard Desktop (1300px – 1399px) */
+/* =============================== */
+@media (min-width: 1300px) and (max-width: 1399px) {
+  /* Standard desktop */
+    .floating-img.left-top.float-left {
+    width:120px !important;
+  height:120px !important;
+  object-fit:contain;
+}
+ .left-top {
+    left: -2% !important;
+  }
+  .right-center {
+  top: 50%;
+  right: -10px !important;
+  transform: translateY(-50%);
+}
+.floating-img img {
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: contain;
+}
+}
+
+/* =============================== */
+/* Small Desktop (1200px – 1299px) */
+/* =============================== */
+@media (min-width: 1200px) and (max-width: 1299px) {
+  /* Small desktop */
+
+    .floating-img.left-top.float-left {
+    width:120px !important;
+  height:120px !important;
+  object-fit:contain;
+}
+ .left-top {
+    left: -59% !important;
+  }
+}
+#moringa-{{ section.id }}{
+  padding:100px 0px;
+  background:#fff;
+}
+
+.moringa-inner{
+  max-width:1500px;
+  margin:0 auto;
+  text-align:center;
+}
+
+/* ===== HEADING FIX ===== */
+.moringa-heading{
+  display:flex;
+  flex-direction:column;
+  gap:6px; /* 👈 yahin se spacing control */
+  margin-bottom:40px;
+}
+
+.moringa-heading .sub{
+ font-size:30px; Font-weight:bold; color: #2a2a2a;
+ font-family:'Carlito', Arial, sans-serif;
+ font-weight:normal;
+ margin:0 !important;
+ line-height:42px;
+}
+
+.moringa-heading h2{
+    font-family: 'Inter', sans-serif;
+  font-weight:900;
+Font-size:60px; color:#3f520e; Font-weight:bold; text-transform: uppercase;  text-align:center;
+  margin:0 !important;
+  line-height:60px;
+}
+
+/* Layout */
+.moringa-content{
+  display:grid;
+  grid-template-columns:1fr 60% 1fr;
+  align-items:center;
+  gap:0px;
+  position:relative;
+}
+
+/* Center Image */
+.moringa-center{
+  width:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.moringa-center.reveal-active{
+  opacity:1;
+  transform: translateY(0);
+}
+
+.moringa-center img{
+  width:100%;
+  height:auto;        /* 🔥 important */
+  object-fit:unset;
+  display:block;
+}
+
+
+/* Benefits */
+.benefits{
+  display:flex;
+  flex-direction:column;
+  gap:50px;
+  position:relative;
+}
+
+.benefit{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  opacity:0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.benefit.reveal-active{
+  opacity:1;
+  transform: translateY(0);
+}
+
+.benefit img{
+  width:100px;
+  margin-bottom:6px;
+}
+
+.benefit p{
+Font-size:20px;
+  color:#2a2a2a;
+ font-family:'Carlito', Arial, sans-serif;
+  font-weight:400;
+  line-height:30px;
+  margin:0;
+  max-width: 200px;
+  text-align: center;
+}
+
+/* Floating Images */
+.floating-img{
+  position:absolute;
+  pointer-events:none;
+}
+
+.floating-img img{
+  width:90px;
+  height:90px;
+  object-fit:contain;
+}
+.floating-img.left-bottom.float-left {
+ width:90px;
+  height:90px;
+  object-fit:contain;}
+
+  .floating-img.left-top.float-left {
+    width:120px;
+  height:120px;
+  object-fit:contain;
+}
+.left-top{ top:-40px; left:0px; }
+.left-bottom{ bottom:-150px; left:30px; }
+.right-center{ top:50%; right:-8px; transform:translateY(-50%); }
+
+/* Float Animations */
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+@keyframes floatScale {
+  0% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(calc(-50% - 12px)) scale(1.05); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+.float-left{ animation: floatUpDown 6s ease-in-out infinite; }
+.float-right{ animation: floatScale 7s ease-in-out infinite; }
+
+/* CTA */
+.moringa-cta{
+  margin-top:50px;
+  opacity:0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.moringa-cta.reveal-active{
+  opacity:1;
+  transform: translateY(0);
+}
+
+.btn{
+  display: inline-block;
+  padding: 12px 40px 9px 40px;
+  background-color: #3b5005 !important;
+  border-radius: 30px;
+  color: #FFF !important;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  align-self: flex-start;
+  font-size: 16px;
+  transition: all 0.5s ease;
+  font-family: 'Carlito';
+}
+
+.btn:hover{ background-color: #fc2d9a !important;}
+
+
+/* ===== ONLY OFFSET OVERRIDE ADDED ===== */
+@media (min-width:768px) and (max-width:1024px){
+  .benefits.left .benefit{
+    transform: translateX(var(--offset-tablet));
+  }
+  .benefits.right .benefit{
+    transform: translateX(calc(var(--offset-tablet) * -1));
+  }
+
+  .moringa-heading h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  Font-size: 40px;
+  color: #3f520e;
+  Font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 !important;
+  line-height: 30px;
+  margin-bottom:60px;
+}
+.moringa-heading .sub {
+  
+}
+#moringa-{{ section.id }}{
+  padding:50px 20px;
+  background:#fff;
+}
+  .benefit img {
+  width: 66px;
+  margin-bottom: 6px;
+}
+
+.floating-img img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+.left-bottom {
+  bottom: -150px;
+  left: 0px;
+}
+.benefit p {
+  Font-size: 16px;
+  color: #2a2a2a;
+  font-family: 'Carlito', Arial, sans-serif;
+  font-weight: 400;
+  line-height: 14px;
+  margin: 0;
+  max-width: 100px;
+  text-align: center;
+}
+}
+
+@media(max-width:767px){
+  .benefits.left .benefit,
+  .benefits.right .benefit{
+    transform: translateX(var(--offset-mobile)) !important;
+  }
+  .benefit img {
+  width: 46px;
+  margin-bottom: 6px;
+}
+
+.floating-img img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.left-bottom {
+  bottom: -200px;
+  left: 0px;
+}
+.benefit p {
+  Font-size: 14px;
+  color: #2a2a2a;
+  font-family: 'Carlito', Arial, sans-serif;
+  font-weight: 400;
+  line-height: 14px;
+  margin: 0;
+  max-width: 100px;
+  text-align: center;
+}
+.moringa-heading h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  Font-size: 30px;
+  color: #3f520e;
+  Font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 !important;
+  line-height: 30px;
+  margin-bottom:60px;
+}
+.moringa-heading .sub {
+  font-size: 18px;
+  Font-weight: bold;
+  color: #2a2a2a;
+  font-family: 'Carlito', Arial, sans-serif;
+  font-weight: normal;
+  margin: 0 !important;
+  line-height: 20px;
+}
+#moringa-{{ section.id }}{
+  padding:50px 20px;
+  background:#fff;
+}
+}
+@media (min-width:1600px){
+  .left-top{ left:-70%; }
+  .right-center{ right:-70%; }
+}
+
+
+
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const items = document.querySelectorAll(
+    "#moringa-{{ section.id }} .reveal-up, #moringa-{{ section.id }} .reveal-card"
+  );
+
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("reveal-active");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.2});
+
+  items.forEach(i=>observer.observe(i));
+});
+</script>
+
+{% schema %}
+{
+  "name": "Moringa Benefits Advanced",
+  "settings": [
+    { "type": "text", "id": "subheading", "label": "Sub Heading" },
+    { "type": "text", "id": "heading", "label": "Main Heading" },
+    { "type": "image_picker", "id": "center_image", "label": "Center Image" },
+    { "type": "image_picker", "id": "left_top_image", "label": "Left Top Image" },
+    { "type": "image_picker", "id": "left_bottom_image", "label": "Left Bottom Image" },
+    { "type": "image_picker", "id": "right_center_image", "label": "Right Center Image" },
+    { "type": "text", "id": "button_text", "label": "Button Text", "default": "ORDER NOW" },
+    { "type": "url", "id": "button_link", "label": "Button Link" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "position",
+          "label": "Side",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "offset_desktop",
+          "label": "Distance from Center (Desktop)",
+          "min": 0,
+          "max": 220,
+          "step": 5,
+          "default": 80
+        },
+        {
+          "type": "range",
+          "id": "offset_tablet",
+          "label": "Distance from Center (Tablet)",
+          "min": 0,
+          "max": 180,
+          "step": 5,
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "offset_mobile",
+          "label": "Distance from Center (Mobile)",
+          "min": 0,
+          "max": 120,
+          "step": 5,
+          "default": 0
+        },
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Moringa Benefits Advanced",
+      "blocks": [
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" }
+      ]
+    }
+  ]
+}
+{% endschema %}

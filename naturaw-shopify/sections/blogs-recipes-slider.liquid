@@ -1,0 +1,252 @@
+{% comment %}
+  Blogs & Recipes Slider – FINAL CLEAN VERSION
+  ✔ Center image big
+  ✔ Left / Right images sharp (no blur, no dim)
+  ✔ Equal spacing left-right (first load se)
+  ✔ Autoplay smooth
+  ✔ Big dots
+  ✔ Heading custom font
+  ✔ Fully responsive
+{% endcomment %}
+
+<section id="blogs-{{ section.id }}" class="blogs-slider">
+
+  {% if section.settings.decor_image %}
+    <img class="blogs-decor" src="{{ section.settings.decor_image | image_url }}" alt="">
+  {% endif %}
+
+  <h2 class="blogs-title">{{ section.settings.heading }}</h2>
+
+  <div class="splide blogs-splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for block in section.blocks %}
+          <li class="splide__slide blog-card">
+            <img src="{{ block.settings.image | image_url }}" alt="">
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <ul class="splide__pagination"></ul>
+  </div>
+</section>
+
+<style>
+/* ================= SECTION ================= */
+.blogs-slider {
+  position: relative;
+  padding: 60px 0 120px;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* ================= DECOR IMAGE ================= */
+.blogs-decor {
+  position: absolute;
+  top: 20px;
+  left: 135px;
+  width: 131px;
+  animation: floatDecor 3s ease-in-out infinite;
+}
+
+@keyframes floatDecor {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* ================= HEADING ================= */
+.blogs-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  color: #3f520e;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 !important;
+  line-height: 60px;
+  margin-bottom: 55px !important;
+}
+
+/* ================= SLIDES ================= */
+.blog-card {
+  padding: 0 16px;                 /* REAL GAP – equal both sides */
+  display: flex;
+  justify-content: center;
+}
+
+.blog-card img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 22px;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.6s ease;
+}
+
+/* 🔥 IMPORTANT FIX
+   Scale ONLY image, NOT slide
+   So spacing never breaks */
+.splide__slide.is-active.is-visible img {
+  transform: scale(1.18);
+}
+
+/* Track & list */
+.splide__track {
+  overflow: visible;
+}
+
+.splide__list {
+  align-items: center;
+}
+
+/* ================= DOTS ================= */
+.splide__pagination {
+  bottom: -50px;
+}
+
+.splide__pagination__page {
+  width: 14px;
+  height: 14px;
+  margin: 0 8px;
+  background: #d0d0d0;
+  opacity: 1;
+}
+
+.splide__pagination__page.is-active {
+  background: #3f520e;
+  transform: scale(1.4);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .splide__slide.is-active.is-visible img {
+    transform: scale(1.1);
+  }
+
+  .blogs-decor {
+  position: absolute;
+  top: 10px;
+  left: 55px;
+  width: 108px;
+  animation: floatDecor 3s ease-in-out infinite;
+}
+}
+
+@media (max-width: 768px) {
+.blogs-decor {
+  position: absolute;
+  top: 10px;
+  left: 29px;
+  width: 68px;
+  animation: floatDecor 3s ease-in-out infinite;
+}
+
+.blogs-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  color: #3f520e;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 !important;
+  line-height:31px;
+  margin-bottom: 25px !important;
+}
+  .cfs-slider {
+    padding: 0 25px;
+  }
+
+  .cfs-track {
+    justify-content: flex-start;
+  }
+
+  .cfs-slide {
+    flex: 0 0 80%;
+    margin: 0 10px;
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+
+  .cfs-slide.active {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .cfs-slide img {
+    width: 90%;
+    height: auto;
+    border-radius: 16px;
+  }
+.blog-card img {
+  width: 95%;
+  max-width: 520px;
+  border-radius: 22px;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.6s ease;
+}
+}
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  new Splide('.blogs-splide', {
+    type        : 'loop',
+    perPage     : 3,
+    focus       : 'center',
+    gap         : '32px',
+    speed       : 1000,
+    autoplay    : true,
+    interval    : 3500,
+    pauseOnHover: true,
+    arrows      : false,
+    pagination  : true,
+    drag        : true,
+    breakpoints : {
+      1024: { perPage: 2 },
+      768:  { perPage: 1 }
+    }
+  }).mount();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Blogs & Recipes Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "BLOGS & RECIPES"
+    },
+    {
+      "type": "image_picker",
+      "id": "decor_image",
+      "label": "Left Top Decoration Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Blogs & Recipes Slider"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,597 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner_TifdBd": {
+      "type": "hero-banner",
+      "blocks": {
+        "slide_3b8tD6": {
+          "type": "slide",
+          "settings": {
+            "bg_image": "shopify://shop_images/banner-back_1.png",
+            "bg_color": "#e61e6e",
+            "badge_image": "shopify://shop_images/No-Preservatives.png",
+            "products_image": "shopify://shop_images/image2_1.png",
+            "chips_image": "shopify://shop_images/image1_2.png",
+            "heading_text": "CRUNCH INTO NATURE’S GOODNESS…",
+            "subtitle_text": "Discover Naturaw’s Ragi, Jowar & Vegetable Chips — made from real ingredients,crafted for pure goodness.",
+            "button_text": "SHOP NOW",
+            "button_link": "shopify://collections/products"
+          }
+        }
+      },
+      "block_order": [
+        "slide_3b8tD6"
+      ],
+      "name": "Hero Ghee Slider",
+      "settings": {}
+    },
+    "icon_features_section_kUzViw": {
+      "type": "icon-features-section",
+      "blocks": {
+        "feature_TDhgU6": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon1_e1a9f987-324b-49dd-8899-3da4d68237d3.jpg",
+            "title": "No",
+            "subtitle": "Preservatives"
+          }
+        },
+        "feature_83HWKa": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon2_b97e154d-57d2-483f-bf02-9a2986899f26.jpg",
+            "title": "No",
+            "subtitle": "Artificial Colours"
+          }
+        },
+        "feature_aLgcD6": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon3_a79372ca-6d8c-464d-a60c-9b5a28ee6a12.jpg",
+            "title": "No",
+            "subtitle": "Chemicals"
+          }
+        },
+        "feature_mGbJmY": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon4_41e54f32-a37b-40c4-b10b-21ad691920fa.jpg",
+            "title": "No",
+            "subtitle": "Palm Oil"
+          }
+        },
+        "feature_DmVt9q": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon5_e5de02a0-a543-45a8-8119-09c40cd2809a.jpg",
+            "title": "No",
+            "subtitle": "Synthetic Flavours"
+          }
+        }
+      },
+      "block_order": [
+        "feature_TDhgU6",
+        "feature_83HWKa",
+        "feature_aLgcD6",
+        "feature_mGbJmY",
+        "feature_DmVt9q"
+      ],
+      "name": "Icon Features Row",
+      "settings": {
+        "left_image": "shopify://shop_images/image3_1.png",
+        "right_image": "shopify://shop_images/image1_1.png"
+      }
+    },
+    "morina_cFTwML": {
+      "type": "morina",
+      "blocks": {
+        "benefit_CbKcXL": {
+          "type": "benefit",
+          "settings": {
+            "position": "left",
+            "offset_desktop": 80,
+            "offset_tablet": 40,
+            "offset_mobile": 0,
+            "icon": "shopify://shop_images/icon1.jpg",
+            "text": "Boosts Immunity"
+          }
+        },
+        "benefit_RTJ9yj": {
+          "type": "benefit",
+          "settings": {
+            "position": "left",
+            "offset_desktop": 0,
+            "offset_tablet": 0,
+            "offset_mobile": 0,
+            "icon": "shopify://shop_images/icon2.jpg",
+            "text": "Improves Digestion"
+          }
+        },
+        "benefit_yRwtzx": {
+          "type": "benefit",
+          "settings": {
+            "position": "left",
+            "offset_desktop": 80,
+            "offset_tablet": 40,
+            "offset_mobile": 0,
+            "icon": "shopify://shop_images/icon3.jpg",
+            "text": "Promotes Healthy Skin & Hair"
+          }
+        },
+        "benefit_4CizpV": {
+          "type": "benefit",
+          "settings": {
+            "position": "right",
+            "offset_desktop": 80,
+            "offset_tablet": 40,
+            "offset_mobile": 0,
+            "icon": "shopify://shop_images/icon4.jpg",
+            "text": "Regulates Blood Sugar & Cholesterol"
+          }
+        },
+        "benefit_AdhLAg": {
+          "type": "benefit",
+          "settings": {
+            "position": "right",
+            "offset_desktop": 0,
+            "offset_tablet": 0,
+            "offset_mobile": 0,
+            "icon": "shopify://shop_images/icon5.jpg",
+            "text": "Natural Detoxifier"
+          }
+        },
+        "benefit_9UnpRk": {
+          "type": "benefit",
+          "settings": {
+            "position": "right",
+            "offset_desktop": 80,
+            "offset_tablet": 40,
+            "offset_mobile": 0,
+            "icon": "shopify://shop_images/icon6.jpg",
+            "text": "Anti-Aging Properties"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_CbKcXL",
+        "benefit_RTJ9yj",
+        "benefit_yRwtzx",
+        "benefit_4CizpV",
+        "benefit_AdhLAg",
+        "benefit_9UnpRk"
+      ],
+      "name": "Moringa Benefits Section",
+      "settings": {
+        "subheading": "Pure, Nutrient-rich Moringa Powder",
+        "heading": "FOR DAILY HEALTH & WELLNESS",
+        "center_image": "shopify://shop_images/background_bf9e515a-78f0-4699-9de5-153d0970bc09.jpg",
+        "left_top_image": "shopify://shop_images/element1.jpg",
+        "left_bottom_image": "shopify://shop_images/element3.jpg",
+        "right_center_image": "shopify://shop_images/element2.jpg",
+        "button_text": "ORDER NOW",
+        "button_link": "shopify://products/moringa-powder"
+      }
+    },
+    "product_ranges_dA69bF": {
+      "type": "product-ranges",
+      "blocks": {
+        "range_bwL3NF": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range1_20462436-63ea-4f9d-87d9-db76cc018e91.jpg",
+            "title": "Chips",
+            "link": "shopify://collections/chips"
+          }
+        },
+        "range_p74VNT": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range2_8c574df4-7035-4cfa-aff2-4072952d8fab.jpg",
+            "title": "Millet Mixtures",
+            "link": "shopify://collections/millet-mixtures"
+          }
+        },
+        "range_3Pq4H3": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range3_375626d4-6e41-4d9e-a7b7-e7ab093e7d19.jpg",
+            "title": "Chikki Varieties",
+            "link": "shopify://collections/chikki-varieties"
+          }
+        },
+        "range_cg86LU": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range4_b2b1beca-e276-433f-a307-a2d4b2c2650f.jpg",
+            "title": "Imli Pops",
+            "link": "shopify://collections/imli-pops"
+          }
+        },
+        "range_W8dddg": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range5_68d47ed3-1129-4930-8971-5c52069367bc.jpg",
+            "title": "Millet Cookies",
+            "link": "shopify://collections/millet-cookies"
+          }
+        },
+        "range_GQjqE8": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range6_fbbf5c41-c35b-4259-b5d2-479a8825875a.jpg",
+            "title": "Honey Collection",
+            "link": "shopify://collections/honey-collections"
+          }
+        },
+        "range_MFP8NM": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range7.jpg",
+            "title": "Powder Ranges",
+            "link": "shopify://collections/powder-ranges"
+          }
+        },
+        "range_GGa9Ry": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range8.jpg",
+            "title": "Amla Products",
+            "link": "shopify://collections/amla-products"
+          }
+        },
+        "range_m7A6gH": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range9.jpg",
+            "title": "Veg Pickles",
+            "link": "shopify://collections/veg-pickles"
+          }
+        },
+        "range_FA7nbC": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range10.jpg",
+            "title": "Non Veg Pickles",
+            "link": "shopify://collections/non-veg-pickles"
+          }
+        },
+        "range_Lp33ih": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range11.jpg",
+            "title": "Karam Powders",
+            "link": "shopify://collections/andhra-karam-powders"
+          }
+        },
+        "range_Niw4PC": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range12.jpg",
+            "title": "Andhra Pastes",
+            "link": "shopify://collections/andhra-pastes"
+          }
+        },
+        "range_nABjVW": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range13.jpg",
+            "title": "Masala Powders",
+            "link": "shopify://collections/masala-powders"
+          }
+        },
+        "range_XhBGKn": {
+          "type": "range",
+          "settings": {
+            "image": "shopify://shop_images/range14.jpg",
+            "title": "Andhra Snacks",
+            "link": "shopify://collections/andhra-snacks"
+          }
+        }
+      },
+      "block_order": [
+        "range_bwL3NF",
+        "range_p74VNT",
+        "range_3Pq4H3",
+        "range_cg86LU",
+        "range_W8dddg",
+        "range_GQjqE8",
+        "range_MFP8NM",
+        "range_GGa9Ry",
+        "range_m7A6gH",
+        "range_FA7nbC",
+        "range_Lp33ih",
+        "range_Niw4PC",
+        "range_nABjVW",
+        "range_XhBGKn"
+      ],
+      "name": "Product Ranges",
+      "settings": {
+        "heading": "OUR PRODUCT RANGES",
+        "subtext": "<p>From earthy millets that groove like folk beats to pure honey that hums like a soulful tune — discover food that makes your taste buds dance!</p>"
+      }
+    },
+    "naturally_crunchy_LMxDqP": {
+      "type": "naturally-crunchy",
+      "name": "Hero with Small Image",
+      "settings": {
+        "background_image": "shopify://shop_images/background.jpg",
+        "heading": "Naturally Crunchy. Naturally Happy.",
+        "subheading": "Chips that make you groove!",
+        "button_link": "shopify://collections/products",
+        "button_text": "Buy Now",
+        "small_image": "shopify://shop_images/image1_1_9fca2da5-9390-426d-91b8-5a593e456801.png",
+        "hero_height_desktop": 1200,
+        "hero_height_tablet": 630,
+        "hero_height_mobile": 720
+      }
+    },
+    "playlist_products_Fh88EU": {
+      "type": "playlist-products",
+      "name": "Playlist Slider",
+      "settings": {
+        "heading_decor": "shopify://shop_images/image1_2_1.png",
+        "heading_text": "A PLAYLIST OF PURE GOODNESS",
+        "decor_top_left": "shopify://shop_images/Screenshot_16.png",
+        "decor_top_right": "shopify://shop_images/bg-right.png",
+        "decor_bottom_left": "shopify://shop_images/image3_0330c2e6-8dcf-4cd3-a151-b2748a5f9e87.png",
+        "decor_bottom_right": "shopify://shop_images/image2_7c3f5257-dbfe-444d-86bd-e8a167aaa4b4.png",
+        "products": [
+          "raagi-chips-classic",
+          "jowar-chips-moringa",
+          "jowar-chips-classic",
+          "imli-pops"
+        ]
+      }
+    },
+    "about_naturaw_9tyAPj": {
+      "type": "about-naturaw",
+      "name": "About Naturaw Section",
+      "settings": {
+        "bg_image": "shopify://shop_images/about-background.png",
+        "left_main_image": "shopify://shop_images/grandma.png",
+        "top_left_image": "shopify://shop_images/image1.png",
+        "top_right_image": "shopify://shop_images/image2.png",
+        "bottom_right_image": "shopify://shop_images/image3.png",
+        "heading": "ABOUT US",
+        "content": "<p>At <strong>Naturaw</strong>, we believe good food should come from <strong>good roots</strong>. Our journey began with a simple mission — to bring you snacks that are as pure as nature and as real as tradition.</p>",
+        "button_text": "VIEW MORE",
+        "button_link": "shopify://pages/about-us"
+      }
+    },
+    "why_naturaw_qQdp4J": {
+      "type": "why-naturaw",
+      "blocks": {
+        "feature_rnPhex": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon1_f63027cd-40f6-477f-af70-4df5d972f562.png",
+            "title": "Authentic Andhra Taste",
+            "text": "Made from traditional home-style recipes followed for decades.",
+            "padding_left": 250,
+            "padding_left_tablet": 100,
+            "padding_left_mobile": 60
+          }
+        },
+        "feature_axP3xn": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon2_0b2b3f59-8dff-4ca6-bff5-313e1493a34d.png",
+            "title": "Pure & Natural",
+            "text": "No Preservatives, no artificial flavors - just natural ingredients and traditional methods.",
+            "padding_left": 150,
+            "padding_left_tablet": 50,
+            "padding_left_mobile": 0
+          }
+        },
+        "feature_9d6aXh": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon3_0a1c99f4-eac2-4d01-8628-ea07c63baac1.png",
+            "title": "Handcrafted by Women",
+            "text": "Made by rural and elderly women, preserving age-old culinary art.",
+            "padding_left": 100,
+            "padding_left_tablet": 0,
+            "padding_left_mobile": 0
+          }
+        },
+        "feature_4xVX4U": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon4_4c81e7ea-8dbe-4d40-af32-d11e0f89fed4.png",
+            "title": "Healthy Indulgence",
+            "text": "Prepared in small with cold-pressed oils and naturl ingredients for a wholesome crunch",
+            "padding_left": 150,
+            "padding_left_tablet": 50,
+            "padding_left_mobile": 0
+          }
+        },
+        "feature_bD7wVd": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/icon5.png",
+            "title": "Taste of Nostalgia",
+            "text": "Brings back the flavors of home just like your grandmother’s cooking.",
+            "padding_left": 250,
+            "padding_left_tablet": 100,
+            "padding_left_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "feature_rnPhex",
+        "feature_axP3xn",
+        "feature_9d6aXh",
+        "feature_4xVX4U",
+        "feature_bD7wVd"
+      ],
+      "name": "Why Naturaw",
+      "settings": {
+        "heading": "WHY NATURAW SNACKS?",
+        "subheading": "Authentic Taste. Handmade with Love. 100% Natural & Traditional.",
+        "main_image": "shopify://shop_images/image-main.jpg",
+        "float_image_top": "shopify://shop_images/image1.jpg",
+        "float_image_bottom": "shopify://shop_images/image2.jpg"
+      }
+    },
+    "empowering_women_dTzwAH": {
+      "type": "empowering-women",
+      "name": "Empowering Women",
+      "settings": {
+        "bg_image": "shopify://shop_images/background_4cf21faa-b864-407e-9e0d-41a11ef413f7.jpg",
+        "top_left_image": "shopify://shop_images/heading.png",
+        "heading": "",
+        "text": "<p>Women form the backbone of Naturaw’s vision and operations. From production to packaging, women play a central role in every stage of our journey.</p>",
+        "corner_image": "shopify://shop_images/image1_9c8f4577-2ebc-48af-97b6-b097efd12128.png",
+        "desktop_height": 1390,
+        "tablet_height": 620,
+        "mobile_height": 600
+      }
+    },
+    "image_banner_qVehfb": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/image.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "testimonials_slider_6WNbqe": {
+      "type": "testimonials-slider",
+      "blocks": {
+        "testimonial_trEJHn": {
+          "type": "testimonial",
+          "settings": {
+            "review": "“Honestly, Naturaw’s Millet Mixture has become my daily go-to snack. It’s crunchy, flavourful, and doesn’t feel oily or heavy at all. I love that it’s made from clean ingredients — finally a snack I can enjoy guilt-free!”",
+            "name": "Priya M.",
+            "product_1": "shopify://shop_images/image2_1.png"
+          }
+        },
+        "testimonial_GzKdEa": {
+          "type": "testimonial",
+          "settings": {
+            "review": "“Honestly, Naturaw’s Millet Mixture has become my daily go-to snack. It’s crunchy, flavourful, and doesn’t feel oily or heavy at all. I love that it’s made from clean ingredients — finally a snack I can enjoy guilt-free!”",
+            "name": "Priya M.",
+            "product_1": "shopify://shop_images/image2_1.png"
+          }
+        },
+        "testimonial_k7UfkC": {
+          "type": "testimonial",
+          "settings": {
+            "review": "“Honestly, Naturaw’s Millet Mixture has become my daily go-to snack. It’s crunchy, flavourful, and doesn’t feel oily or heavy at all. I love that it’s made from clean ingredients — finally a snack I can enjoy guilt-free!”",
+            "name": "Priya M.",
+            "product_1": "shopify://shop_images/image2_1.png"
+          }
+        },
+        "testimonial_z7NLTR": {
+          "type": "testimonial",
+          "settings": {
+            "review": "“Honestly, Naturaw’s Millet Mixture has become my daily go-to snack. It’s crunchy, flavourful, and doesn’t feel oily or heavy at all. I love that it’s made from clean ingredients — finally a snack I can enjoy guilt-free!”",
+            "name": "Priya M.",
+            "product_1": "shopify://shop_images/image2_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_trEJHn",
+        "testimonial_GzKdEa",
+        "testimonial_k7UfkC",
+        "testimonial_z7NLTR"
+      ],
+      "name": "Testimonials Slider",
+      "settings": {
+        "heading": "TESTIMONIALS (SNACK-LOVERS SPEAK!)",
+        "heading_image": "shopify://shop_images/Screenshot_14.png"
+      }
+    },
+    "hero_freshness_UKdBTC": {
+      "type": "hero-freshness",
+      "disabled": true,
+      "name": "Hero – Freshness Banner",
+      "settings": {
+        "heading": "“Freshness knocking…\n every single day!”",
+        "button_text": "ORDER NOW",
+        "button_link": ""
+      }
+    },
+    "blogs_recipes_slider_CtiPf3": {
+      "type": "blogs-recipes-slider",
+      "blocks": {
+        "slide_BmUbfc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_3.png"
+          }
+        },
+        "slide_L7RtcP": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_3.png"
+          }
+        },
+        "slide_4iLrWk": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_3.png"
+          }
+        },
+        "slide_aqjrdV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_3.png"
+          }
+        },
+        "slide_wPATng": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_3.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_BmUbfc",
+        "slide_L7RtcP",
+        "slide_4iLrWk",
+        "slide_aqjrdV",
+        "slide_wPATng"
+      ],
+      "name": "Blogs & Recipes Slider",
+      "settings": {
+        "heading": "BLOGS & RECIPES",
+        "decor_image": "shopify://shop_images/Screenshot_5.png"
+      }
+    }
+  },
+  "order": [
+    "hero_banner_TifdBd",
+    "icon_features_section_kUzViw",
+    "morina_cFTwML",
+    "product_ranges_dA69bF",
+    "naturally_crunchy_LMxDqP",
+    "playlist_products_Fh88EU",
+    "about_naturaw_9tyAPj",
+    "why_naturaw_qQdp4J",
+    "empowering_women_dTzwAH",
+    "image_banner_qVehfb",
+    "testimonials_slider_6WNbqe",
+    "hero_freshness_UKdBTC",
+    "blogs_recipes_slider_CtiPf3"
+  ]
+}

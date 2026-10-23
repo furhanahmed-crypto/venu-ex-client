@@ -1,0 +1,56 @@
+/* Beast Currency Converter (Doubly) app embed — duplicate of Shopify country/currency picker */
+.shopify-section-group-header-group .header__icons .doubly-nice-select,
+.shopify-section-group-header-group .header__icons .currency-switcher,
+.shopify-section-group-header-group .header__icons select.currency-switcher,
+.shopify-section-group-header-group .header__icons .nice-select.currency-switcher {
+  display: none !important;
+}
+
+.shopify-section-group-header-group .header__icons > .desktop-localization-wrapper {
+  flex-shrink: 0;
+  margin-left: var(--space-1);
+}
+
+.shopify-section-group-header-group .header-localization .localization-form__select,
+.shopify-section-group-header-group .header-localization .disclosure__button,
+.shopify-section-group-header-group .header-localization .localization-selector,
+.shopify-section-group-header-group .header-localization .localization-selector.link,
+.shopify-section-group-header-group .header-localization .localization-selector.link--text,
+.shopify-section-group-header-group .header-localization .localization-form__select > span,
+.shopify-section-group-header-group .header-localization .caption-large {
+  color: var(--color-text) !important;
+  -webkit-text-fill-color: var(--color-text);
+  background: transparent !important;
+  font-family: var(--font-body) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.35s ease, -webkit-text-fill-color 0.35s ease;
+}
+
+.shopify-section-group-header-group .header-localization .localization-form__select .icon,
+.shopify-section-group-header-group .header-localization .localization-form__select .icon-caret {
+  color: var(--color-text);
+  fill: currentColor;
+}
+
+.shopify-section-group-header-group .header-localization .disclosure__list-wrapper {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.shopify-section-group-header-group .header-localization .disclosure__link,
+.shopify-section-group-header-group .header-localization .disclosure__link .country,
+.shopify-section-group-header-group .header-localization .disclosure__link .localization-form__currency {
+  color: var(--color-text) !important;
+}
+
+.shopify-section-group-header-group .header-localization .disclosure__link:hover,
+.shopify-section-group-header-group .header-localization .disclosure__link:focus {
+  color: var(--color-text-muted) !important;
+}
+
+.shopify-section-group-header-group .header-localization .country-filter {
+  background-color: var(--color-surface);
+}

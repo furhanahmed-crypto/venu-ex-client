@@ -1,0 +1,351 @@
+<section class="naturaw-hero-final">
+
+  <div class="naturaw-slider">
+
+    {% for block in section.blocks %}
+    <div class="naturaw-slide {% if forloop.first %}active{% endif %}"
+      style="
+        {% if block.settings.bg_image != blank %}
+          background-image:url({{ block.settings.bg_image | img_url: '2048x' }});
+        {% else %}
+          background-color: {{ block.settings.bg_color }};
+        {% endif %}
+      "
+    >
+
+      {% if block.settings.badge_image != blank %}
+        <img class="naturaw-badge"
+          src="{{ block.settings.badge_image | img_url: '300x' }}">
+      {% endif %}
+
+      <div class="naturaw-hero-inner page-width">
+
+        <!-- LEFT CONTENT -->
+        <div class="naturaw-left">
+          {% if block.settings.heading_text != blank %}
+          <h1 class="naturaw-heading">
+            {% assign heading_lines = block.settings.heading_text | split: "\n" %}
+            {% for line in heading_lines %}
+              {% if line contains "INTO" %}
+                <span class="highlight-word">{{ line }}</span><br>
+              {% else %}
+                {{ line }}<br>
+              {% endif %}
+            {% endfor %}
+          </h1>
+          {% endif %}
+
+          {% if block.settings.subtitle_text != blank %}
+          <p class="naturaw-subtitle">{{ block.settings.subtitle_text | newline_to_br }}</p>
+          {% endif %}
+
+          {% if block.settings.button_text != blank %}
+            <a href="{{ block.settings.button_link }}" class="naturaw-btn">
+              {{ block.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="naturaw-right">
+
+          {% if block.settings.products_image != blank %}
+            <img class="naturaw-products"
+              src="{{ block.settings.products_image | img_url: '1200x' }}">
+          {% endif %}
+
+          {% if block.settings.chips_image != blank %}
+            <div class="chips-orbit">
+              <img class="naturaw-chips"
+                src="{{ block.settings.chips_image | img_url: '600x' }}">
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+<style>
+
+  @media (min-width: 1440px){
+  .naturaw-hero-inner {
+    max-width: 1500px; /* ya 1200px, depending on design */
+    margin: 0 auto;    /* center align */
+    gap: 40px;         /* left-right gap */
+
+  }
+.naturaw-badge {
+  position: absolute;
+  top: 0;
+  right: 276px !important;
+  max-width: 150px;
+  height: auto;
+  z-index: 1;
+}
+.naturaw-chips {
+  position: absolute;
+  top: 0;
+  left: 70% !important;
+  transform: translateX(-50%);
+  max-width: 400px !important;
+  width: 100%;
+  height: auto;
+}
+.naturaw-products {
+  position: absolute;
+  bottom: -160px !important;
+  
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+  .naturaw-left {
+    max-width: 690px; /* thoda adjust kar sakte ho */
+  }
+
+  .naturaw-right {
+    width: 750px; /* thoda enlarge */
+    height: auto; /* image height responsive */
+  }
+}
+/* ===== SLIDER ===== */
+.naturaw-slider{
+  position:relative;
+  overflow:hidden;
+}
+
+.naturaw-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .7s ease;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.naturaw-slide.active{
+  opacity:1;
+  position:relative;
+}
+
+/* HEIGHT CONTROL */
+:root {
+  --hero-height-desktop: 700px;
+  --hero-height-tablet: 620px;
+  --hero-height-mobile: 540px;
+}
+
+.naturaw-slide{min-height: var(--hero-height-desktop); padding:0 0 200px;}
+
+/* LAYOUT (DESKTOP) */
+.naturaw-hero-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.naturaw-left{
+  max-width:690px;
+  z-index:5;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  height:100%;
+}
+
+.naturaw-heading{
+  font-size:60px;
+  color:#fff !important;
+  font-weight:900;
+  line-height:1.05;
+  margin-bottom:0 !important;
+}
+
+.naturaw-heading .highlight-word{
+  font-size:60px;
+}
+
+.naturaw-subtitle{
+  font-size:24px;
+  color:#fff;
+    font-family: 'Carlito', Arial, sans-serif;
+  line-height:34px;
+  margin-top: 20px;
+}
+
+.naturaw-btn{
+  display:inline-block;
+  padding:12px 40px 9px 40px;
+  background-color:#fff !important;
+  border-radius:30px;
+  color:#000 !important;
+  font-weight:normal;
+  text-decoration:none;
+  align-self:flex-start;
+  font-size:16px;
+  transition: all 0.5s ease;
+  font-family: 'Carlito';
+}
+.naturaw-btn:hover{ background-color:#3f520e !important; color:#FFF !important;}
+
+/* BADGE */
+.naturaw-badge{
+  position:absolute;
+  top:0;
+  right:150px;
+  max-width:150px;
+  height:auto;
+  z-index:1;
+}
+
+/* RIGHT */
+.naturaw-right{
+  position:relative;
+  width:750px;
+  height:700px;
+}
+
+.naturaw-products{
+  position:absolute;
+  bottom:-120px;
+  
+  width:100%;
+  height:auto;
+  z-index:3;
+}
+
+.chips-orbit{
+  position:absolute;
+  bottom:-140px;
+  left:-35%;
+  width:260px;
+  height:260px;
+  animation:orbit 8s linear infinite;
+  z-index:4;
+}
+
+.naturaw-chips{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  max-width:300px;
+  width:100%;
+  height:auto;
+}
+
+@keyframes orbit{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* ================= TABLET ================= */
+@media(max-width:990px){
+  .naturaw-slide{min-height: var(--hero-height-tablet); padding:0 0 120px;}
+
+  .naturaw-left{max-width:520px;}
+  .naturaw-heading{font-size:50px;}
+  .naturaw-heading .highlight-word{font-size:45px;}
+  .naturaw-subtitle{font-size:22px;}
+
+  .naturaw-right{
+    width:480px;
+    height:420px;
+  }
+
+  .naturaw-products{
+    bottom:-120px;
+    max-width:550px;
+  }
+
+  .chips-orbit{
+    width:150px;
+    height:150px;
+    bottom:-120px;
+    left:-67%;
+  }
+
+  .naturaw-badge{
+    right:100px;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:600px){
+  .naturaw-slide{min-height: var(--hero-height-mobile); padding:0 0 80px;}
+
+  .naturaw-left {
+    max-width: 62%;
+  }
+  .naturaw-heading{font-size:34px;}
+  .naturaw-heading .highlight-word{font-size:25px;}
+  .naturaw-subtitle{font-size:14px; line-height:1.4;}
+
+   .naturaw-right {
+    width: 38%;
+    height: 280px;
+  }
+   .naturaw-products {
+    bottom: -166px;
+    max-width: 380px;
+  }
+ .chips-orbit {
+    width: 100px;
+    height: 100px;
+    bottom: -188px;
+    left: -118%;
+  }
+
+  .naturaw-badge{
+   right: 30px;
+    max-width: 73px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const slides=document.querySelectorAll(".naturaw-slide");
+  let i=0;
+  if(slides.length>1){
+    setInterval(()=>{
+      slides[i].classList.remove("active");
+      i=(i+1)%slides.length;
+      slides[i].classList.add("active");
+    },4000);
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Naturaw Hero Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Hero Slide",
+      "settings": [
+        { "type": "image_picker", "id": "bg_image", "label": "Background Image" },
+        { "type": "color", "id": "bg_color", "label": "Fallback Color", "default": "#E61E6E" },
+        { "type": "image_picker", "id": "badge_image", "label": "Green Badge" },
+        { "type": "image_picker", "id": "products_image", "label": "Products Image" },
+        { "type": "image_picker", "id": "chips_image", "label": "Front Chips Image" },
+        { "type": "text", "id": "heading_text", "label": "Heading Text", "default": "CRUNCH INTO\nNATURE’S\nGOODNESS…" },
+        { "type": "textarea", "id": "subtitle_text", "label": "Subtitle Text" },
+        { "type": "text", "id": "button_text", "label": "Button Text", "default": "SHOP NOW" },
+        { "type": "url", "id": "button_link", "label": "Button Link" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Naturaw Hero Slider" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,522 @@
+<section class="snack-testimonial">
+
+  <!-- HEADING -->
+  <div class="snack-heading-row">
+    <h2 class="snack-testimonial__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    {% if section.settings.heading_image %}
+      <div class="snack-heading-image">
+        <img src="{{ section.settings.heading_image | image_url: width: 200 }}" alt="">
+      </div>
+    {% endif %}
+  </div>
+
+  {% if section.settings.arrow_left %}
+    <div class="snack-arrow snack-arrow--left">
+      <img src="{{ section.settings.arrow_left | image_url }}" alt="">
+    </div>
+  {% endif %}
+
+  {% if section.settings.arrow_right %}
+    <div class="snack-arrow snack-arrow--right">
+      <img src="{{ section.settings.arrow_right | image_url }}" alt="">
+    </div>
+  {% endif %}
+
+  <div class="snack-slider">
+    <div class="snack-track">
+
+      {% for block in section.blocks %}
+      <div class="snack-slide">
+        <div class="snack-card">
+
+          <div class="snack-avatar">
+            {% if block.settings.avatar %}
+              <img src="{{ block.settings.avatar | image_url: width: 200 }}" alt="">
+            {% endif %}
+          </div>
+
+          <div class="snack-content">
+            <p class="snack-text">“{{ block.settings.review }}”</p>
+            <p class="snack-name">— {{ block.settings.name }}</p>
+          </div>
+
+          <div class="snack-products">
+            {% if block.settings.product_1 %}
+              <img src="{{ block.settings.product_1 | image_url: width: 140 }}" alt="">
+            {% endif %}
+            {% if block.settings.product_2 %}
+              <img src="{{ block.settings.product_2 | image_url: width: 140 }}" alt="">
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <div class="snack-dots"></div>
+
+</section>
+
+<style>
+.snack-testimonial {
+  padding: 20px 0 60px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* HEADING */
+.snack-heading-row {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 40px;
+  position: relative;
+}
+
+.snack-testimonial__heading {
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  Font-size:40px;
+  color: #3f520e;
+  Font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 !important;
+  line-height: 60px;
+}
+
+/* Heading right image float */
+.snack-heading-image {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: floatHeadingImage 5s ease-in-out infinite;
+}
+
+.snack-heading-image img {
+  max-width: 140px;
+}
+
+/* ARROWS */
+.snack-arrow {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: arrowFloat 4s ease-in-out infinite;
+}
+
+.snack-arrow img {
+  width: 52px;
+}
+
+/* Arrow hover */
+.snack-arrow:hover {
+  transform: scale(1.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.snack-arrow--left { left: 30px; }
+.snack-arrow--right { right: 30px; }
+
+/* ARROW FLOAT KEYFRAMES */
+@keyframes arrowFloat {
+  0% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-10px); }
+  100% { transform: translateY(-50%) translateY(0); }
+}
+
+/* HEADING IMAGE FLOAT KEYFRAMES */
+@keyframes floatHeadingImage {
+  0% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-15px); }
+  100% { transform: translateY(-50%) translateY(0); }
+}
+
+/* SLIDER */
+.snack-slider { overflow: hidden; width: 100%; }
+.snack-track { display: flex; gap: 48px; transition: transform 0.6s ease; }
+
+/* SLIDE */
+.snack-slide { flex: 0 0 640px; }
+.snack-card {
+  background: #FFF3D6;
+  border-radius: 30px;
+  padding: 48px;
+  min-height: 360px;
+  display: flex;
+  gap: 36px;
+  position: relative;
+  transform: translateY(40px);
+  opacity: 0;
+  animation: slideReveal 0.8s ease forwards;
+}
+.snack-slide:nth-child(1){ animation-delay:.2s; }
+.snack-slide:nth-child(2){ animation-delay:.35s; }
+.snack-slide:nth-child(3){ animation-delay:.5s; }
+
+@keyframes slideReveal {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* AVATAR */
+.snack-avatar{
+  width:140px;
+  height:140px;
+  aspect-ratio:1 / 1;
+  border-radius:50%;
+  background:#eeeeee;          /* light grey fill */
+  border:3px solid #5c7a1f;    /* green border */
+}
+
+.snack-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+
+/* CONTENT */
+.snack-text { font-size: 18px; line-height: 1.7; color:black; font-weight:500; }
+.snack-name { margin-top: 22px; font-weight: 600;color:black; }
+
+/* PRODUCTS */
+.snack-products {
+  position: absolute;
+  right: 36px;
+  bottom: 28px;
+  display: flex;
+  gap: 12px;
+}
+.snack-products img { width: 150px; }
+
+/* DOTS */
+.snack-dots {
+  display: flex;
+  justify-content: center;
+  gap: 14px;          /* thoda zyada gap */
+  margin-top: 36px;
+}
+
+.snack-dot {
+  width: 14px;        /* size bada */
+  height: 14px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.snack-dot.active {
+  background: #5c7a1f;
+  transform: scale(1.4);
+}
+
+
+/* ======= MOBILE & TABLET RESPONSIVE ======= */
+
+/* Tablet: 768px to 1024px */
+@media (max-width: 1024px) {
+  .snack-testimonial {
+    padding: 60px 0 40px;
+  }
+
+  .snack-heading-row {
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+
+  .snack-testimonial__heading {
+    font-size: 28px;
+    line-height: 48px;
+  }
+
+  .snack-heading-image img {
+    max-width: 100px;
+  }
+
+  .snack-slide {
+    flex: 0 0 480px; /* smaller slide width */
+  }
+
+  .snack-card {
+    padding: 36px;
+    min-height: 300px;
+    gap: 24px;
+  }
+
+  .snack-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .snack-products img {
+    width: 120px;
+  }
+
+  .snack-arrow img {
+    width: 40px;
+  }
+}
+
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
+  .snack-testimonial {
+    padding: 40px 0 30px;
+  }
+
+  .snack-heading-row {
+    padding: 0 10px;
+    margin-bottom: 30px;
+  }
+
+  .snack-testimonial__heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .snack-heading-image {
+    display: none; /* hide heading image on mobile */
+  }
+
+  .snack-slide {
+    flex: 0 0 90%; /* almost full width */
+  }
+
+  .snack-card {
+    padding: 24px;
+    min-height: 260px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .snack-avatar {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+  }
+
+  .snack-text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .snack-name {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  .snack-products {
+    position: static;
+    justify-content: flex-start;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .snack-products img {
+    width: 80px;
+  }
+
+  .snack-arrow {
+    top: auto;
+    bottom: -10px;
+  }
+
+  .snack-arrow img {
+    width: 32px;
+  }
+
+  .snack-dots {
+    margin-top: 20px;
+    gap: 8px;
+  }
+
+  .snack-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".snack-track");
+  if (!track) return;
+
+  const slides = Array.from(track.children);
+  const dotsWrap = document.querySelector(".snack-dots");
+  const prev = document.querySelector(".snack-arrow--left");
+  const next = document.querySelector(".snack-arrow--right");
+  const gap = 48;
+
+  /* 🔴 NO ITEMS */
+  if (slides.length === 0) {
+    track.style.transform = "translateX(0)";
+    return;
+  }
+
+  /* 🟡 SINGLE ITEM – center, no loop */
+  if (slides.length === 1) {
+    const slideWidth = slides[0].offsetWidth;
+
+    function centerSlide() {
+      const centerOffset = (window.innerWidth - slideWidth) / 2;
+      track.style.transition = "none";
+      track.style.transform = `translateX(${centerOffset}px)`;
+    }
+
+    centerSlide();
+    window.addEventListener("resize", centerSlide);
+
+    prev && (prev.style.display = "none");
+    next && (next.style.display = "none");
+    dotsWrap && (dotsWrap.style.display = "none");
+    return;
+  }
+
+  /* 🟢 MULTIPLE ITEMS – infinite loop */
+  let index = 1;
+
+  // Clone first and last for seamless looping
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
+
+  const allSlides = Array.from(track.children);
+
+  // Create dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.className = "snack-dot" + (i === 0 ? " active" : "");
+    dot.addEventListener("click", () => goTo(i + 1));
+    dotsWrap && dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap ? [...dotsWrap.children] : [];
+
+  // Update slider position
+  function update(transition = true) {
+    const slideWidth = allSlides[0].offsetWidth;
+    const centerOffset = (window.innerWidth - slideWidth) / 2;
+
+    track.style.transition = transition ? "transform 0.6s ease" : "none";
+
+    let transformX;
+
+    if (!transition) {
+      // Instant jump (wrap-around) – ignore gap
+      transformX = centerOffset - index * slideWidth;
+    } else {
+      // Normal slide movement – include gap between real slides only
+      let realIndex = index;
+      if (index === 0) realIndex = slides.length;        // last clone -> last real
+      if (index === slides.length + 1) realIndex = 1;    // first clone -> first real
+      transformX = centerOffset - realIndex * slideWidth - (realIndex - 1) * gap;
+    }
+
+    track.style.transform = `translateX(${transformX}px)`;
+
+    // Update dots
+    let dotIndex = index - 1;
+    if (dotIndex < 0) dotIndex = slides.length - 1;
+    if (dotIndex >= slides.length) dotIndex = 0;
+
+    dots.forEach(d => d.classList.remove("active"));
+    dots[dotIndex] && dots[dotIndex].classList.add("active");
+  }
+
+  // Check if we need to wrap around
+  function checkIndex() {
+    if (index === 0) {
+      index = slides.length;
+      update(false); // instant jump without gap
+    }
+    if (index === slides.length + 1) {
+      index = 1;
+      update(false); // instant jump without gap
+    }
+  }
+
+  // Next / Prev
+  function nextSlide() {
+    index++;
+    update();
+    track.addEventListener("transitionend", checkIndex, { once: true });
+  }
+
+  function prevSlide() {
+    index--;
+    update();
+    track.addEventListener("transitionend", checkIndex, { once: true });
+  }
+
+  // Go to specific slide
+  function goTo(i) {
+    index = i;
+    update();
+  }
+
+  // Arrow events
+  next && next.addEventListener("click", nextSlide);
+  prev && prev.addEventListener("click", prevSlide);
+
+  // Auto slide
+  let autoSlide = setInterval(nextSlide, 4500);
+  track.addEventListener("mouseenter", () => clearInterval(autoSlide));
+  track.addEventListener("mouseleave", () => {
+    autoSlide = setInterval(nextSlide, 4500);
+  });
+
+  // Initial position
+  update(false);
+
+  // Responsive: adjust on resize
+  window.addEventListener("resize", () => update(false));
+});
+</script>
+
+
+
+
+
+{% schema %}
+{
+  "name": "Testimonials – Snack",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "image_picker", "id": "heading_image", "label": "Heading Right Image" },
+    { "type": "image_picker", "id": "arrow_left", "label": "Left Arrow" },
+    { "type": "image_picker", "id": "arrow_right", "label": "Right Arrow" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "image_picker", "id": "avatar", "label": "Avatar" },
+        { "type": "textarea", "id": "review", "label": "Review" },
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "image_picker", "id": "product_1", "label": "Product 1" },
+        { "type": "image_picker", "id": "product_2", "label": "Product 2" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Testimonials – Snack" }
+  ]
+}
+{% endschema %}

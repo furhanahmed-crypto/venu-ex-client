@@ -1,0 +1,220 @@
+{% schema %}
+{
+  "name": "Product Ranges",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "OUR PRODUCT RANGES"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Description",
+      "default": "<p>From earthy millets that groove like folk beats to pure honey that hums like a soulful tune — discover food that makes your taste buds dance!</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "range",
+      "name": "Range Item",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Range Image" },
+        { "type": "text", "id": "title", "label": "Range Name" },
+        { "type": "url", "id": "link", "label": "Button Link" }
+      ]
+    }
+  ],
+  "max_blocks": 15,
+  "presets": [
+    {
+      "name": "Product Ranges",
+      "blocks": [
+        { "type": "range", "settings": { "title": "NON-VEG PICKLES" } },
+        { "type": "range", "settings": { "title": "VEG PICKLES" } },
+        { "type": "range", "settings": { "title": "POWDERS" } },
+        { "type": "range", "settings": { "title": "SNACKS" } },
+        { "type": "range", "settings": { "title": "HONEY" } },
+        { "type": "range", "settings": { "title": "NATURAW SPECIALS" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Carlito:wght@400&display=swap" rel="stylesheet">
+
+<section class="ranges-section">
+  <div class="ranges-container">
+
+    <h2 class="ranges-heading reveal-up">{{ section.settings.heading }}</h2>
+
+    <div class="ranges-text reveal-up">
+      {{ section.settings.subtext }}
+    </div>
+
+    <div class="ranges-grid">
+      {% for block in section.blocks %}
+        {% assign mod = forloop.index0 | modulo: 2 %}
+        <div class="range-card reveal-card {% if mod == 0 %}from-left{% else %}from-right{% endif %}">
+
+          {% if block.settings.image %}
+            <div class="range-image">
+              <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.title | escape }}">
+            </div>
+          {% endif %}
+
+          <h3 class="range-title">{{ block.settings.title }}</h3>
+
+          {% if block.settings.link %}
+            <a href="{{ block.settings.link }}" class="range-btn">View more</a>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ================= DESKTOP (UNCHANGED) ================= */
+.ranges-section{
+  padding:90px 0 90px 0px;
+  overflow:hidden;
+}
+
+.ranges-container{
+  max-width:1500px;
+  margin:auto;
+  padding:0 20px;
+}
+
+.ranges-heading{
+  font-size:60px;
+  color:#3f520e;
+ font-family: 'Inter', Arial, sans-serif;
+  text-transform:uppercase;
+  margin-bottom:0px;
+   font-weight:700;
+   line-height:60px;
+   margin:0px !important;
+   text-align:center;
+}
+
+.ranges-text p{
+  font-size:30px;
+  font-family: 'Carlito', Arial, sans-serif;
+  line-height:42px;
+  color:#2a2a2a;
+  margin:0px !important;
+  margin-top:20px !important;
+  text-align:center;
+}
+
+.ranges-grid{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:30px 20px;
+}
+
+.range-card{
+  text-align:center;
+}
+
+.range-image{
+  max-width:360px;
+  margin:0 auto 10px;
+}
+
+.range-image img{
+  width:100%;
+  display:block;
+}
+
+.range-title{
+  margin:6px 0 8px;
+  font-size:22px;
+  color:#3f520e;
+  font-family: 'Carlito', Arial, sans-serif;
+  text-transform:uppercase;
+  font-weight:normal;
+}
+
+.range-btn{
+  display: inline-block;
+  padding: 10px 40px 7px 40px;
+  background-color: #3b5005 !important;
+  border-radius: 30px;
+  color: #FFF !important;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  align-self: flex-start;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  font-family: 'Carlito';
+}
+
+.range-btn:hover{ background-color: #fc2d9a !important;}
+
+/* ================= ANIMATION ================= */
+.reveal-up,
+.reveal-card{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .9s ease;
+}
+
+.from-left{ transform:translateX(-60px); }
+.from-right{ transform:translateX(60px); }
+
+.reveal-active{
+  opacity:1;
+  transform:translateX(0) translateY(0);
+}
+
+/* ================= TABLET ONLY ================= */
+@media(max-width:1024px){
+  .ranges-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .ranges-heading{ font-size:48px;line-height:48px; }
+  .ranges-text p{ font-size:28px; }
+}
+
+/* ================= MOBILE ONLY ================= */
+@media(max-width:575px){
+  .ranges-grid{
+    grid-template-columns:1fr;
+  }
+
+  .ranges-heading{ font-size:34px; line-height:34px; }
+  .ranges-text p{ font-size:20px; }
+
+  .from-left,
+  .from-right{
+    transform:translateY(40px);
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const items = document.querySelectorAll(".reveal-up, .reveal-card");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("reveal-active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  items.forEach(item => observer.observe(item));
+});
+</script>

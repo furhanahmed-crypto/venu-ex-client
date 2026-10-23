@@ -1,0 +1,75 @@
+:root {
+  /* Colors — light */
+  --color-bg: #f8f4ea;
+  --color-surface: #fffdf8;
+  --color-card: #eee8dc;
+  --color-text: #284336;
+  --color-text-muted: #706f60;
+  --color-border: #e1d7c5;
+  --color-primary: #254a39;
+  --color-primary-text: #ffffff;
+  --color-accent: #9a7135;
+
+  /* Typography */
+  --font-heading: "Marcellus", Georgia, serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.25rem;
+  --text-hero: clamp(2.25rem, 4vw, 3.5rem);
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.6;
+  --tracking-wide: 0.12em;
+  --tracking-wider: 0.18em;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Layout */
+  --content-max: 1200px;
+  --content-narrow: 640px;
+  --header-height: 4.5rem;
+  --announce-height: 2.25rem;
+
+  /* Radius & shadows */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(40, 67, 54, 0.08);
+  --shadow-md: 0 4px 16px rgba(40, 67, 54, 0.1);
+
+  --transition-theme: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, fill 0.35s ease;
+}
+
+.dark {
+  --color-bg: #202b24;
+  --color-surface: #17251d;
+  --color-card: #26372c;
+  --color-text: #f4ecdc;
+  --color-text-muted: #c3bda9;
+  --color-border: #354538;
+  --color-primary: #d1b16d;
+  --color-primary-text: #202b24;
+  --color-accent: #d1b16d;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+}

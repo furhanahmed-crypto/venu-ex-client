@@ -1,0 +1,36 @@
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  transition: var(--transition-theme);
+}
+
+.announcement-bar-section .utility-bar {
+  background-color: var(--color-primary) !important;
+  min-height: var(--announce-height);
+  transition: var(--transition-theme);
+}
+
+.announcement-bar-section .utility-bar--bottom-border {
+  border-bottom: none;
+}
+
+.announcement-bar-section .announcement-bar__message.h5 {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: var(--leading-normal);
+  margin: 0;
+  text-transform: none;
+}
+
+.announcement-bar-section .announcement-bar,
+.announcement-bar-section .announcement-bar__message,
+.announcement-bar-section .announcement-bar__link {
+  color: var(--color-primary-text);
+}
+
+.announcement-bar-section .announcement-bar .slider-button {
+  color: var(--color-primary-text);
+}

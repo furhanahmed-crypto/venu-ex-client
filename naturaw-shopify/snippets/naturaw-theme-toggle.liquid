@@ -1,0 +1,14 @@
+<button
+  type="button"
+  class="header__icon header__icon--theme link focus-inset"
+  data-naturaw-theme-toggle
+  aria-pressed="false"
+  aria-label="Switch to dark mode"
+>
+  <span class="svg-wrapper naturaw-theme-icon naturaw-theme-icon--moon" aria-hidden="true">
+    {{- 'icon-moon.svg' | inline_asset_content -}}
+  </span>
+  <span class="svg-wrapper naturaw-theme-icon naturaw-theme-icon--sun" aria-hidden="true" hidden>
+    {{- 'icon-sun.svg' | inline_asset_content -}}
+  </span>
+</button>

@@ -1,0 +1,183 @@
+<!-- FOOTER WITH BG -->
+<section class="custom-footer"
+  {% if section.settings.bg_image != blank %}
+    style="background-image:url({{ section.settings.bg_image | image_url }});"
+  {% endif %}>
+  <div class="footer-grid-5"> <!-- page-width removed -->
+
+    <!-- BRAND / ABOUT -->
+    <div class="footer-col footer-brand">
+      {% if section.settings.logo != blank %}
+        <img src="{{ section.settings.logo | image_url }}" class="footer-logo">
+      {% endif %}
+      <p class="footer-desc">{{ section.settings.about_text }}</p>
+    </div>
+
+    <!-- IMPORTANT LINKS -->
+    <div class="footer-col">
+      <h4>{{ section.settings.important_heading }}</h4>
+      <ul>
+        {% for link in section.settings.important_menu.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- USEFUL LINKS -->
+    <div class="footer-col">
+      <h4>{{ section.settings.useful_heading }}</h4>
+      <ul>
+        {% for link in section.settings.useful_menu.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- OFFICE ADDRESS -->
+    <div class="footer-col">
+      <h4>{{ section.settings.office_heading }}</h4>
+      <p>{{ section.settings.office_address }}</p>
+    </div>
+
+    <!-- MANUFACTURING ADDRESS -->
+    <div class="footer-col">
+      <h4>{{ section.settings.factory_heading }}</h4>
+      <p>{{ section.settings.factory_address }}</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOTTOM IMAGE (NO BG + NO SPACE) -->
+{% if section.settings.bottom_image != blank %}
+<section class="footer-bottom-image">
+  <img src="{{ section.settings.bottom_image | image_url }}" alt="Footer Bottom Image">
+</section>
+{% endif %}
+
+<style>
+/* RESET FOR GAP ISSUE */
+.custom-footer,
+.footer-bottom-image{
+  margin:0;
+  padding:0;
+  width:100%;
+}
+
+/* Footer BG */
+.custom-footer{
+background-color:#fff7e6; /* fallback color */
+  background-size:cover;
+  background-position:center;
+  padding:50px 0;
+  color:#000;
+  font-family:Arial, sans-serif;
+}
+
+/* Grid layout */
+.footer-grid-5{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:40px;
+  align-items:start;
+  width:1500px;
+  max-width:100%; /* ensures full width */
+  padding:0 50px; /* optional padding */
+  box-sizing:border-box;
+  margin:auto;
+}
+
+/* Logo / Brand */
+.footer-brand{
+  display:flex;
+  flex-direction:column;
+  margin-top:20px;
+}
+.footer-logo{
+  max-width:160px;
+  margin-bottom:15px;
+}
+.footer-desc{
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* Headings & links */
+.footer-col h4{
+  font-size:24px;
+  font-weight:600;
+  margin-bottom:15px;
+  color:#3b5005;
+}
+.footer-col ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.footer-col li{
+  margin-bottom:8px;
+}
+.footer-col a{
+  color:#000;
+  text-decoration:none;
+}
+.footer-col p{
+  font-size:16px;
+  line-height:1.5;
+  font-family:"Carlito";
+}
+
+/* Bottom Image Fix */
+.footer-bottom-image{
+  background:none;
+  line-height:0;     /* IMPORTANT */
+}
+.footer-bottom-image img{
+  width:100%;
+  display:block;     /* IMPORTANT */
+  margin:0;
+  padding:0;
+}
+
+/* Responsive */
+@media(max-width:991px){
+  .footer-grid-5{
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+}
+@media(max-width:767px){
+  .footer-grid-5{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Footer – Background Image",
+  "settings": [
+    {"type":"image_picker","id":"bg_image","label":"Footer Background Image"},
+    {"type":"image_picker","id":"logo","label":"Footer Logo"},
+    {"type":"textarea","id":"about_text","label":"About Text"},
+
+    {"type":"text","id":"important_heading","label":"Important Links Heading","default":"Important Links"},
+    {"type":"link_list","id":"important_menu","label":"Important Links"},
+
+    {"type":"text","id":"useful_heading","label":"Useful Links Heading","default":"Useful Links"},
+    {"type":"link_list","id":"useful_menu","label":"Useful Links"},
+
+    {"type":"text","id":"office_heading","label":"Office Address Heading","default":"Office Address"},
+    {"type":"textarea","id":"office_address","label":"Office Address"},
+
+    {"type":"text","id":"factory_heading","label":"Manufacturing Address Heading","default":"Manufacturing Address"},
+    {"type":"textarea","id":"factory_address","label":"Manufacturing Address"},
+
+    {"type":"image_picker","id":"bottom_image","label":"Footer Bottom Image"}
+  ],
+  "presets": [
+    {"name":"Footer – BG Image Layout"}
+  ]
+}
+{% endschema %}

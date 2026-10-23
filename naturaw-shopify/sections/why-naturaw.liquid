@@ -1,0 +1,503 @@
+{% comment %}
+  WHY NATURAW ANDHRA SNACKS – With 2 Extra Floating Images
+{% endcomment %}
+
+<section class="why-naturaw-section">
+
+  <h2 class="why-heading">{{ section.settings.heading }}</h2>
+  <p class="why-subheading">{{ section.settings.subheading }}</p>
+
+  <div class="why-naturaw-inner">
+
+    <!-- FLOATING IMAGES -->
+    {% if section.settings.float_image_top %}
+      <img class="float-img float-top"
+           src="{{ section.settings.float_image_top | img_url: '200x' }}"
+           alt="">
+    {% endif %}
+
+    {% if section.settings.float_image_bottom %}
+      <img class="float-img float-bottom"
+           src="{{ section.settings.float_image_bottom | img_url: '200x' }}"
+           alt="">
+    {% endif %}
+
+    <!-- LEFT CONTENT -->
+    <div class="why-left">
+
+      <div class="why-features">
+        {% for block in section.blocks %}
+         <div class="why-item"
+  style="
+    padding-left: {{ block.settings.padding_left }}px;
+    padding-right: {{ block.settings.padding_right }}px;
+    margin-right: {{ block.settings.distance_from_image }}px;
+  "
+  data-tablet-padding="{{ block.settings.padding_left_tablet }}"
+  data-mobile-padding="{{ block.settings.padding_left_mobile }}"
+>
+            
+            <div class="why-icon">
+              {% if block.settings.icon %}
+                <img src="{{ block.settings.icon | img_url: '120x' }}" alt="">
+              {% endif %}
+            </div>
+
+            <div class="why-text">
+              <h4>{{ block.settings.title }}</h4>
+              <p>{{ block.settings.text }}</p>
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="why-right">
+      {% if section.settings.main_image %}
+        <img src="{{ section.settings.main_image | img_url: '900x' }}" alt="">
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @media (min-width: 1440px) {
+.why-features {
+  display: flex;
+  flex-direction: column;
+  gap: 80px !important;
+}
+
+.why-text p {
+  line-height: 24px !important;
+  margin:0 !important;
+ font-family:'Carlito', Arial, sans-serif;
+ font-size:18px !important;
+ font-weight:400;
+  color:#88481d;
+}
+
+  }
+/* ================= BASE ================= */
+.why-naturaw-section {
+  padding: 80px 0px 80px 20px;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-naturaw-inner {
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+}
+
+/* ================= FLOATING IMAGES ================= */
+.float-img {
+  position: absolute;
+  z-index: 2;
+  width: 120px;
+}
+
+.float-top {
+  top: 0;
+  left: 9px;
+}
+
+.float-bottom {
+  bottom: 40px;
+  left: 30px;
+}
+
+/* ================= LEFT ================= */
+.why-left {
+  width: 60%;
+  position: relative;
+  z-index: 3;
+  padding-left: 10%;
+}
+
+.why-heading {
+  font-weight: 800;
+  color: #4b5d1f;
+  font-family: 'Inter', sans-serif;
+  Font-size:60px;
+  line-height:80px;
+  color:#3f520e; 
+  text-transform: uppercase; 
+  text-align:center;
+  margin:0 !important;
+      
+}
+
+.why-subheading {
+text-align:Center;
+  font-size: 30px;
+  line-height:42px;
+  color: #2a2a2a;
+   font-weight: 500;
+  margin:0 !important;
+  margin-bottom:20px !important;
+  font-family: 'Carlito';
+}
+
+.why-features {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ================= ITEM ================= */
+.why-item {
+  width: 800px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.why-icon img {
+  width: 100px;
+}
+
+.why-text {
+  max-width: 64%;
+}
+
+.why-text h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #88481d;
+  line-height: 30px;
+  margin:0 !important;
+ font-family: 'Inter', sans-serif;
+ margin-bottom:10px !important;
+}
+.why-text p {
+  line-height: 20px;
+  margin:0 !important;
+ font-family:'Carlito', Arial, sans-serif;
+ font-size:16px; 
+ font-weight:400;
+  color:#88481d;
+}
+
+/* ================= RIGHT IMAGE ================= */
+.why-right {
+  width: 40%;
+  text-align: right;
+}
+
+.why-right img {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .float-bottom {
+    bottom: 40px;
+    left: 4px !important;
+  }
+
+  .float-img {
+    position: absolute;
+    z-index: 2;
+    width: 65px !important;
+  }
+
+  .why-item {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    padding-left: 0; /* fallback */
+  }
+
+  /* Apply tablet padding from data attribute */
+  .why-item[data-tablet-padding] {
+    padding-left: attr(data-tablet-padding px);
+  }
+
+  .why-naturaw-inner {
+    gap: 40px;
+  }
+
+  .why-left {
+    width: 55%;
+  }
+
+  .why-right {
+    width: 45%;
+    text-align: center;
+  }
+
+  .why-text {
+    max-width: 100%;
+  }
+
+  .why-heading {
+    
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    font-size: 39px;
+    line-height: 60px;
+    color: #3f520e;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 !important;
+  }
+
+  .why-subheading {
+    font-size: 18px  !important;
+    
+    text-align: center;
+        line-height: 18px;
+  }
+
+  .float-top {
+    top: 10px;
+    left: 10px;
+  }
+
+  .why-text h4 {
+    font-size: 18px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #7a4a1e;
+    line-height: 18px;
+  }
+
+  .why-text p {
+    font-size: 14px;
+    color: #7a4a1e;
+    line-height: 1.6;
+  }
+
+}
+
+/* ================= MOBILE ONLY ================= */
+@media (max-width: 768px) {
+
+  .why-naturaw-section {
+    padding: 60px 12px;
+  }
+
+  .why-naturaw-inner {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .why-left,
+  .why-right {
+    width: 100%;
+    text-align: right;
+  }
+
+  /* Headings */
+  .why-heading {
+    font-size: 24px;
+    padding-left: 0;
+    margin-bottom: 6px;
+    line-height:25px;
+    text-align: center;
+    margin-bottom:20px !important;
+  }
+
+  .why-subheading {
+    font-size: 14px;
+    padding-left: 0;
+    margin-bottom: 50px !important;
+    text-align: center;
+      line-height:14px;
+  }
+
+  /* Feature item fix */
+  .why-item {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 !important;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .why-icon img {
+    width: 120px;
+  }
+
+  .why-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .why-text h4 {
+    font-size: 22px;
+    margin-bottom: 0px;
+     line-height: 15px;
+  }
+
+  .why-text p {
+    font-size: 16px;
+    line-height: 16px;
+    margin: 0;
+  }
+
+  /* Right image */
+  .why-right img {
+    width: 100%;
+    max-width: 340px;
+    margin: auto;
+  }
+
+  /* Floating images safe positioning */
+  .float-img {
+    width: 55px;
+    opacity: 0.9;
+  }
+
+  .float-top {
+    top: 10px;
+    left: 6px;
+  }
+
+  .float-bottom {
+    bottom: 10px;
+    left: 6px;
+  }
+    .why-item[data-mobile-padding] {
+    padding-left: attr(data-mobile-padding px);
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Why Naturaw",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "WHY NATURAW ANDHRA SNACKS?"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub Heading",
+      "default": "Authentic Taste. Handmade with Love. 100% Natural & Traditional."
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Right Side Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "float_image_top",
+      "label": "Floating Image (Top Left)"
+    },
+    {
+      "type": "image_picker",
+      "id": "float_image_bottom",
+      "label": "Floating Image (Bottom Left)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "range",
+          "id": "padding_left",
+          "label": "Left Padding (px)",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_left_tablet",
+          "label": "Left Padding (px) tablet",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "default": 0
+        },
+         {
+          "type": "range",
+          "id": "padding_left_mobile",
+          "label": "Left Padding (px) mobile",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Naturaw",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+<script>
+function applyResponsivePadding() {
+  const items = document.querySelectorAll('.why-item');
+  const screenWidth = window.innerWidth;
+
+  items.forEach(item => {
+    const tabletPadding = item.getAttribute('data-tablet-padding') || 0;
+    const mobilePadding = item.getAttribute('data-mobile-padding') || 0;
+
+    if (screenWidth >= 769 && screenWidth <= 1024) {
+      // Tablet
+      item.style.paddingLeft = tabletPadding + 'px';
+    } 
+    else if (screenWidth < 769) {
+      // Mobile
+      item.style.paddingLeft = mobilePadding + 'px';
+    }
+    // Desktop → inline style automatically applies
+  });
+}
+
+window.addEventListener('load', applyResponsivePadding);
+window.addEventListener('resize', applyResponsivePadding);
+</script>
+
