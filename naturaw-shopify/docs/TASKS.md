@@ -4,7 +4,7 @@
 
 | Task | Status |
 |------|--------|
-| Add `naturaw-tokens.css` to theme | Done |
+| Add `naturaw-revamp-tokens.css` to theme | Done |
 | Google Fonts (Cormorant + Manrope) | Done |
 | Style announcement bar with tokens | Done |
 | Style main header + nav typography | Done |
@@ -15,11 +15,11 @@
 | Localization dropdown light/dark colors | Done |
 | Project docs (`docs/*`, README) | Done |
 
-## Phase 2 — Next (planned)
+## Phase 2 — Homepage sections
 
 | Task | Status |
 |------|--------|
-| Hero / banner section token revamp | Pending |
+| Hero / banner section token revamp | Done |
 | Shop-by-category (or next homepage section) | Pending |
 | Footer token revamp | Pending |
 | Audit remaining homepage sections against PNGs | Pending |

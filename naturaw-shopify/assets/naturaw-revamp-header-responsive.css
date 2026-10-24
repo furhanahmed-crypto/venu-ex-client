@@ -1,0 +1,51 @@
+/**
+ * Header + announcement (header group) — responsive overrides.
+ * Overrides legacy rules still present in base.css (kept for revert).
+ */
+
+@media screen and (max-width: 989px) {
+  .shopify-section-group-header-group .header {
+    padding-left: var(--space-5) !important;
+    padding-right: var(--space-5) !important;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .shopify-section-group-header-group .header {
+    display: grid !important;
+    font-family: var(--font-body) !important;
+    justify-content: unset !important;
+    align-items: center;
+    gap: unset !important;
+    width: 100%;
+  }
+
+  .shopify-section-group-header-group .header__inline-menu {
+    display: block !important;
+    flex: unset !important;
+    justify-content: unset !important;
+    margin-top: 0;
+  }
+
+  .shopify-section-group-header-group .header__inline-menu .list-menu__item {
+    margin: 0 !important;
+    font-size: inherit !important;
+    text-transform: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+  }
+
+  .shopify-section-group-header-group .header__inline-menu .list-menu__item a {
+    font-family: inherit !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    text-transform: inherit;
+    text-decoration: none !important;
+    padding: 0;
+    transition: var(--transition-theme);
+  }
+
+  .shopify-section-group-header-group .header__icons {
+    margin-left: 0;
+  }
+}

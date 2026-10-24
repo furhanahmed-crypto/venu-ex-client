@@ -431,7 +431,7 @@ table:not([class]) th {
 
 @media screen and (max-width: 749px) {
   .small-hide {
-   
+
   }
 }
 
@@ -1259,7 +1259,7 @@ button.shopify-payment-button__button--unbranded {
 .shopify-payment-button__button--unbranded:after {
   content: '';
   position: absolute;
-  
+
   bottom: var(--buttons-border-width);
   left: var(--buttons-border-width);
   z-index: 1;
@@ -1899,7 +1899,7 @@ input[type='checkbox'] {
   left: var(--inputs-border-width);
   border: 0.1rem solid transparent;
   border-radius: var(--inputs-radius);
-  
+
   transition: box-shadow var(--duration-short) ease;
   z-index: 1;
 }
@@ -3606,13 +3606,14 @@ details-disclosure > details {
 }
 
 
+/* ===== LEGACY (main) — header / hero breakpoints; keep for revert. Revamp wins via assets/naturaw-revamp-*.css loaded after base.css. ===== */
 /* ===== DESKTOP HEADER LAYOUT ===== */
 @media (min-width: 991px) {
   .header {
       display: flex;
       justify-content: center; /* center logo + menu + icons horizontally */
       align-items: center;
-      gap: 20px; /* spacing between logo, menu, icons */
+      gap: 20px; /* spacing between logo, menu + icons */
       width: 100%;
         font-family: 'Carlito', sans-serif;/* set font for header */
   }
@@ -3649,15 +3650,6 @@ details-disclosure > details {
       margin-left: 10px;
   }
 }
-
-
-
-
-
-
-
-
-
 
 /* Carlito Regular Font */
 @font-face {
@@ -3777,7 +3769,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 #shopify-section-template--25952991281430__main{ position:relative; z-index:0;}
-#shopify-section-template--25952991281430__main::before{ 
+#shopify-section-template--25952991281430__main::before{
   content: "";
   position: absolute;
   width: 410px;
@@ -3795,7 +3787,7 @@ h1, h2, h3, h4, h5, h6 {
   50%{transform:translateX(-0%) translateX(20px);}
   100%{transform:translateX(-0%) translateX(0);}
 }
-#shopify-section-template--25952991281430__main::after{ 
+#shopify-section-template--25952991281430__main::after{
   content: "";
   position: absolute;
   width: 220px;
@@ -3841,6 +3833,7 @@ p.jm-text.jm-review-widget-minimal-header__title {
 
 /* Button ke padding aur width ko override karne ke liye */
 
+/* ===== LEGACY (main) — mobile/tablet .naturaw-* + .header padding; keep for revert ===== */
 
 @media screen and (min-width: 300px) and (max-width: 349px) {
 .header{ padding: 6px 20px 6px 20px !important;}

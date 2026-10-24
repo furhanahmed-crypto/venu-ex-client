@@ -12,7 +12,7 @@ body {
 }
 
 .announcement-bar-section .utility-bar--bottom-border {
-  border-bottom: none;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .announcement-bar-section .announcement-bar__message.h5 {
@@ -33,4 +33,29 @@ body {
 
 .announcement-bar-section .announcement-bar .slider-button {
   color: var(--color-primary-text);
+}
+
+/* Dawn utility-bar layout — revamp-owned (not base.css overrides) */
+.announcement-bar-section .utility-bar__grid {
+  grid-template-areas: "announcements";
+}
+
+.announcement-bar-section .announcement-bar,
+.announcement-bar-section .announcement-bar__announcement {
+  grid-area: announcements;
+  justify-content: center;
+  text-align: center;
+}
+
+.announcement-bar-section .announcement-bar__message.h5 {
+  color: inherit;
+}
+
+.announcement-bar-section .announcement-bar__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.announcement-bar-section .announcement-bar__link:hover {
+  opacity: 0.9;
 }

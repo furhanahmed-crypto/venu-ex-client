@@ -1,0 +1,80 @@
+{%- comment -%}
+  Light/dark header logos from Header → Naturaw revamp logos (theme editor).
+  Pass logo_light and logo_dark from section.settings.revamp_logo_*.
+{%- endcomment -%}
+{%- liquid
+  assign logo_light = logo_light | default: section.settings.revamp_logo_light
+  assign logo_dark = logo_dark | default: section.settings.revamp_logo_dark
+  assign logo_alt = shop.name | escape
+  assign logo_w = settings.logo_width | default: 330
+
+  if logo_light != blank
+    assign light_ratio = logo_light.aspect_ratio | default: 4.714
+    assign logo_h = logo_w | divided_by: light_ratio | round
+  else
+    assign logo_h = logo_w | divided_by: 4.714 | round
+  endif
+-%}
+
+{%- if logo_light == blank and logo_dark == blank -%}
+  {%- if settings.logo != blank -%}
+    <div class="header__heading-logo-wrapper">
+      {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+      {{
+        settings.logo
+        | image_url: width: 600
+        | image_tag:
+          class: 'header__heading-logo motion-reduce',
+          width: settings.logo_width,
+          height: logo_height,
+          alt: logo_alt,
+          loading: 'eager'
+      }}
+    </div>
+  {%- else -%}
+    <span class="h2">{{ shop.name }}</span>
+  {%- endif -%}
+{%- else -%}
+  <div class="header__heading-logo-wrapper naturaw-header-logo">
+    {%- if logo_light != blank -%}
+      {{
+        logo_light
+        | image_url: width: 600
+        | image_tag:
+          class: 'header__heading-logo naturaw-header-logo__img naturaw-header-logo__img--light motion-reduce',
+          widths: '165, 330, 495, 600',
+          width: logo_w,
+          height: logo_h,
+          alt: logo_alt,
+          loading: 'eager'
+      }}
+    {%- endif -%}
+
+    {%- if logo_dark != blank -%}
+      {%- assign dark_h = logo_w | divided_by: logo_dark.aspect_ratio | round -%}
+      {{
+        logo_dark
+        | image_url: width: 600
+        | image_tag:
+          class: 'header__heading-logo naturaw-header-logo__img naturaw-header-logo__img--dark motion-reduce',
+          widths: '165, 330, 495, 600',
+          width: logo_w,
+          height: dark_h,
+          alt: logo_alt,
+          loading: 'eager'
+      }}
+    {%- elsif logo_light != blank -%}
+      {{
+        logo_light
+        | image_url: width: 600
+        | image_tag:
+          class: 'header__heading-logo naturaw-header-logo__img naturaw-header-logo__img--dark motion-reduce',
+          widths: '165, 330, 495, 600',
+          width: logo_w,
+          height: logo_h,
+          alt: logo_alt,
+          loading: 'eager'
+      }}
+    {%- endif -%}
+  </div>
+{%- endif -%}
