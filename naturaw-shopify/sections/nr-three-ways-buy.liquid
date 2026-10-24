@@ -1,0 +1,55 @@
+{{ 'NR-three-ways-buy.css' | asset_url | stylesheet_tag }}
+
+<section class="nr-three-ways" id="nr-three-ways-{{ section.id }}">
+  <div class="nr-three-ways__inner page-width">
+    <header class="nr-three-ways__header">
+      {%- if section.settings.kicker != blank -%}
+        <p class="nr-three-ways__kicker">{{ section.settings.kicker | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="nr-three-ways__title">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="nr-three-ways__subtitle">{{ section.settings.subtitle | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    <div class="nr-three-ways__grid" data-nr-three-ways-root></div>
+  </div>
+</section>
+
+<script src="{{ 'NR-data.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'NR-three-ways-buy.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "NR Three Ways Buy",
+  "tag": "section",
+  "class": "section-nr-three-ways",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Eyebrow",
+      "default": "THREE WAYS TO BUY"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Pick your way to snack."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Every route starts with the same promise: real food, clear ingredients."
+    }
+  ],
+  "presets": [
+    {
+      "name": "NR Three Ways Buy"
+    }
+  ]
+}
+{% endschema %}

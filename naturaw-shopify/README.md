@@ -5,7 +5,7 @@ Online Store 2.0 Liquid theme for **Naturaw**, being revamped section-by-section
 ## Features
 
 - Dawn-based header, cart, search, and mega menu (behavior preserved)
-- **Naturaw design tokens** (`assets/naturaw-revamp-tokens.css`)
+- **Naturaw design tokens** (`assets/NR-tokens.css`)
 - **Light / dark mode** with header toggle (moon / sun)
 - **Cormorant Garamond** + **Manrope** typography
 
@@ -57,7 +57,7 @@ bun install   # from repo root, when package.json exists
 
 ```
 naturaw-shopify/
-├── assets/           # Dawn assets + `naturaw-revamp-*.css` (see docs/CSS.md)
+├── assets/           # Dawn assets + `NR-*.css` (see docs/CSS.md)
 ├── config/           # Theme settings
 ├── docs/             # PRD, design, architecture, tasks, rules
 ├── layout/           # theme.liquid
@@ -75,7 +75,7 @@ naturaw-shopify/
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Theme structure and data flow |
 | [docs/TASKS.md](docs/TASKS.md) | Progress tracker |
 | [docs/RULES.md](docs/RULES.md) | Agent/developer conventions |
-| [docs/CSS.md](docs/CSS.md) | Revamp stylesheet list (`assets/naturaw-revamp-*.css`) |
+| [docs/CSS.md](docs/CSS.md) | Revamp stylesheet list (`assets/NR-*.css`) |
 | [docs/MEMORY.md](docs/MEMORY.md) | Decisions and constraints |
 | [docs/SECURITY.md](docs/SECURITY.md) | Secrets and storefront safety |
 

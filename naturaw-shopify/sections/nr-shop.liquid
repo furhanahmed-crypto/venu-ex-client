@@ -1,0 +1,180 @@
+{{ 'NR-shop.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign source = section.settings.collection
+  if source == blank
+    assign source = collections.products
+  endif
+  if source == blank
+    assign source = collections.all
+  endif
+-%}
+
+<section
+  class="nr-shop"
+  id="nr-shop-{{ section.id }}"
+  data-nr-shop
+  data-section-id="{{ section.id }}"
+>
+  <div class="nr-shop__inner page-width">
+    <header class="nr-shop__header">
+      {%- if section.settings.kicker != blank -%}
+        <p class="nr-shop__kicker">{{ section.settings.kicker | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="nr-shop__title">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="nr-shop__subtitle">{{ section.settings.subtitle | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    <div class="nr-shop__tabs-wrap">
+    <div class="nr-shop__tabs" role="tablist" aria-label="{{ section.settings.tabs_aria_label | escape }}">
+      <button
+        type="button"
+        class="nr-shop__tab is-active"
+        role="tab"
+        id="nr-shop-tab-chips-{{ section.id }}"
+        aria-selected="true"
+        aria-controls="nr-shop-panel-{{ section.id }}"
+        data-nr-shop-tab="chips"
+      >
+        {{ section.settings.tab_chips_label | escape }}
+      </button>
+      <button
+        type="button"
+        class="nr-shop__tab"
+        role="tab"
+        id="nr-shop-tab-millet-{{ section.id }}"
+        aria-selected="false"
+        aria-controls="nr-shop-panel-{{ section.id }}"
+        data-nr-shop-tab="millet mixtures"
+      >
+        {{ section.settings.tab_millet_label | escape }}
+      </button>
+    </div>
+    </div>
+
+    <div
+      class="nr-shop__panel"
+      id="nr-shop-panel-{{ section.id }}"
+      role="tabpanel"
+      aria-labelledby="nr-shop-tab-chips-{{ section.id }}"
+      data-nr-shop-grid
+    ></div>
+
+    <p class="nr-shop__empty hidden" data-nr-shop-empty hidden>
+      {{ section.settings.empty_message | escape }}
+    </p>
+  </div>
+
+  <template data-nr-shop-spinner>
+    {%- render 'loading-spinner' -%}
+  </template>
+
+  <script type="application/json" data-nr-shop-catalog>
+    [
+    {%- if source != blank -%}
+      {%- paginate source.products by 250 -%}
+        {%- assign first_entry = true -%}
+        {%- for product in source.products -%}
+          {%- assign type_key = product.type | strip | downcase -%}
+          {%- if type_key == 'chips' or type_key == 'millet mixtures' -%}
+            {%- assign variant = product.selected_or_first_available_variant -%}
+            {%- assign weight_label = variant.title -%}
+            {%- if product.options.size == 1 -%}
+              {%- assign opt_name = product.options.first | downcase -%}
+              {%- if opt_name == 'weight' and variant.option1 != blank -%}
+                {%- assign weight_label = variant.option1 -%}
+              {%- endif -%}
+            {%- endif -%}
+            {%- unless first_entry -%},{%- endunless -%}
+            {
+              "id": {{ product.id | json }},
+              "title": {{ product.title | json }},
+              "type": {{ product.type | json }},
+              "url": {{ product.url | json }},
+              "image": {% if product.featured_media %}{{ product.featured_media | image_url: width: 720 | json }}{% else %}""{% endif %},
+              "imageAlt": {{ product.featured_media.alt | default: product.title | json }},
+              "priceFormatted": {{ variant.price | money | json }},
+              "weight": {{ weight_label | json }},
+              "variantId": {{ variant.id | json }},
+              "available": {{ variant.available | json }}
+            }
+            {%- assign first_entry = false -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endpaginate -%}
+    {%- endif -%}
+    ]
+  </script>
+</section>
+
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'NR-toast.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'NR-shop.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "NR Shop",
+  "tag": "section",
+  "class": "section-nr-shop",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Product source collection",
+      "info": "Products are filtered by Product type: chips and Millet Mixtures. Gifts and other types are excluded."
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Eyebrow",
+      "default": "SHOP"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Real snacks, ready to go."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Choose chips or millet mixtures — same clean ingredients, straight from our store."
+    },
+    {
+      "type": "text",
+      "id": "tab_chips_label",
+      "label": "Chips tab label",
+      "default": "Chips"
+    },
+    {
+      "type": "text",
+      "id": "tab_millet_label",
+      "label": "Millet mixtures tab label",
+      "default": "Millet Mixtures"
+    },
+    {
+      "type": "text",
+      "id": "tabs_aria_label",
+      "label": "Tabs accessibility label",
+      "default": "Product categories"
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty tab message",
+      "default": "No products in this category right now."
+    }
+  ],
+  "presets": [
+    {
+      "name": "NR Shop"
+    }
+  ]
+}
+{% endschema %}

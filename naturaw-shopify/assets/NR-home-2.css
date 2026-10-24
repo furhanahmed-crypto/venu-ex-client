@@ -1,0 +1,168 @@
+/**
+ * Homepage sections (2/2) — token colors & typography only.
+ * playlist, about, why, empowering women, testimonials, blogs
+ */
+
+.playlist-section {
+  background-color: var(--color-bg) !important;
+  transition: var(--transition-theme);
+}
+
+.playlist-section .card-title {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.playlist-section .slider-arrow {
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.playlist-section .slider-arrow:hover {
+  color: var(--color-accent) !important;
+}
+
+.playlist-section .add-btn {
+  font-family: var(--font-body) !important;
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  transition: var(--transition-theme);
+}
+
+html.dark .playlist-section .add-btn {
+  background-color: var(--color-text) !important;
+  color: var(--color-bg) !important;
+}
+
+.nw-about-full {
+  background-color: var(--color-bg);
+  transition: var(--transition-theme);
+}
+
+.nw-about-full .nw-heading {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.nw-about-full .nw-text,
+.nw-about-full .nw-text p {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+  transition: var(--transition-theme);
+}
+
+.nw-about-full .nw-btn {
+  font-family: var(--font-body) !important;
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  transition: var(--transition-theme);
+}
+
+html.dark .nw-about-full .nw-btn {
+  background-color: var(--color-text) !important;
+  color: var(--color-bg) !important;
+}
+
+.nw-about-full .nw-btn:hover {
+  opacity: 0.92;
+}
+
+.why-naturaw-section {
+  background-color: var(--color-bg) !important;
+  transition: var(--transition-theme);
+}
+
+.why-naturaw-section .why-heading {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.why-naturaw-section .why-subheading {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+  transition: var(--transition-theme);
+}
+
+.why-naturaw-section .why-text h4 {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.why-naturaw-section .why-text p {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+  transition: var(--transition-theme);
+}
+
+.empower-section .empower-heading h2,
+.empower-section .empower-bottom-text,
+.empower-section .empower-bottom-text p {
+  font-family: var(--font-body) !important;
+  color: var(--color-primary-text) !important;
+  transition: var(--transition-theme);
+}
+
+.snack-testimonial {
+  background-color: var(--color-bg) !important;
+  transition: var(--transition-theme);
+}
+
+.snack-testimonial__heading {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.snack-testimonial .snack-text {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+  transition: var(--transition-theme);
+}
+
+.snack-testimonial .snack-name {
+  font-family: var(--font-body) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.snack-testimonial .snack-card {
+  background-color: var(--color-card) !important;
+  transition: var(--transition-theme);
+}
+
+.snack-testimonial .snack-avatar {
+  border-color: var(--color-text-muted) !important;
+  transition: var(--transition-theme);
+}
+
+.snack-testimonial .snack-dot {
+  background: var(--color-border) !important;
+  transition: var(--transition-theme);
+}
+
+.snack-testimonial .snack-dot.active {
+  background: var(--color-text) !important;
+}
+
+.blogs-slider {
+  background-color: var(--color-bg) !important;
+  transition: var(--transition-theme);
+}
+
+.blogs-slider .blogs-title {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.blogs-slider .splide__pagination__page {
+  background: var(--color-border) !important;
+}
+
+.blogs-slider .splide__pagination__page.is-active {
+  background: var(--color-text) !important;
+}

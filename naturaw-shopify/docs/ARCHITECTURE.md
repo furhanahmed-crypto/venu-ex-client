@@ -4,8 +4,8 @@
 
 - **Shopify Online Store 2.0** (Dawn-derived Liquid theme)
 - **Shopify CLI** — local dev (`shopify theme dev`)
-- **CSS custom properties** — `assets/naturaw-revamp-tokens.css`
-- **Vanilla JS** — theme toggle (`naturaw-theme-toggle.js`)
+- **CSS custom properties** — `assets/NR-tokens.css`
+- **Vanilla JS** — theme toggle (`NR-theme-toggle.js`), section data (`NR-data.js`), shop tabs (`NR-shop.js`)
 
 No app server or database in this repo; cart/checkout remain Shopify-hosted.
 
@@ -16,14 +16,14 @@ layout/theme.liquid          → fonts, tokens, global scripts
 sections/header-group.json   → announcement-bar + header order
 sections/announcement-bar.liquid
 sections/header.liquid
-snippets/naturaw-theme-toggle.liquid
-assets/naturaw-revamp-*.css, assets/naturaw-theme-toggle.js
+snippets/nr-theme-toggle.liquid
+assets/NR-*.css, assets/NR-theme-toggle.js
 ```
 
 ## Design token flow
 
-1. `naturaw-revamp-tokens.css` defines `:root` and `.dark` variables.
-2. Section-specific CSS (e.g. `naturaw-revamp-header-main.css`) maps tokens to Dawn class names.
+1. `NR-tokens.css` defines `:root` and `.dark` variables.
+2. Section-specific CSS (e.g. `NR-header-main.css`) maps tokens to Dawn class names.
 3. Dawn `base.css` still provides grid/behavior; Naturaw CSS loads **after** and overrides visuals only.
 
 ## Theme mode
@@ -33,7 +33,7 @@ assets/naturaw-revamp-*.css, assets/naturaw-theme-toggle.js
 
 ## Integrations
 
-- Shopify cart, customer accounts, predictive search (theme settings).
+- Shopify cart (Ajax API + cart drawer), customer accounts, predictive search (theme settings). See `docs/CART.md`.
 - Third-party apps via `@app` blocks in header — do not remove.
 
 ## Decisions

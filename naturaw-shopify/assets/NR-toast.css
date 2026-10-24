@@ -1,0 +1,27 @@
+.nr-toast {
+  position: fixed;
+  z-index: 1100;
+  left: 50%;
+  bottom: var(--space-6);
+  transform: translate(-50%, 120%);
+  max-width: min(90vw, 360px);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nr-toast.is-visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}

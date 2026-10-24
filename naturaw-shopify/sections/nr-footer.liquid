@@ -1,0 +1,231 @@
+{{ 'NR-footer.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
+
+<footer class="nr-footer" id="nr-footer-{{ section.id }}">
+  <div class="nr-footer__main page-width">
+    <div class="nr-footer__grid">
+      <div class="nr-footer__brand">
+        {%- if section.settings.logo != blank -%}
+          <a href="{{ routes.root_url }}" class="nr-footer__logo-link">
+            {{
+              section.settings.logo
+              | image_url: width: 280
+              | image_tag: class: 'nr-footer__logo', alt: shop.name, loading: 'lazy'
+            }}
+          </a>
+        {%- else -%}
+          <a href="{{ routes.root_url }}" class="nr-footer__wordmark">{{ shop.name }}</a>
+        {%- endif -%}
+
+        {%- if section.settings.tagline != blank -%}
+          <p class="nr-footer__tagline">{{ section.settings.tagline | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.show_social -%}
+          {% render 'social-icons', class: 'nr-footer__social' %}
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.menu_shop != blank -%}
+        <div class="nr-footer__col">
+          <h3 class="nr-footer__heading">{{ section.settings.heading_shop | escape }}</h3>
+          <ul class="nr-footer__links">
+            {%- for link in section.settings.menu_shop.links -%}
+              <li>
+                <a href="{{ link.url }}">{{ link.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.menu_about != blank -%}
+        <div class="nr-footer__col">
+          <h3 class="nr-footer__heading">{{ section.settings.heading_about | escape }}</h3>
+          <ul class="nr-footer__links">
+            {%- for link in section.settings.menu_about.links -%}
+              <li>
+                <a href="{{ link.url }}">{{ link.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.menu_support != blank -%}
+        <div class="nr-footer__col">
+          <h3 class="nr-footer__heading">{{ section.settings.heading_support | escape }}</h3>
+          <ul class="nr-footer__links">
+            {%- for link in section.settings.menu_support.links -%}
+              <li>
+                <a href="{{ link.url }}">{{ link.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="nr-footer__bar">
+    <div class="nr-footer__bar-inner page-width">
+      {%- assign nr_footer_year = 'now' | date: '%Y' -%}
+      <p class="nr-footer__copyright">
+        {{ section.settings.copyright | replace: '[year]', nr_footer_year | escape }}
+      </p>
+
+      <ul class="nr-footer__legal">
+        {%- liquid
+          assign privacy_url = section.settings.privacy_link
+          if privacy_url == blank and shop.policies.privacy_policy
+            assign privacy_url = shop.policies.privacy_policy.url
+          endif
+          assign terms_url = section.settings.terms_link
+          if terms_url == blank and shop.policies.terms_of_service
+            assign terms_url = shop.policies.terms_of_service.url
+          endif
+        -%}
+        {%- if privacy_url != blank -%}
+          <li>
+            <a href="{{ privacy_url }}">{{ section.settings.privacy_label | escape }}</a>
+          </li>
+        {%- endif -%}
+        {%- if terms_url != blank -%}
+          <li>
+            <a href="{{ terms_url }}">{{ section.settings.terms_label | escape }}</a>
+          </li>
+        {%- endif -%}
+      </ul>
+
+      {%- if section.settings.payment_enable -%}
+        <div class="nr-footer__payment">
+          <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+          <ul class="list list-payment nr-footer__payment-list" role="list">
+            {%- for type in shop.enabled_payment_types -%}
+              <li class="list-payment__item">
+                {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "NR Footer",
+  "tag": "section",
+  "class": "section-nr-footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (optional)"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Clean snacks and superfoods for mindful everyday eating."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social icons",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Shop column"
+    },
+    {
+      "type": "text",
+      "id": "heading_shop",
+      "label": "Heading",
+      "default": "SHOP"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_shop",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "About column"
+    },
+    {
+      "type": "text",
+      "id": "heading_about",
+      "label": "Heading",
+      "default": "ABOUT"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_about",
+      "label": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Support column"
+    },
+    {
+      "type": "text",
+      "id": "heading_support",
+      "label": "Heading",
+      "default": "SUPPORT"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_support",
+      "label": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright",
+      "default": "© [year] Naturaw. All rights reserved.",
+      "info": "Use [year] for the current year."
+    },
+    {
+      "type": "text",
+      "id": "privacy_label",
+      "label": "Privacy label",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "url",
+      "id": "privacy_link",
+      "label": "Privacy link"
+    },
+    {
+      "type": "text",
+      "id": "terms_label",
+      "label": "Terms label",
+      "default": "Terms of Service"
+    },
+    {
+      "type": "url",
+      "id": "terms_link",
+      "label": "Terms link"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "label": "Show payment icons",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "NR Footer"
+    }
+  ]
+}
+{% endschema %}

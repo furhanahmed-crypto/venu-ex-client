@@ -5,6 +5,8 @@
  * This file may be updated by the Shopify admin theme editor
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
+ *
+ * Legacy homepage sections use "disabled": true (must still appear in "order").
  * ------------------------------------------------------------
  */
 {
@@ -18,9 +20,29 @@
             "bg_image": "shopify://shop_images/banner-back_1.png",
             "bg_color": "#e61e6e",
             "badge_image": "shopify://shop_images/No-Preservatives.png",
-            "products_image": "shopify://shop_images/image2_1.png",
-            "chips_image": "shopify://shop_images/image1_2.png",
-            "heading_text": "CRUNCH INTO NATURE’S GOODNESS…",
+            "products_image_url": "https://cdn.shopify.com/s/files/1/0970/5039/4902/files/ragi-chips.png?v=1792828276",
+            "products_image": "",
+            "product_image_size": "large",
+            "chips_image": "",
+            "heading_line_1": "Ragi Chips.",
+            "heading_line_2": "Nothing to hide.",
+            "heading_text": "",
+            "subtitle_text": "Discover Naturaw’s Ragi, Jowar & Vegetable Chips — made from real ingredients,crafted for pure goodness.",
+            "button_text": "SHOP NOW",
+            "button_link": "shopify://collections/products"
+          }
+        },
+        "slide_build_box": {
+          "type": "slide",
+          "settings": {
+            "eyebrow_text": "Natural & healthy snacking",
+            "badge_image": "shopify://shop_images/No-Preservatives.png",
+            "products_image_url": "https://cdn.shopify.com/s/files/1/0970/5039/4902/files/build-your-box.png?v=1792828276",
+            "products_image": "",
+            "chips_image": "",
+            "heading_line_1": "Good snacks.",
+            "heading_line_2": "Nothing to hide.",
+            "heading_text": "",
             "subtitle_text": "Discover Naturaw’s Ragi, Jowar & Vegetable Chips — made from real ingredients,crafted for pure goodness.",
             "button_text": "SHOP NOW",
             "button_link": "shopify://collections/products"
@@ -28,12 +50,46 @@
         }
       },
       "block_order": [
-        "slide_3b8tD6"
+        "slide_3b8tD6",
+        "slide_build_box"
       ],
       "name": "Hero Ghee Slider",
       "settings": {}
     },
+    "nr_three_ways_buy": {
+      "type": "nr-three-ways-buy",
+      "name": "NR Three Ways Buy",
+      "settings": {
+        "kicker": "THREE WAYS TO BUY",
+        "title": "Pick your way to snack.",
+        "subtitle": "Every route starts with the same promise: real food, clear ingredients."
+      }
+    },
+    "nr_shop_home": {
+      "type": "nr-shop",
+      "name": "NR Shop",
+      "settings": {
+        "kicker": "SHOP",
+        "title": "Real snacks, ready to go.",
+        "subtitle": "Choose chips or millet mixtures — same clean ingredients, straight from our store.",
+        "tab_chips_label": "Chips",
+        "tab_millet_label": "Millet Mixtures",
+        "tabs_aria_label": "Product categories",
+        "empty_message": "No products in this category right now."
+      }
+    },
+    "nr_newsletter_home": {
+      "type": "nr-newsletter",
+      "name": "NR Newsletter",
+      "settings": {
+        "title": "Join Our Healthy Living Community",
+        "subtitle": "Seasonal recipes, new drops, and nutrition tips—delivered once a week.",
+        "placeholder": "Your email address",
+        "button_label": "Subscribe"
+      }
+    },
     "icon_features_section_kUzViw": {
+      "disabled": true,
       "type": "icon-features-section",
       "blocks": {
         "feature_TDhgU6": {
@@ -91,6 +147,7 @@
       }
     },
     "morina_cFTwML": {
+      "disabled": true,
       "type": "morina",
       "blocks": {
         "benefit_CbKcXL": {
@@ -181,6 +238,7 @@
       }
     },
     "product_ranges_dA69bF": {
+      "disabled": true,
       "type": "product-ranges",
       "blocks": {
         "range_bwL3NF": {
@@ -319,6 +377,7 @@
       }
     },
     "naturally_crunchy_LMxDqP": {
+      "disabled": true,
       "type": "naturally-crunchy",
       "name": "Hero with Small Image",
       "settings": {
@@ -334,6 +393,7 @@
       }
     },
     "playlist_products_Fh88EU": {
+      "disabled": true,
       "type": "playlist-products",
       "name": "Playlist Slider",
       "settings": {
@@ -352,6 +412,7 @@
       }
     },
     "about_naturaw_9tyAPj": {
+      "disabled": true,
       "type": "about-naturaw",
       "name": "About Naturaw Section",
       "settings": {
@@ -367,6 +428,7 @@
       }
     },
     "why_naturaw_qQdp4J": {
+      "disabled": true,
       "type": "why-naturaw",
       "blocks": {
         "feature_rnPhex": {
@@ -442,6 +504,7 @@
       }
     },
     "empowering_women_dTzwAH": {
+      "disabled": true,
       "type": "empowering-women",
       "name": "Empowering Women",
       "settings": {
@@ -456,6 +519,7 @@
       }
     },
     "image_banner_qVehfb": {
+      "disabled": true,
       "type": "image-banner",
       "disabled": true,
       "name": "t:sections.image-banner.presets.name",
@@ -474,6 +538,7 @@
       }
     },
     "testimonials_slider_6WNbqe": {
+      "disabled": true,
       "type": "testimonials-slider",
       "blocks": {
         "testimonial_trEJHn": {
@@ -522,6 +587,7 @@
       }
     },
     "hero_freshness_UKdBTC": {
+      "disabled": true,
       "type": "hero-freshness",
       "disabled": true,
       "name": "Hero – Freshness Banner",
@@ -532,6 +598,7 @@
       }
     },
     "blogs_recipes_slider_CtiPf3": {
+      "disabled": true,
       "type": "blogs-recipes-slider",
       "blocks": {
         "slide_BmUbfc": {
@@ -581,6 +648,9 @@
   },
   "order": [
     "hero_banner_TifdBd",
+    "nr_three_ways_buy",
+    "nr_shop_home",
+    "nr_newsletter_home",
     "icon_features_section_kUzViw",
     "morina_cFTwML",
     "product_ranges_dA69bF",
@@ -595,3 +665,4 @@
     "blogs_recipes_slider_CtiPf3"
   ]
 }
+

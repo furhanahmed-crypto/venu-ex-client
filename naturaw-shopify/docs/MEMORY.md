@@ -9,8 +9,8 @@
 
 - **2026-03-23:** Typography tokens switched to **px** after header nav/announcement rendered too small (Dawn 62.5% html font-size).
 - **2026-03-23:** Dark mode on `html.dark`; storage key `naturaw-theme`.
-- **2026-03-24:** Revamp CSS naming: flat `assets/naturaw-revamp-*.css` (see `docs/CSS.md`).
-- **2026-03-24:** Revamp isolation: `naturaw-header-responsive.css`, `naturaw-revamp-typography.css`, etc.
+- **2026-03-24:** Revamp CSS naming: flat `assets/NR-*.css` (see `docs/CSS.md`).
+- **2026-03-24:** Revamp isolation: `naturaw-header-responsive.css`, `NR-typography.css`, etc.
 - **2026-03-23:** Header CSS split: `naturaw-header-announce.css`, `naturaw-header-main.css`.
 - Announcement bar stays **dark** in both modes (per design reference).
 

@@ -50,7 +50,7 @@
 
     {% render 'meta-tags' %}
 
-    <script src="{{ 'naturaw-theme-toggle.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'NR-theme-toggle.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
@@ -279,15 +279,21 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'naturaw-revamp-tokens.css' | asset_url | stylesheet_tag }}
-    {{ 'naturaw-revamp-header-announce.css' | asset_url | stylesheet_tag }}
-    {{ 'naturaw-revamp-header-main.css' | asset_url | stylesheet_tag }}
-    {{ 'naturaw-revamp-header-localization.css' | asset_url | stylesheet_tag }}
-    {{ 'naturaw-revamp-header-responsive.css' | asset_url | stylesheet_tag }}
-    {{ 'naturaw-revamp-typography.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-tokens.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-header-announce.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-header-main.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-header-localization.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-header-responsive.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-typography.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-toast.css' | asset_url | stylesheet_tag }}
+    {%- if template.name == 'index' -%}
+      {{ 'NR-home-1.css' | asset_url | stylesheet_tag }}
+      {{ 'NR-home-2.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
+      {{ 'NR-cart-drawer.css' | asset_url | stylesheet_tag }}
       {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
       {{ 'component-cart.css' | asset_url | stylesheet_tag }}
       {{ 'component-totals.css' | asset_url | stylesheet_tag }}

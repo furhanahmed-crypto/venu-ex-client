@@ -1,0 +1,126 @@
+/**
+ * Homepage sections (1/2) — token colors & typography only.
+ * icon-features, moringa, product ranges, naturally crunchy
+ */
+
+.icon-features-section {
+  background-color: var(--color-bg) !important;
+  transition: var(--transition-theme);
+}
+
+.icon-features-section .icon-title {
+  font-family: var(--font-body) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.icon-features-section .icon-subtitle {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  font-weight: 700 !important;
+  transition: var(--transition-theme);
+}
+
+.icon-features-section .icon-divider {
+  border-left-color: var(--color-border) !important;
+}
+
+.moringa-section {
+  background-color: var(--color-bg) !important;
+  transition: var(--transition-theme);
+}
+
+.moringa-section .moringa-heading .sub {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+  transition: var(--transition-theme);
+}
+
+.moringa-section .moringa-heading h2 {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.moringa-section .benefit p {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+  transition: var(--transition-theme);
+}
+
+.moringa-section .btn {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  font-family: var(--font-body) !important;
+  transition: var(--transition-theme);
+}
+
+html.dark .moringa-section .btn {
+  background-color: var(--color-text) !important;
+  color: var(--color-bg) !important;
+}
+
+.moringa-section .btn:hover {
+  opacity: 0.92;
+}
+
+.ranges-section {
+  background-color: var(--color-bg) !important;
+  transition: var(--transition-theme);
+}
+
+.ranges-section .ranges-heading {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.ranges-section .ranges-text,
+.ranges-section .ranges-text p {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+  transition: var(--transition-theme);
+}
+
+.ranges-section .range-title {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  transition: var(--transition-theme);
+}
+
+.ranges-section .range-btn {
+  font-family: var(--font-body) !important;
+  color: var(--color-primary-text) !important;
+  background-color: var(--color-primary) !important;
+  transition: var(--transition-theme);
+}
+
+html.dark .ranges-section .range-btn {
+  background-color: var(--color-text) !important;
+  color: var(--color-bg) !important;
+}
+
+.custom-hero .hero-heading {
+  font-family: var(--font-heading) !important;
+  color: var(--color-primary-text) !important;
+  transition: var(--transition-theme);
+}
+
+.custom-hero .hero-text {
+  font-family: var(--font-body) !important;
+  color: var(--color-primary-text) !important;
+  opacity: 0.95;
+  transition: var(--transition-theme);
+}
+
+.custom-hero .hero-button {
+  font-family: var(--font-body) !important;
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  transition: var(--transition-theme);
+}
+
+html.dark .custom-hero .hero-button {
+  background-color: var(--color-text) !important;
+  color: var(--color-bg) !important;
+}

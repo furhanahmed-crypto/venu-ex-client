@@ -3606,7 +3606,7 @@ details-disclosure > details {
 }
 
 
-/* ===== LEGACY (main) — header / hero breakpoints; keep for revert. Revamp wins via assets/naturaw-revamp-*.css loaded after base.css. ===== */
+/* ===== LEGACY (main) — header / hero breakpoints; keep for revert. Revamp wins via assets/NR-*.css loaded after base.css. ===== */
 /* ===== DESKTOP HEADER LAYOUT ===== */
 @media (min-width: 991px) {
   .header {

@@ -1,0 +1,87 @@
+{%- comment -%}
+  Footer logo — same light/dark swap as header (nr-header-logo).
+  Pass logo_light / logo_dark from footer section settings, or fall back to NR assets.
+{%- endcomment -%}
+{%- liquid
+  assign logo_light = logo_light | default: section.settings.revamp_logo_light
+  assign logo_dark = logo_dark | default: section.settings.revamp_logo_dark
+  assign logo_alt = shop.name | escape
+  assign logo_w = logo_width | default: 160
+  assign use_asset_fallback = false
+
+  if logo_light == blank and logo_dark == blank
+    assign use_asset_fallback = true
+  endif
+
+  if logo_light != blank
+    assign light_ratio = logo_light.aspect_ratio | default: 4.714
+    assign logo_h = logo_w | divided_by: light_ratio | round
+  else
+    assign logo_h = logo_w | divided_by: 4.714 | round
+  endif
+-%}
+
+<a href="{{ routes.root_url }}" class="nr-footer__logo-link">
+  {%- if use_asset_fallback -%}
+    <span class="nr-footer__logo-wrap naturaw-header-logo">
+      <img
+        class="nr-footer__logo-img naturaw-header-logo__img naturaw-header-logo__img--light"
+        src="{{ 'NR-logo-light.png' | asset_url }}"
+        width="{{ logo_w }}"
+        height="{{ logo_h }}"
+        alt="{{ logo_alt }}"
+        loading="lazy"
+      >
+      <img
+        class="nr-footer__logo-img naturaw-header-logo__img naturaw-header-logo__img--dark"
+        src="{{ 'NR-logo-dark.png' | asset_url }}"
+        width="{{ logo_w }}"
+        height="{{ logo_h }}"
+        alt="{{ logo_alt }}"
+        loading="lazy"
+      >
+    </span>
+  {%- else -%}
+    <span class="nr-footer__logo-wrap naturaw-header-logo">
+      {%- if logo_light != blank -%}
+        {{
+          logo_light
+          | image_url: width: 400
+          | image_tag:
+            class: 'nr-footer__logo-img naturaw-header-logo__img naturaw-header-logo__img--light',
+            widths: '120, 160, 240, 320',
+            width: logo_w,
+            height: logo_h,
+            alt: logo_alt,
+            loading: 'lazy'
+        }}
+      {%- endif -%}
+      {%- if logo_dark != blank -%}
+        {%- assign dark_h = logo_w | divided_by: logo_dark.aspect_ratio | round -%}
+        {{
+          logo_dark
+          | image_url: width: 400
+          | image_tag:
+            class: 'nr-footer__logo-img naturaw-header-logo__img naturaw-header-logo__img--dark',
+            widths: '120, 160, 240, 320',
+            width: logo_w,
+            height: dark_h,
+            alt: logo_alt,
+            loading: 'lazy'
+        }}
+      {%- elsif logo_light != blank -%}
+        {{
+          logo_light
+          | image_url: width: 400
+          | image_tag:
+            class: 'nr-footer__logo-img naturaw-header-logo__img naturaw-header-logo__img--dark',
+            widths: '120, 160, 240, 320',
+            width: logo_w,
+            height: logo_h,
+            alt: logo_alt,
+            loading: 'lazy'
+        }}
+      {%- endif -%}
+    </span>
+  {%- endif -%}
+</a>

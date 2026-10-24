@@ -1,0 +1,232 @@
+.naturaw-hero--revamp {
+  position: relative;
+  background-color: var(--color-pink);
+  transition: var(--transition-theme);
+}
+
+html.dark .naturaw-hero--revamp {
+  background-color: var(--color-bg);
+}
+
+/* Horizontal track slider — same layout every slide */
+.naturaw-hero--revamp .naturaw-slider__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.naturaw-hero--revamp .naturaw-slider__track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+}
+
+.naturaw-hero--revamp .naturaw-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  background-color: var(--color-pink);
+  background-image: none !important;
+  padding: var(--space-16) 0 calc(var(--space-20) + var(--space-8));
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+html.dark .naturaw-hero--revamp .naturaw-slide {
+  background-color: var(--color-bg);
+}
+
+.naturaw-hero--revamp .naturaw-hero__dots {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-6);
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: rgba(30, 31, 28, 0.06);
+  backdrop-filter: blur(6px);
+}
+
+html.dark .naturaw-hero--revamp .naturaw-hero__dots {
+  background: rgba(244, 243, 239, 0.08);
+}
+
+.naturaw-hero--revamp .naturaw-hero__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    width 0.25s ease;
+}
+
+.naturaw-hero--revamp .naturaw-hero__dot.is-active {
+  width: 22px;
+  background: var(--color-text);
+}
+
+.naturaw-hero--revamp .naturaw-hero__dot:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.naturaw-hero--revamp .naturaw-hero-inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  column-gap: var(--space-10);
+  row-gap: var(--space-8);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  min-height: 420px;
+  width: 100%;
+}
+
+.naturaw-hero--revamp .naturaw-left {
+  max-width: none !important;
+  min-width: 0;
+  padding-right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.naturaw-hero--revamp .naturaw-hero__eyebrow {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.naturaw-hero--revamp .naturaw-heading {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-heading);
+  font-size: clamp(44px, 4.6vw, 76px) !important;
+  font-weight: 600;
+  line-height: 1.12 !important;
+  color: var(--color-text) !important;
+}
+
+.naturaw-hero--revamp .naturaw-heading__line {
+  display: block !important;
+  max-width: 100%;
+}
+
+.naturaw-hero--revamp .naturaw-heading .highlight-word,
+.naturaw-hero--revamp .naturaw-heading span {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit;
+}
+
+.naturaw-hero--revamp .naturaw-subtitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+  max-width: var(--content-narrow);
+}
+
+.naturaw-hero--revamp .naturaw-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: fit-content;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-theme), transform 0.2s ease;
+}
+
+html.dark .naturaw-hero--revamp .naturaw-hero__btn {
+  background-color: var(--color-text) !important;
+  color: var(--color-bg) !important;
+}
+
+.naturaw-hero--revamp .naturaw-hero__btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.naturaw-hero--revamp .naturaw-hero__btn-icon {
+  display: inline-flex;
+  width: 14px;
+  height: 10px;
+}
+
+.naturaw-hero--revamp .naturaw-hero__btn-icon .icon {
+  width: 14px;
+  height: 10px;
+}
+
+.naturaw-hero--revamp .naturaw-right {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+}
+
+.naturaw-hero--revamp .naturaw-products {
+  position: relative !important;
+  bottom: auto !important;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(420px, 48vh);
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 990px) {
+  .naturaw-hero--revamp .naturaw-right--product-large {
+    min-height: 480px;
+  }
+
+  .naturaw-hero--revamp .naturaw-products--large {
+    max-height: min(580px, 68vh);
+    max-width: min(100%, 540px);
+    width: auto;
+  }
+}
+
+.naturaw-hero--revamp .naturaw-badge {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-6);
+  max-width: 120px;
+  height: auto;
+  z-index: 3;
+}
+
+.naturaw-hero--revamp .chips-orbit {
+  display: none;
+}

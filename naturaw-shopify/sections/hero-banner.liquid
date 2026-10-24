@@ -1,11 +1,14 @@
-{{ 'naturaw-revamp-hero.css' | asset_url | stylesheet_tag }}
-{{ 'naturaw-revamp-hero-responsive.css' | asset_url | stylesheet_tag }}
+{{ 'NR-hero.css' | asset_url | stylesheet_tag }}
+{{ 'NR-hero-responsive.css' | asset_url | stylesheet_tag }}
 
-<section class="naturaw-hero naturaw-hero--revamp naturaw-hero-final">
-  <div class="naturaw-slider">
+<section class="naturaw-hero naturaw-hero--revamp naturaw-hero-final" data-nr-hero-root>
+  <div class="naturaw-slider__viewport" data-nr-hero-track>
+    <div class="naturaw-slider__track" data-nr-hero-slider-track>
     {% for block in section.blocks %}
       <div
-        class="naturaw-slide{% if forloop.first %} active{% endif %}"
+        class="naturaw-slide{% if forloop.first %} is-active{% endif %}"
+        data-nr-hero-slide
+        aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
         {{ block.shopify_attributes }}
       >
         {% if block.settings.badge_image != blank %}
@@ -22,18 +25,28 @@
               <p class="naturaw-hero__eyebrow">{{ block.settings.eyebrow_text | escape }}</p>
             {% endif %}
 
-            {% if block.settings.heading_text != blank %}
+            {%- liquid
+              assign hero_h1 = block.settings.heading_line_1 | strip
+              assign hero_h2 = block.settings.heading_line_2 | strip
+              if hero_h1 == blank and hero_h2 == blank and block.settings.heading_text != blank
+                assign hero_legacy = block.settings.heading_text | strip
+                if hero_legacy contains '. '
+                  assign hero_parts = hero_legacy | split: '. '
+                  assign hero_h1 = hero_parts[0] | append: '.'
+                  assign hero_h2 = hero_parts[1]
+                else
+                  assign hero_h1 = hero_legacy
+                endif
+              endif
+            -%}
+            {% if hero_h1 != blank or hero_h2 != blank %}
               <h1 class="naturaw-heading">
-                {% assign heading_lines = block.settings.heading_text | split: '\n' %}
-                {% for line in heading_lines %}
-                  {% if line contains 'INTO' %}
-                    <span class="highlight-word">{{ line | escape }}</span>
-                    {% unless forloop.last %}<br>{% endunless %}
-                  {% else %}
-                    {{ line | escape -}}
-                    {%- unless forloop.last %}<br>{% endunless %}
-                  {% endif %}
-                {% endfor %}
+                {% if hero_h1 != blank %}
+                  <span class="naturaw-heading__line">{{ hero_h1 | escape }}</span>
+                {% endif %}
+                {% if hero_h2 != blank %}
+                  <span class="naturaw-heading__line">{{ hero_h2 | escape }}</span>
+                {% endif %}
               </h1>
             {% endif %}
 
@@ -49,12 +62,27 @@
             {% endif %}
           </div>
 
-          <div class="naturaw-right">
-            {% if block.settings.products_image != blank %}
+          {%- liquid
+            assign hero_products_class = 'naturaw-products'
+            if block.settings.product_image_size == 'large'
+              assign hero_products_class = hero_products_class | append: ' naturaw-products--large'
+            endif
+          -%}
+          <div class="naturaw-right{% if block.settings.product_image_size == 'large' %} naturaw-right--product-large{% endif %}">
+            {% if block.settings.products_image_url != blank %}
+              <img
+                src="{{ block.settings.products_image_url | escape }}"
+                class="{{ hero_products_class }}"
+                loading="eager"
+                width="1200"
+                height="1200"
+                alt=""
+              >
+            {% elsif block.settings.products_image != blank %}
               {{
                 block.settings.products_image
                 | image_url: width: 1200
-                | image_tag: class: 'naturaw-products', loading: 'eager', widths: '600, 900, 1200'
+                | image_tag: class: hero_products_class, loading: 'eager', widths: '600, 900, 1200'
               }}
             {% endif %}
 
@@ -71,22 +99,32 @@
         </div>
       </div>
     {% endfor %}
+    </div>
   </div>
+
+  {% if section.blocks.size > 1 %}
+    <div
+      class="naturaw-hero__dots"
+      data-nr-hero-dots
+      role="tablist"
+      aria-label="Hero slides"
+    >
+      {% for block in section.blocks %}
+        <button
+          type="button"
+          class="naturaw-hero__dot{% if forloop.first %} is-active{% endif %}"
+          data-nr-hero-dot
+          role="tab"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+          aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}"
+          tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+        ></button>
+      {% endfor %}
+    </div>
+  {% endif %}
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.naturaw-hero--revamp .naturaw-slide');
-    let i = 0;
-    if (slides.length > 1) {
-      setInterval(() => {
-        slides[i].classList.remove('active');
-        i = (i + 1) % slides.length;
-        slides[i].classList.add('active');
-      }, 4000);
-    }
-  });
-</script>
+<script src="{{ 'NR-hero-slider.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
@@ -115,13 +153,42 @@
           "default": "#faf9f6"
         },
         { "type": "image_picker", "id": "badge_image", "label": "Badge image" },
-        { "type": "image_picker", "id": "products_image", "label": "Hero product image" },
+        {
+          "type": "text",
+          "id": "products_image_url",
+          "label": "Hero product image URL",
+          "info": "Shopify CDN or full URL. Used instead of the image picker when set.",
+          "default": "https://cdn.shopify.com/s/files/1/0970/5039/4902/files/ragi-chips.png?v=1792828276"
+        },
+        { "type": "image_picker", "id": "products_image", "label": "Hero product image (fallback)" },
+        {
+          "type": "select",
+          "id": "product_image_size",
+          "label": "Product image size (desktop)",
+          "default": "default",
+          "options": [
+            { "value": "default", "label": "Default" },
+            { "value": "large", "label": "Large (single product)" }
+          ]
+        },
         { "type": "image_picker", "id": "chips_image", "label": "Secondary product image (optional)" },
         {
           "type": "text",
+          "id": "heading_line_1",
+          "label": "Heading line 1",
+          "default": "Ragi Chips."
+        },
+        {
+          "type": "text",
+          "id": "heading_line_2",
+          "label": "Heading line 2",
+          "default": "Nothing to hide."
+        },
+        {
+          "type": "textarea",
           "id": "heading_text",
-          "label": "Heading",
-          "default": "Goodness in Every Bite"
+          "label": "Heading (legacy — use line 1 & 2 above)",
+          "info": "Only used if both heading lines are empty."
         },
         {
           "type": "textarea",
@@ -139,6 +206,30 @@
       ]
     }
   ],
-  "presets": [{ "name": "Naturaw Hero Slider" }]
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Naturaw Hero Slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "heading_line_1": "Ragi Chips.",
+            "heading_line_2": "Nothing to hide.",
+            "products_image_url": "https://cdn.shopify.com/s/files/1/0970/5039/4902/files/ragi-chips.png?v=1792828276",
+            "product_image_size": "large"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "heading_line_1": "Good snacks.",
+            "heading_line_2": "Nothing to hide.",
+            "products_image_url": "https://cdn.shopify.com/s/files/1/0970/5039/4902/files/build-your-box.png?v=1792828276"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

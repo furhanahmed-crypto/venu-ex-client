@@ -13,7 +13,7 @@ Revamp the existing Naturaw Shopify storefront to match the approved light/dark 
 
 ## Requirements
 
-- Use `assets/naturaw-revamp-tokens.css` as the single source for colors, type, spacing, and motion.
+- Use `assets/NR-tokens.css` as the single source for colors, type, spacing, and motion.
 - Preserve Dawn section settings, menu links, search, account, cart, localization, and mega menu behavior.
 - Light/dark mode via `html.dark`, persisted in `localStorage` (`naturaw-theme`).
 - Typography must stay readable on Dawn (type tokens in **px**, not rem).

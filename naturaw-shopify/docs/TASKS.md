@@ -4,7 +4,7 @@
 
 | Task | Status |
 |------|--------|
-| Add `naturaw-revamp-tokens.css` to theme | Done |
+| Add `NR-tokens.css` to theme | Done |
 | Google Fonts (Cormorant + Manrope) | Done |
 | Style announcement bar with tokens | Done |
 | Style main header + nav typography | Done |
@@ -20,8 +20,15 @@
 | Task | Status |
 |------|--------|
 | Hero / banner section token revamp | Done |
-| Shop-by-category (or next homepage section) | Pending |
-| Footer token revamp | Pending |
+| Remaining homepage sections (CSS-only token overrides) | Done |
+| Hero pink token + heading copy/size | Done |
+| Revamp · Three Ways to Buy section | Done |
+| Revamp · NR Shop (tabs + Ajax add to cart) | Done |
+| Cart drawer NR token skin + add toast | Done |
+| Revamp file prefix (`NR-*`) | Done |
+| Footer token revamp (NR Footer) | Done |
+| NR Newsletter section | Done |
+| Homepage: legacy sections off order | Done |
 | Audit remaining homepage sections against PNGs | Pending |
 | Reduce legacy overrides in `base.css` where replaced | Pending |
 

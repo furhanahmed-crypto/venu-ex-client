@@ -24,11 +24,15 @@
   }
 
   .shopify-section-group-header-group .header--middle-left .header__heading,
-  .shopify-section-group-header-group .header--middle-left .header__heading-link {
+  .shopify-section-group-header-group
+    .header--middle-left
+    .header__heading-link {
     justify-self: start;
   }
 
-  .shopify-section-group-header-group .header--middle-left .header__inline-menu {
+  .shopify-section-group-header-group
+    .header--middle-left
+    .header__inline-menu {
     justify-self: center;
     margin-left: 0;
   }
@@ -51,7 +55,9 @@
 }
 
 /* Header logo — token PNGs swap with theme; filter fallback for legacy green settings.logo */
-.shopify-section-group-header-group .header__heading-logo-wrapper img.header__heading-logo {
+.shopify-section-group-header-group
+  .header__heading-logo-wrapper
+  img.header__heading-logo {
   width: auto;
   height: auto;
   max-height: 40px;
@@ -60,28 +66,42 @@
   transition: var(--transition-theme);
 }
 
-.shopify-section-group-header-group .header__heading-logo-wrapper:not(.naturaw-header-logo) img.header__heading-logo {
+.shopify-section-group-header-group
+  .header__heading-logo-wrapper:not(.naturaw-header-logo)
+  img.header__heading-logo {
   display: block;
 }
 
-.shopify-section-group-header-group .naturaw-header-logo img.naturaw-header-logo__img--light {
+.shopify-section-group-header-group
+  .naturaw-header-logo
+  img.naturaw-header-logo__img--light {
   display: block;
 }
 
-.shopify-section-group-header-group .naturaw-header-logo img.naturaw-header-logo__img--dark {
+.shopify-section-group-header-group
+  .naturaw-header-logo
+  img.naturaw-header-logo__img--dark {
   display: none;
 }
 
-html.dark .shopify-section-group-header-group .naturaw-header-logo img.naturaw-header-logo__img--light {
+html.dark
+  .shopify-section-group-header-group
+  .naturaw-header-logo
+  img.naturaw-header-logo__img--light {
   display: none;
 }
 
-html.dark .shopify-section-group-header-group .naturaw-header-logo img.naturaw-header-logo__img--dark {
+html.dark
+  .shopify-section-group-header-group
+  .naturaw-header-logo
+  img.naturaw-header-logo__img--dark {
   display: block;
 }
 
 /* Legacy Shopify green logo only (if wrapper lacks .naturaw-header-logo) */
-.shopify-section-group-header-group .header__heading-logo-wrapper:not(.naturaw-header-logo) img.header__heading-logo {
+.shopify-section-group-header-group
+  .header__heading-logo-wrapper:not(.naturaw-header-logo)
+  img.header__heading-logo {
   filter: brightness(0) saturate(100%);
 }
 
@@ -89,8 +109,8 @@ html.dark
   .shopify-section-group-header-group
   .header__heading-logo-wrapper:not(.naturaw-header-logo)
   img.header__heading-logo {
-  filter: brightness(0) saturate(100%) invert(96%) sepia(6%) saturate(87%) hue-rotate(349deg)
-    brightness(103%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(96%) sepia(6%) saturate(87%)
+    hue-rotate(349deg) brightness(103%) contrast(96%);
 }
 
 .shopify-section-group-header-group .header__menu-item,
@@ -106,9 +126,16 @@ html.dark
 }
 
 .shopify-section-group-header-group .header__menu-item:hover,
-.shopify-section-group-header-group .header__menu-item:hover .header__menu-text-link,
-.shopify-section-group-header-group .header__menu-item:hover .header__active-menu-item,
-.shopify-section-group-header-group .header__menu-item:hover .header__active-menu-item .header__menu-text-link {
+.shopify-section-group-header-group
+  .header__menu-item:hover
+  .header__menu-text-link,
+.shopify-section-group-header-group
+  .header__menu-item:hover
+  .header__active-menu-item,
+.shopify-section-group-header-group
+  .header__menu-item:hover
+  .header__active-menu-item
+  .header__menu-text-link {
   color: var(--color-text-muted) !important;
   -webkit-text-fill-color: var(--color-text-muted);
 }
@@ -118,8 +145,13 @@ html.dark
 }
 
 /* Products (mega menu) active + open — base.css uses scheme foreground + slower decoration transition */
-.shopify-section-group-header-group .header__menu-item .header__active-menu-item,
-.shopify-section-group-header-group .header__menu-item .header__active-menu-item .header__menu-text-link {
+.shopify-section-group-header-group
+  .header__menu-item
+  .header__active-menu-item,
+.shopify-section-group-header-group
+  .header__menu-item
+  .header__active-menu-item
+  .header__menu-text-link {
   color: var(--color-text) !important;
   -webkit-text-fill-color: var(--color-text);
   font-weight: 600;
@@ -128,9 +160,19 @@ html.dark
 }
 
 .shopify-section-group-header-group details[open] > .header__menu-item,
-.shopify-section-group-header-group details[open] > .header__menu-item .header__menu-text-link,
-.shopify-section-group-header-group details[open] > .header__menu-item .header__active-menu-item,
-.shopify-section-group-header-group details[open] > .header__menu-item .header__active-menu-item .header__menu-text-link {
+.shopify-section-group-header-group
+  details[open]
+  > .header__menu-item
+  .header__menu-text-link,
+.shopify-section-group-header-group
+  details[open]
+  > .header__menu-item
+  .header__active-menu-item,
+.shopify-section-group-header-group
+  details[open]
+  > .header__menu-item
+  .header__active-menu-item
+  .header__menu-text-link {
   color: var(--color-text) !important;
   -webkit-text-fill-color: var(--color-text);
   transition: var(--transition-theme) !important;
@@ -139,7 +181,9 @@ html.dark
 .shopify-section-group-header-group .header__menu-item .icon-caret {
   color: var(--color-text);
   fill: currentColor;
-  transition: var(--transition-theme), transform var(--duration-short, 100ms) ease;
+  transition:
+    var(--transition-theme),
+    transform var(--duration-short, 100ms) ease;
 }
 
 .shopify-section-group-header-group .header__icon {

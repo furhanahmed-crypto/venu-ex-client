@@ -1,0 +1,91 @@
+/**
+ * Token typography for revamp sections.
+ * Overrides site-wide legacy font rules in base.css (Inter/Carlito) until removed.
+ */
+
+.shopify-section-group-header-group .header__heading,
+.shopify-section-group-header-group .header__heading-link,
+.shopify-section-group-header-group .header__heading-link .h2 {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+}
+
+.shopify-section-group-header-group .header__heading-logo-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.naturaw-hero--revamp .naturaw-heading,
+.naturaw-hero--revamp .naturaw-heading__line,
+.naturaw-hero--revamp .naturaw-heading span,
+.naturaw-hero--revamp .naturaw-heading .highlight-word {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+}
+
+.naturaw-hero--revamp .naturaw-subtitle,
+.naturaw-hero--revamp .naturaw-hero__eyebrow {
+  font-family: var(--font-body) !important;
+}
+
+.naturaw-hero--revamp .naturaw-btn {
+  font-family: var(--font-body) !important;
+  text-transform: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Three Ways to Buy */
+.nr-three-ways__title,
+.nr-three-ways__card-title {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text);
+}
+
+.nr-three-ways__kicker,
+.nr-three-ways__subtitle,
+.nr-three-ways__card-label,
+.nr-three-ways__card-desc,
+.nr-three-ways__card-price,
+.nr-three-ways__card-cta {
+  font-family: var(--font-body) !important;
+}
+
+.nr-three-ways__card--inverse .nr-three-ways__card-title {
+  color: var(--color-primary-text) !important;
+}
+
+/* Shop */
+.nr-shop__title,
+.nr-shop__card-title {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text);
+}
+
+.nr-shop__kicker,
+.nr-shop__subtitle,
+.nr-shop__tab,
+.nr-shop__card-meta,
+.nr-shop__card-price,
+.nr-shop__atc,
+.nr-shop__empty {
+  font-family: var(--font-body) !important;
+}
+
+/* Newsletter & footer */
+.nr-newsletter__title,
+.nr-footer__wordmark {
+  font-family: var(--font-heading) !important;
+}
+
+.nr-newsletter__subtitle,
+.nr-newsletter__input,
+.nr-newsletter__submit,
+.nr-newsletter__message,
+.nr-footer__tagline,
+.nr-footer__heading,
+.nr-footer__links a,
+.nr-footer__copyright,
+.nr-footer__legal a {
+  font-family: var(--font-body) !important;
+}

@@ -1,6 +1,6 @@
 # Naturaw — Design system
 
-Reference: `naturaw-light.png`, `naturaw-dark.png` (repo root). Tokens: `assets/naturaw-revamp-tokens.css`.
+Reference: `naturaw-light.png`, `naturaw-dark.png` (repo root). Tokens: `assets/NR-tokens.css`.
 
 ## Colors
 
