@@ -3,8 +3,29 @@ class CartDrawer extends HTMLElement {
     super();
 
     this.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
-    this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
+    this.onCartIconClick = this.onCartIconClick.bind(this);
+    this.onCartIconKeydown = this.onCartIconKeydown.bind(this);
+  }
+
+  connectedCallback() {
+    const overlay = this.querySelector('#CartDrawer-Overlay');
+    if (overlay && !overlay.dataset.cartDrawerBound) {
+      overlay.dataset.cartDrawerBound = 'true';
+      overlay.addEventListener('click', this.close.bind(this));
+    }
     this.setHeaderCartIconAccessibility();
+  }
+
+  onCartIconClick(event) {
+    event.preventDefault();
+    this.open(event.currentTarget);
+  }
+
+  onCartIconKeydown(event) {
+    if (event.code.toUpperCase() === 'SPACE') {
+      event.preventDefault();
+      this.open(event.currentTarget);
+    }
   }
 
   setHeaderCartIconAccessibility() {
@@ -13,16 +34,11 @@ class CartDrawer extends HTMLElement {
 
     cartLink.setAttribute('role', 'button');
     cartLink.setAttribute('aria-haspopup', 'dialog');
-    cartLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      this.open(cartLink);
-    });
-    cartLink.addEventListener('keydown', (event) => {
-      if (event.code.toUpperCase() === 'SPACE') {
-        event.preventDefault();
-        this.open(cartLink);
-      }
-    });
+    if (cartLink.dataset.cartDrawerIconBound === 'true') return;
+    cartLink.dataset.cartDrawerIconBound = 'true';
+
+    cartLink.addEventListener('click', this.onCartIconClick);
+    cartLink.addEventListener('keydown', this.onCartIconKeydown);
   }
 
   open(triggeredBy) {
@@ -84,7 +100,12 @@ class CartDrawer extends HTMLElement {
     });
 
     setTimeout(() => {
-      this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
+      const overlay = this.querySelector('#CartDrawer-Overlay');
+      if (overlay && !overlay.dataset.cartDrawerBound) {
+        overlay.dataset.cartDrawerBound = 'true';
+        overlay.addEventListener('click', this.close.bind(this));
+      }
+      this.setHeaderCartIconAccessibility();
       this.open();
     });
   }

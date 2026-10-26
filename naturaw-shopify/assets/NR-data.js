@@ -10,7 +10,8 @@ window.NRData.buyingOptions = [
     cta: 'SHOP NOW',
     image:
       'https://cdn.shopify.com/s/files/1/0970/5039/4902/files/ragi-chips.png?v=1792828276',
-    background: 'var(--color-pink)',
+    background: 'var(--color-inverse-bg)',
+    inverse: true,
   },
   {
     id: 2,
@@ -21,7 +22,7 @@ window.NRData.buyingOptions = [
     cta: 'BUILD NOW',
     image:
       'https://cdn.shopify.com/s/files/1/0970/5039/4902/files/build-your-box.png?v=1792828276',
-    background: 'var(--color-bg)',
+    background: 'var(--color-surface)',
   },
   {
     id: 3,
@@ -32,6 +33,7 @@ window.NRData.buyingOptions = [
     cta: 'SEND A GIFT',
     image:
       'https://cdn.shopify.com/s/files/1/0970/5039/4902/files/build-your-box.png?v=1792828276',
-    background: 'var(--color-text)',
+    background: 'var(--color-inverse-surface)',
+    inverse: true,
   },
 ];

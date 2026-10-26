@@ -28,8 +28,9 @@ assets/NR-*.css, assets/NR-theme-toggle.js
 
 ## Theme mode
 
-- Early inline script in `theme.liquid` sets `html.dark` before paint.
-- Toggle updates class + `localStorage`; JS syncs icon visibility and `aria-*`.
+- **Light is the default.** Early inline script in `theme.liquid` forces light (`naturaw-theme=light`, removes `html.dark`).
+- Header dark-mode toggle is **hidden** (`show_theme_toggle: false` in `header-group.json`).
+- Cookie banner: `NR-cookie-consent.css` + `NR-cookie-consent.js` (slide in/out + NR tokens).
 
 ## Integrations
 

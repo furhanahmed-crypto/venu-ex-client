@@ -1,7 +1,7 @@
 {{ 'NR-newsletter.css' | asset_url | stylesheet_tag }}
 
 <section class="nr-newsletter" id="nr-newsletter-{{ section.id }}">
-  <div class="nr-newsletter__inner page-width">
+  <div class="nr-newsletter__inner page-width" data-nr-reveal>
     {%- if section.settings.title != blank -%}
       <h2 class="nr-newsletter__title">{{ section.settings.title | escape }}</h2>
     {%- endif -%}

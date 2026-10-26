@@ -1400,6 +1400,68 @@
     ]
   },
   {
+    "name": "NR Build your own box",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "nr_byob_enable",
+        "label": "Show Build your own box card",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "nr_byob_image",
+        "label": "Card image"
+      },
+      {
+        "type": "text",
+        "id": "nr_byob_image_url",
+        "label": "Card image URL (fallback)",
+        "default": "https://cdn.shopify.com/s/files/1/0970/5039/4902/files/build-your-box.png?v=1792828276"
+      },
+      {
+        "type": "product",
+        "id": "nr_byob_box_4",
+        "label": "Box product · 4 packs",
+        "info": "The cart is charged this product's price."
+      },
+      {
+        "type": "product",
+        "id": "nr_byob_box_8",
+        "label": "Box product · 8 packs",
+        "info": "The cart is charged this product's price."
+      },
+      {
+        "type": "product",
+        "id": "nr_byob_gift_product",
+        "label": "Gift note product",
+        "info": "Optional ₹30 product added alongside the box when the gift option is ticked. Leave blank to hide the gift charge."
+      },
+      {
+        "type": "product",
+        "id": "nr_byob_flavour_1",
+        "label": "Flavour 1"
+      },
+      {
+        "type": "text",
+        "id": "nr_byob_flavour_1_size",
+        "label": "Flavour 1 pack size",
+        "default": "160 g jar"
+      },
+      {
+        "type": "product",
+        "id": "nr_byob_flavour_2",
+        "label": "Flavour 2"
+      },
+      {
+        "type": "text",
+        "id": "nr_byob_flavour_2_size",
+        "label": "Flavour 2 pack size",
+        "default": "200 g jar"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.cart.name",
     "settings": [
       {

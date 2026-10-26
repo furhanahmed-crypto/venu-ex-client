@@ -2,7 +2,7 @@
 
 <section class="nr-three-ways" id="nr-three-ways-{{ section.id }}">
   <div class="nr-three-ways__inner page-width">
-    <header class="nr-three-ways__header">
+    <header class="nr-three-ways__header" data-nr-reveal>
       {%- if section.settings.kicker != blank -%}
         <p class="nr-three-ways__kicker">{{ section.settings.kicker | escape }}</p>
       {%- endif -%}
@@ -14,7 +14,7 @@
       {%- endif -%}
     </header>
 
-    <div class="nr-three-ways__grid" data-nr-three-ways-root></div>
+    <div class="nr-three-ways__grid" data-nr-three-ways-root data-nr-reveal></div>
   </div>
 </section>
 

@@ -38,6 +38,12 @@
                 class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
+                {%- assign nr_link_title = link.title | downcase | strip -%}
+                {%- if nr_link_title == 'products' or link.handle == 'products' -%}
+                  <div class="page-width">
+                    {% render 'nr-mega-products' %}
+                  </div>
+                {%- else -%}
                 <ul
                   class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
                   role="list"
@@ -75,6 +81,7 @@
                     </li>
                   {%- endfor -%}
                 </ul>
+                {%- endif -%}
               </div>
             </details>
           </header-menu>

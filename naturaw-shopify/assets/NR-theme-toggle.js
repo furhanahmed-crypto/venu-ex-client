@@ -2,13 +2,7 @@
   const STORAGE_KEY = 'naturaw-theme';
 
   function getPreferredTheme() {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored === 'dark' || stored === 'light') return stored;
-    } catch (e) {
-      /* ignore */
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return 'light';
   }
 
   function syncToggleIcons(isDark) {

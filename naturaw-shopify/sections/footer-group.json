@@ -32,7 +32,7 @@
         "useful_heading": "Useful Links",
         "useful_menu": "useful-links",
         "office_heading": "Office Address",
-        "office_address": "#309/310, 3rd Floor, S M Road, \n1st Cross, Excel Kalyana Mantapa Road, \nT.Dasarahalli, Bangalore - 560057.",
+        "office_address": "#309/310, 3rd Floor, S M Road, \n1st Cross, Excel Kalyana Mantopa Road, \nT.Dasarahalli, Bangalore - 560057.",
         "factory_heading": "Manufacturing Address",
         "factory_address": "",
         "bottom_image": "shopify://shop_images/footer.jpg"
@@ -42,16 +42,13 @@
       "type": "nr-footer",
       "name": "NR Footer",
       "settings": {
+        "revamp_logo_light": "shopify://shop_images/naturaw-logo-light.png",
+        "revamp_logo_dark": "shopify://shop_images/naturaw-logo-dark.png",
         "tagline": "Clean snacks and superfoods for mindful everyday eating.",
         "show_social": true,
-        "heading_shop": "SHOP",
-        "menu_shop": "main-menu",
-        "heading_about": "ABOUT",
-        "heading_support": "SUPPORT",
         "copyright": "© [year] Naturaw. All rights reserved.",
-        "privacy_label": "Privacy Policy",
-        "terms_label": "Terms of Service",
-        "payment_enable": true
+        "payment_enable": true,
+        "payment_image_url": "https://cdn.shopify.com/s/files/1/0970/5039/4902/files/payment-options.png?v=1792834380"
       }
     }
   },

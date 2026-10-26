@@ -1,10 +1,10 @@
 .shopify-section-group-header-group .header-wrapper {
-  background-color: var(--color-bg);
+  background-color: var(--color-surface);
   transition: var(--transition-theme);
 }
 
 .shopify-section-group-header-group .header-wrapper.gradient {
-  background: var(--color-bg);
+  background: var(--color-surface);
 }
 
 .shopify-section-group-header-group .header-wrapper--border-bottom {
@@ -38,9 +38,23 @@
   }
 }
 
-.shopify-section-header.shopify-section-header-sticky .header-wrapper {
-  background-color: var(--color-bg);
-  box-shadow: var(--shadow-sm);
+/* Always-sticky header at top 0; sits above floating page art */
+.section-header.shopify-section-group-header-group {
+  position: sticky;
+  top: 0 !important;
+  z-index: 40;
+}
+
+.section-header .header-wrapper {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  transition:
+    var(--transition-theme),
+    box-shadow var(--duration-base) var(--ease-premium);
+}
+
+.section-header.scrolled-past-header .header-wrapper {
+  box-shadow: 0 6px 24px -12px rgba(30, 31, 28, 0.18);
 }
 
 .shopify-section-group-header-group .header__heading-link .h2 {
@@ -157,8 +171,8 @@ html.dark
 }
 
 .shopify-section-group-header-group .cart-count-bubble {
-  background-color: var(--color-accent);
-  color: var(--color-accent-text);
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
   font-family: var(--font-body);
   font-size: var(--text-xs);
   font-weight: 600;

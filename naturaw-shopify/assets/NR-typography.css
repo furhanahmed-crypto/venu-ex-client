@@ -20,7 +20,7 @@
 .naturaw-hero--revamp .naturaw-heading span,
 .naturaw-hero--revamp .naturaw-heading .highlight-word {
   font-family: var(--font-heading) !important;
-  color: var(--color-text) !important;
+  color: var(--color-inverse-text) !important;
 }
 
 .naturaw-hero--revamp .naturaw-subtitle,
@@ -52,7 +52,7 @@
 }
 
 .nr-three-ways__card--inverse .nr-three-ways__card-title {
-  color: var(--color-primary-text) !important;
+  color: var(--color-inverse-text) !important;
 }
 
 /* Shop */
@@ -74,7 +74,9 @@
 
 /* Newsletter & footer */
 .nr-newsletter__title,
-.nr-footer__wordmark {
+.nr-ingredients__title,
+.nr-footer__wordmark,
+.nr-footer__logo-link {
   font-family: var(--font-heading) !important;
 }
 
@@ -82,10 +84,30 @@
 .nr-newsletter__input,
 .nr-newsletter__submit,
 .nr-newsletter__message,
+.nr-ingredients__text,
+.nr-ingredients__cta,
 .nr-footer__tagline,
 .nr-footer__heading,
 .nr-footer__links a,
 .nr-footer__copyright,
 .nr-footer__legal a {
+  font-family: var(--font-body) !important;
+}
+
+/* Pages, blog, contact, about */
+.template-page .main-page-title,
+.template-blog .title--primary,
+.template-article .article-template__title,
+.contact .title,
+.nr-about .nw-heading {
+  font-family: var(--font-heading) !important;
+}
+
+.template-page .rte,
+.template-blog .card__heading,
+.template-article .rte,
+.contact .field__label,
+.nr-about .nw-text,
+.nr-about .nw-btn {
   font-family: var(--font-body) !important;
 }

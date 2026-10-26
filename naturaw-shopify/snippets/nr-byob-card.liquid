@@ -1,0 +1,55 @@
+{%- comment -%}
+  Build your own box card. Opens the global NR Build your own box modal.
+  Accepts:
+  - variant: 'collection' (Dawn grid card) or 'shop' (NR Shop card). Default 'collection'.
+{%- endcomment -%}
+{%- liquid
+  assign box_4 = settings.nr_byob_box_4
+  assign box_8 = settings.nr_byob_box_8
+  assign from_price = blank
+  if box_4 != blank
+    assign from_price = box_4.selected_or_first_available_variant.price
+  elsif box_8 != blank
+    assign from_price = box_8.selected_or_first_available_variant.price
+  endif
+  assign card_variant = variant | default: 'collection'
+-%}
+
+{%- if settings.nr_byob_enable and box_4 != blank or settings.nr_byob_enable and box_8 != blank -%}
+  <article class="nr-byob-card nr-byob-card--{{ card_variant }}">
+    <div class="nr-byob-card__media">
+      {%- if settings.nr_byob_image != blank -%}
+        {{
+          settings.nr_byob_image
+          | image_url: width: 720
+          | image_tag: class: 'nr-byob-card__image', loading: 'lazy', alt: 'Build your own box'
+        }}
+      {%- else -%}
+        <img
+          class="nr-byob-card__image"
+          src="{{ settings.nr_byob_image_url | escape }}"
+          alt="Build your own box"
+          loading="lazy"
+          width="720"
+          height="720"
+        >
+      {%- endif -%}
+    </div>
+    <div class="nr-byob-card__body">
+      <h3 class="nr-byob-card__title">Build your own box</h3>
+      <p class="nr-byob-card__meta">4 or 8 packs · your flavours</p>
+      {%- if from_price != blank -%}
+        <p class="nr-byob-card__price">From {{ from_price | money }}</p>
+      {%- endif -%}
+      <button
+        type="button"
+        class="nr-byob-card__cta"
+        data-nr-byob-open
+        aria-haspopup="dialog"
+        aria-controls="NRByobModal"
+      >
+        Select options
+      </button>
+    </div>
+  </article>
+{%- endif -%}

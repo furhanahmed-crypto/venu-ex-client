@@ -48,7 +48,7 @@ body {
 }
 
 .announcement-bar-section .announcement-bar__message.h5 {
-  color: inherit;
+  color: var(--color-primary-text) !important;
 }
 
 .announcement-bar-section .announcement-bar__link {

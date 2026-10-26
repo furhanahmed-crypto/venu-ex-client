@@ -78,6 +78,18 @@
         "empty_message": "No products in this category right now."
       }
     },
+    "nr_ingredients_home": {
+      "type": "nr-ingredients",
+      "name": "NR Ingredients",
+      "settings": {
+        "title_line_1": "Real Ingredients.",
+        "title_line_2": "Real Nutrition.",
+        "text": "We believe in complete transparency. That's why we share every ingredient and nutritional detail — because you deserve to know what you're eating.",
+        "button_label": "Our Ingredients",
+        "button_link": "shopify://pages/about-us",
+        "image_url": "https://cdn.shopify.com/s/files/1/0970/5039/4902/files/build-your-box.png?v=1792828276"
+      }
+    },
     "nr_newsletter_home": {
       "type": "nr-newsletter",
       "name": "NR Newsletter",
@@ -521,7 +533,6 @@
     "image_banner_qVehfb": {
       "disabled": true,
       "type": "image-banner",
-      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/image.jpg",
@@ -589,7 +600,6 @@
     "hero_freshness_UKdBTC": {
       "disabled": true,
       "type": "hero-freshness",
-      "disabled": true,
       "name": "Hero – Freshness Banner",
       "settings": {
         "heading": "“Freshness knocking…\n every single day!”",
@@ -650,6 +660,7 @@
     "hero_banner_TifdBd",
     "nr_three_ways_buy",
     "nr_shop_home",
+    "nr_ingredients_home",
     "nr_newsletter_home",
     "icon_features_section_kUzViw",
     "morina_cFTwML",

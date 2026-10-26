@@ -157,6 +157,12 @@
               "
             >
               {% assign skip_card_product_styles = false %}
+              {%- if paginate.current_page == 1 -%}
+                {%- capture nr_byob_card -%}{% render 'nr-byob-card', variant: 'collection' %}{%- endcapture -%}
+                {%- if nr_byob_card != blank -%}
+                  <li class="grid__item nr-byob-grid-item">{{ nr_byob_card }}</li>
+                {%- endif -%}
+              {%- endif -%}
               {%- for product in collection.products -%}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}

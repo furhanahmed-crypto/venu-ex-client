@@ -8,7 +8,14 @@
   --color-border: #e5e3dd;
   --color-primary: #1e1f1c;
   --color-primary-text: #ffffff;
-  --color-pink: #fed8ea;
+
+  /* Inverse blocks: dark sections with light text */
+  --color-inverse-bg: #161614;
+  --color-inverse-surface: #242422;
+  --color-inverse-text: #f4f3ef;
+  --color-inverse-muted: #a9a8a1;
+  --color-inverse-border: rgba(244, 243, 239, 0.14);
+  --color-error: #b42318;
 
   --font-heading: "Cormorant Garamond", Georgia, serif;
   --font-body: "Manrope", system-ui, sans-serif;
@@ -55,9 +62,12 @@
   --radius-full: 9999px;
   --shadow-sm: 0 1px 2px rgba(30, 31, 28, 0.06);
   --shadow-md: 0 4px 16px rgba(30, 31, 28, 0.08);
+  --shadow-lg: 0 18px 40px -12px rgba(30, 31, 28, 0.22);
 
-  --color-accent: #e8c547;
-  --color-accent-text: #1e1f1c;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.4s;
+  --duration-slow: 0.8s;
 
   --transition-theme:
     background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease,
@@ -74,6 +84,12 @@
   --color-border: #383936;
   --color-primary: #1e1f1c;
   --color-primary-text: #ffffff;
+  --color-inverse-bg: #0e0e0d;
+  --color-inverse-surface: #1c1c1b;
+  --color-inverse-text: #f4f3ef;
+  --color-inverse-muted: #9a9993;
+  --color-inverse-border: rgba(244, 243, 239, 0.1);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 18px 40px -12px rgba(0, 0, 0, 0.5);
 }

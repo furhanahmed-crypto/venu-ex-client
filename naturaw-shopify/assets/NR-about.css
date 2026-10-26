@@ -1,0 +1,233 @@
+/**
+ * About Naturaw section + about page template
+ */
+
+.nr-about,
+.nw-about-full.nr-about {
+  position: relative;
+  padding: var(--space-24) 0;
+  background-color: var(--color-inverse-bg);
+  background-image:
+    radial-gradient(55% 70% at 25% 50%, rgba(244, 243, 239, 0.08) 0%, transparent 70%),
+    radial-gradient(rgba(244, 243, 239, 0.05) 1px, transparent 1px);
+  background-size: auto, 24px 24px;
+  color: var(--color-inverse-text);
+  overflow: hidden;
+  transition: var(--transition-theme);
+}
+
+.nr-about .nw-safe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.nr-about .nw-floating {
+  position: absolute;
+  z-index: 1;
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.4));
+  will-change: transform;
+}
+
+.nr-about .nw-top-left {
+  top: var(--space-6);
+  left: var(--space-4);
+  max-width: 140px;
+  animation: nr-about-float-y 6.5s ease-in-out infinite;
+}
+
+.nr-about .nw-top-right {
+  top: var(--space-4);
+  right: 0;
+  max-width: 260px;
+  animation: nr-about-rotate 7.5s ease-in-out infinite;
+}
+
+.nr-about .nw-bottom-right {
+  bottom: var(--space-4);
+  right: var(--space-6);
+  max-width: 180px;
+  animation: nr-about-float-x 6.5s ease-in-out infinite;
+}
+
+.nr-about .nw-container {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  position: relative;
+  z-index: 2;
+}
+
+.nr-about .nw-left img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+}
+
+.nr-about .nw-content {
+  flex: 1;
+  text-align: center;
+}
+
+.nr-about .nw-heading {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: 0.02em;
+  color: var(--color-inverse-text);
+}
+
+.nr-about .nw-text {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--color-inverse-muted);
+}
+
+.nr-about .nw-text p {
+  margin: 0 0 var(--space-4);
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.nr-about .nw-text strong {
+  color: var(--color-inverse-text);
+  font-weight: 600;
+}
+
+.nr-about .nw-btn {
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-inverse-text);
+  border-radius: var(--radius-full);
+  color: var(--color-inverse-bg);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    var(--transition-theme),
+    transform var(--duration-fast) var(--ease-premium);
+}
+
+.nr-about .nw-btn:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes nr-about-float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes nr-about-float-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes nr-about-rotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .nr-about .nw-left img {
+    max-width: 620px;
+  }
+
+  .nr-about .nw-top-right {
+    max-width: 460px;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .nr-about {
+    padding: var(--space-16) 0;
+  }
+
+  .nr-about .nw-container {
+    gap: var(--space-8);
+  }
+
+  .nr-about .nw-left img {
+    max-width: 360px;
+  }
+
+  .nr-about .nw-top-left {
+    max-width: 110px;
+  }
+
+  .nr-about .nw-top-right {
+    max-width: 180px;
+  }
+
+  .nr-about .nw-bottom-right {
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nr-about {
+    padding: var(--space-12) 0;
+  }
+
+  .nr-about .nw-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nr-about .nw-left img {
+    max-width: 280px;
+  }
+
+  .nr-about .nw-top-left {
+    max-width: 72px;
+    top: var(--space-3);
+    left: var(--space-2);
+  }
+
+  .nr-about .nw-top-right {
+    max-width: 88px;
+    top: var(--space-2);
+  }
+
+  .nr-about .nw-bottom-right {
+    max-width: 72px;
+    bottom: var(--space-2);
+    right: var(--space-2);
+  }
+
+  .nr-about .nw-left img {
+    max-width: min(260px, 80vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nr-about .nw-floating {
+    animation: none;
+  }
+}

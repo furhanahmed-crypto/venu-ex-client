@@ -1,0 +1,66 @@
+/**
+ * Contact page (contact-form + main-page on contact template)
+ */
+
+.template-page.template-suffix-contact #MainContent,
+.contact .color-scheme-1 {
+  background: var(--color-bg);
+}
+
+.template-suffix-contact .main-page-title {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text);
+}
+
+.contact .title {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text);
+}
+
+.contact .field__input,
+.contact .text-area {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md);
+}
+
+.contact .field__input:focus,
+.contact .text-area:focus {
+  border-color: var(--color-text) !important;
+  box-shadow: none;
+}
+
+.contact .field__label {
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+}
+
+.contact .contact__button .button,
+.contact button[type='submit'] {
+  font-family: var(--font-body) !important;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border: none !important;
+  border-radius: var(--radius-full) !important;
+  background: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  min-height: 48px;
+}
+
+.contact .contact__button .button:hover {
+  opacity: 0.92;
+}
+
+.contact .form__message,
+.contact .form-status {
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+.template-suffix-contact .image-banner {
+  --color-background: var(--color-bg);
+}

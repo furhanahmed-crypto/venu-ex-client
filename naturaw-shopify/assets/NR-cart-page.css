@@ -1,0 +1,61 @@
+/**
+ * Full cart page (/cart) — NR tokens (Dawn cart sections unchanged).
+ */
+
+.template-cart #MainContent,
+body.template-cart #MainContent {
+  background: var(--color-bg);
+}
+
+.template-cart .title--primary,
+.template-cart .cart__empty-text {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+}
+
+.template-cart .cart-item__name,
+.template-cart .cart-item__details a,
+.template-cart .totals__total,
+.template-cart .tax-note {
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+.template-cart .cart__checkout-button,
+.template-cart .button--primary[name='checkout'] {
+  font-family: var(--font-body);
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  border: none;
+}
+
+.template-cart .button--secondary {
+  font-family: var(--font-body);
+  border-radius: var(--radius-full);
+}
+
+.template-cart .quantity {
+  border-color: var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.template-cart cart-remove-button .button,
+.template-cart .cart-remove-button.button,
+.template-cart .cart-remove-button.button--tertiary {
+  background: var(--color-surface) !important;
+  background-color: var(--color-surface) !important;
+  color: var(--color-text-muted) !important;
+  min-width: 2.75rem !important;
+  min-height: 2.75rem !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+}
+
+.template-cart cart-remove-button .button:hover,
+.template-cart .cart-remove-button:hover {
+  background: var(--color-card) !important;
+  color: var(--color-text) !important;
+}

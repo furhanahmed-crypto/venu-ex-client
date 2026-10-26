@@ -28,12 +28,11 @@
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem('naturaw-theme');
-          var dark =
-            stored === 'dark' ||
-            (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          if (dark) document.documentElement.classList.add('dark');
+          /* Light is the site default (header dark toggle is hidden) */
+          localStorage.setItem('naturaw-theme', 'light');
         } catch (e) {}
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('nr-motion');
       })();
     </script>
 
@@ -280,25 +279,50 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'NR-tokens.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-global.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-global-inverse.css' | asset_url | stylesheet_tag }}
     {{ 'NR-header-announce.css' | asset_url | stylesheet_tag }}
     {{ 'NR-header-main.css' | asset_url | stylesheet_tag }}
     {{ 'NR-header-localization.css' | asset_url | stylesheet_tag }}
     {{ 'NR-header-responsive.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-header-products.css' | asset_url | stylesheet_tag }}
     {{ 'NR-typography.css' | asset_url | stylesheet_tag }}
     {{ 'NR-toast.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-cookie-consent.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-motion.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-judgeme.css' | asset_url | stylesheet_tag }}
+    {%- unless template.name == 'index' or template.name == 'product' -%}
+      {{ 'NR-page-title.css' | asset_url | stylesheet_tag }}
+    {%- endunless -%}
+    {%- if template.name == 'product' -%}
+      {{ 'NR-product.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     {%- if template.name == 'index' -%}
       {{ 'NR-home-1.css' | asset_url | stylesheet_tag }}
       {{ 'NR-home-2.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
-    {%- if settings.cart_type == 'drawer' -%}
-      {{ 'NR-cart-drawer.css' | asset_url | stylesheet_tag }}
-      {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-      {{ 'component-cart.css' | asset_url | stylesheet_tag }}
-      {{ 'component-totals.css' | asset_url | stylesheet_tag }}
-      {{ 'component-price.css' | asset_url | stylesheet_tag }}
-      {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+    {{ 'NR-cart-drawer.css' | asset_url | stylesheet_tag }}
+    {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+    {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+    {{ 'component-totals.css' | asset_url | stylesheet_tag }}
+    {{ 'component-price.css' | asset_url | stylesheet_tag }}
+    {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+    {%- if template.name == 'cart' -%}
+      {{ 'NR-cart-page.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+    {%- if template.name == 'page' -%}
+      {{ 'NR-page.css' | asset_url | stylesheet_tag }}
+      {%- if template.suffix == 'contact' -%}
+        {{ 'NR-contact.css' | asset_url | stylesheet_tag }}
+      {%- endif -%}
+      {%- if template.suffix == 'about-us' -%}
+        {{ 'NR-about.css' | asset_url | stylesheet_tag }}
+      {%- endif -%}
+    {%- endif -%}
+    {%- if template.name == 'blog' or template.name == 'article' -%}
+      {{ 'NR-blog.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
 
     {%- unless settings.type_body_font.system? -%}
@@ -333,14 +357,14 @@
     </script>
   </head>
 
-  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="gradient template-{{ template.name | handle }}{% if template.suffix != blank %} template-suffix-{{ template.suffix | handle }}{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 
-    {%- if settings.cart_type == 'drawer' -%}
-      {%- render 'cart-drawer' -%}
-    {%- endif -%}
+    {%- comment -%} NR: always render drawer so cart icon + Ajax add-to-cart open the sheet {%- endcomment -%}
+    {%- render 'cart-drawer' -%}
+    {%- render 'nr-byob-modal' -%}
 
     {% sections 'header-group' %}
 
@@ -404,9 +428,11 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.cart_type == 'drawer' -%}
-      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+    <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'NR-cart-drawer.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'NR-cookie-consent.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'NR-reveal.js' | asset_url }}" defer="defer"></script>
 
 
 

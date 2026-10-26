@@ -1,0 +1,109 @@
+/* Shared premium motion: scroll reveal, button and icon interactions */
+html.nr-motion [data-nr-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-premium),
+    transform var(--duration-slow) var(--ease-premium);
+}
+
+html.nr-motion [data-nr-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Buttons: subtle lift on hover, pressed state on click */
+.button,
+.nr-btn,
+.shopify-payment-button__button--unbranded {
+  transition:
+    var(--transition-theme),
+    transform var(--duration-fast) var(--ease-premium),
+    box-shadow var(--duration-base) var(--ease-premium) !important;
+}
+
+.button:not([disabled]):hover,
+.nr-btn:hover,
+.shopify-payment-button__button--unbranded:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.button:not([disabled]):active,
+.nr-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Header and drawer icons: soft circular hover */
+.header__icon,
+.drawer__close,
+.nr-icon-btn {
+  border-radius: var(--radius-full);
+  transition:
+    background-color var(--duration-fast) ease,
+    transform var(--duration-fast) var(--ease-premium);
+}
+
+.header__icon:hover,
+.drawer__close:hover,
+.nr-icon-btn:hover {
+  background-color: var(--color-card);
+}
+
+.header__icon:hover .icon,
+.nr-icon-btn:hover .icon {
+  transform: scale(1.08);
+}
+
+.header__icon .icon {
+  transition: transform var(--duration-fast) var(--ease-premium);
+}
+
+.header__icon:focus-visible,
+.nr-icon-btn:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* Cards: lift with a soft shadow */
+.card-wrapper .card,
+.nr-shop__card {
+  transition:
+    transform var(--duration-base) var(--ease-premium),
+    box-shadow var(--duration-base) var(--ease-premium);
+}
+
+.card-wrapper:hover .card,
+.nr-shop__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Links: animated underline */
+.nr-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  transition: background-size var(--duration-base) var(--ease-premium);
+}
+
+.nr-link:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.nr-motion [data-nr-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .button:hover,
+  .nr-btn:hover,
+  .card-wrapper:hover .card,
+  .nr-shop__card:hover {
+    transform: none;
+  }
+}

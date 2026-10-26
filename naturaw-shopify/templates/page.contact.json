@@ -11,6 +11,7 @@
   "sections": {
     "image_banner_EhkUTG": {
       "type": "image-banner",
+      "disabled": true,
       "blocks": {
         "heading_bRrCbK": {
           "type": "heading",

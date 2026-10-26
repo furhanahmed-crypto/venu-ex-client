@@ -1,13 +1,6 @@
 (function () {
-  function isInverseCard(option) {
-    return (
-      option.background &&
-      (option.background.indexOf('--color-text') !== -1 || option.id === 3)
-    );
-  }
-
   function buildCard(option) {
-    const inverse = isInverseCard(option);
+    const inverse = Boolean(option.inverse);
     const article = document.createElement('article');
     article.className =
       'nr-three-ways__card' + (inverse ? ' nr-three-ways__card--inverse' : '');

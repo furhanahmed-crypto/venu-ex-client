@@ -1,0 +1,157 @@
+/**
+ * Product details — NR black/white tokens (beats base.css brand colors).
+ */
+
+.template-product #MainContent,
+.template-product .product {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.template-product .product__title,
+.template-product .product__title h1,
+.template-product .product__title h2,
+.template-product .product__title a {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  color: var(--color-text) !important;
+}
+
+.template-product .product__text,
+.template-product .caption-with-letter-spacing,
+.template-product .product__tax,
+.template-product .product__tax a,
+.template-product .product__description,
+.template-product .product__description p,
+.template-product .product__description li {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+}
+
+.template-product .price,
+.template-product .price-item,
+.template-product .price__regular,
+.template-product .price__sale,
+.template-product .price-item--sale,
+.template-product .price__container {
+  font-family: var(--font-body) !important;
+  color: var(--color-text) !important;
+}
+
+.template-product .price .price-item--regular,
+.template-product s.price-item--regular {
+  color: var(--color-text-muted) !important;
+}
+
+.template-product .badge,
+.template-product .price .badge {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  border-radius: var(--radius-full) !important;
+}
+
+.template-product .product-form__input .form__label,
+.template-product .quantity__label,
+.template-product legend.form__label {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-xs) !important;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted) !important;
+}
+
+.template-product .product-form__input input[type='radio'] + label {
+  font-family: var(--font-body) !important;
+  border-radius: var(--radius-full) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-text) !important;
+  background: var(--color-surface) !important;
+}
+
+.template-product .product-form__input input[type='radio']:checked + label {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.template-product .quantity {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-full) !important;
+  background: var(--color-surface) !important;
+}
+
+.template-product .quantity__input,
+.template-product .quantity__button {
+  font-family: var(--font-body) !important;
+  color: var(--color-text) !important;
+  background: transparent !important;
+}
+
+/* Add to cart — force black (overrides #f99f11) */
+.template-product .product-form__submit.button,
+.template-product .product-form__buttons .button,
+.template-product product-form .button,
+.template-product .product-form__buttons > button {
+  font-family: var(--font-body) !important;
+  font-weight: 700 !important;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border: none !important;
+  border-radius: var(--radius-full) !important;
+  background: var(--color-primary) !important;
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  box-shadow: none !important;
+}
+
+.template-product .product-form__submit.button:hover,
+.template-product .product-form__buttons .button:hover,
+.template-product product-form .button:hover {
+  background: var(--color-primary) !important;
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  opacity: 0.92;
+}
+
+/* Buy it now — outline, not green/pink */
+.template-product .shopify-payment-button__button--unbranded,
+.template-product button.shopify-payment-button__button--unbranded {
+  font-family: var(--font-body) !important;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border: 1px solid var(--color-text) !important;
+  border-radius: var(--radius-full) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--color-text) !important;
+  box-shadow: none !important;
+}
+
+.template-product .shopify-payment-button__button--unbranded:hover,
+.template-product .shopify-payment-button__button--unbranded:hover:not([disabled]),
+.template-product button.shopify-payment-button__button--unbranded:hover,
+.template-product button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
+  background: var(--color-primary) !important;
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.template-product .product__media-wrapper,
+.template-product .product__media-item,
+.template-product .product__media {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+}
+
+.template-product .share-button__button,
+.template-product .product-popup-modal__button {
+  font-family: var(--font-body) !important;
+  color: var(--color-text) !important;
+}
+
+.template-product .jdgm-prev-badge__text,
+.template-product .jdgm-star {
+  color: var(--color-text) !important;
+}

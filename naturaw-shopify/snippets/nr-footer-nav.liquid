@@ -1,0 +1,82 @@
+{%- comment -%}
+  Footer nav columns from the same menu as the header (top-level = column, children = links).
+  Accepts:
+  - menu (linklist)
+  - max_columns (number)
+  - flat_heading_1, flat_heading_2, flat_heading_3 (flat menus only)
+{%- endcomment -%}
+{%- liquid
+  assign nav_menu = menu
+  if nav_menu == blank
+    assign nav_menu = linklists['main-menu-1']
+  endif
+  if nav_menu == blank
+    assign nav_menu = linklists['main-menu']
+  endif
+  assign col_limit = max_columns | default: 3
+  assign flat_h1 = flat_heading_1 | default: 'SHOP'
+  assign flat_h2 = flat_heading_2 | default: 'ABOUT'
+  assign flat_h3 = flat_heading_3 | default: 'SUPPORT'
+-%}
+
+{%- if nav_menu != blank and nav_menu.links.size > 0 -%}
+  {%- assign top_links = nav_menu.links -%}
+  {%- assign first_top = top_links.first -%}
+  {%- assign is_mega = false -%}
+  {%- if first_top.links != blank -%}
+    {%- assign is_mega = true -%}
+  {%- endif -%}
+
+  {%- if is_mega -%}
+    {%- for link in top_links limit: col_limit -%}
+      <div class="nr-footer__col">
+        <h3 class="nr-footer__heading">{{ link.title | escape }}</h3>
+        <ul class="nr-footer__links">
+          {%- if link.links != blank -%}
+            {%- for childlink in link.links -%}
+              <li>
+                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              </li>
+              {%- for grandchildlink in childlink.links -%}
+                <li>
+                  <a href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
+                </li>
+              {%- endfor -%}
+            {%- endfor -%}
+          {%- else -%}
+            <li>
+              <a href="{{ link.url }}">{{ link.title | escape }}</a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+    {%- endfor -%}
+  {%- else -%}
+    {%- comment -%} Flat header menu — split links across columns {%- endcomment -%}
+    {%- assign link_count = top_links.size -%}
+    {%- assign per_col = link_count | divided_by: col_limit | ceil -%}
+    {%- if per_col < 1 -%}
+      {%- assign per_col = 1 -%}
+    {%- endif -%}
+    {%- for col_num in (1..col_limit) -%}
+      {%- assign col_index = col_num | minus: 1 -%}
+      {%- assign col_offset = col_index | times: per_col -%}
+      {%- assign col_heading = flat_h1 -%}
+      {%- if col_num == 2 -%}
+        {%- assign col_heading = flat_h2 -%}
+      {%- elsif col_num == 3 -%}
+        {%- assign col_heading = flat_h3 -%}
+      {%- endif -%}
+      <div class="nr-footer__col">
+        <h3 class="nr-footer__heading">{{ col_heading | escape }}</h3>
+        <ul class="nr-footer__links">
+          {%- for link in top_links offset: col_offset limit: per_col -%}
+            <li>
+              <a href="{{ link.url }}">{{ link.title | escape }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endfor -%}
+  {%- endif -%}
+{%- endif -%}

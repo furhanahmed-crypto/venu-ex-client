@@ -124,6 +124,14 @@
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
     "cart_type": "drawer",
+    "nr_byob_enable": true,
+    "nr_byob_image_url": "https://cdn.shopify.com/s/files/1/0970/5039/4902/files/build-your-box.png?v=1792828276",
+    "nr_byob_box_4": "four-pack-gift-box",
+    "nr_byob_box_8": "eight-pack-gift-box",
+    "nr_byob_flavour_1": "raagi-chips-classic",
+    "nr_byob_flavour_1_size": "160 g jar",
+    "nr_byob_flavour_2": "millet-mixture-classic",
+    "nr_byob_flavour_2_size": "200 g jar",
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
@@ -158,7 +166,7 @@
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
         "settings": {
-          "button_color": "#3b5005",
+          "button_color": "#1e1f1c",
           "secondary_color": "#ffffff",
           "ternary_color": "#6a6a6a",
           "button_icon": "chat_bubble",
@@ -194,7 +202,7 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#242833",
+          "background": "#161614",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",
@@ -216,23 +224,23 @@
       },
       "scheme-5": {
         "settings": {
-          "background": "#334fb4",
+          "background": "#161614",
           "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#334fb4",
+          "text": "#f4f3ef",
+          "button": "#f4f3ef",
+          "button_label": "#161614",
           "secondary_button_label": "#ffffff",
           "shadow": "#121212"
         }
       },
       "scheme-a1502f7a-d5ef-4a23-9e7a-60c11a7af412": {
         "settings": {
-          "background": "#3b5005",
+          "background": "#161614",
           "background_gradient": "",
-          "text": "#2a2a2a",
-          "button": "#121212",
-          "button_label": "#ffffff",
-          "secondary_button_label": "#121212",
+          "text": "#f4f3ef",
+          "button": "#f4f3ef",
+          "button_label": "#161614",
+          "secondary_button_label": "#f4f3ef",
           "shadow": "#121212"
         }
       },
@@ -241,9 +249,9 @@
           "background": "#ffffff",
           "background_gradient": "",
           "text": "#121212",
-          "button": "#f6a400",
+          "button": "#1e1f1c",
           "button_label": "#ffffff",
-          "secondary_button_label": "#ffffff",
+          "secondary_button_label": "#1e1f1c",
           "shadow": "#121212"
         }
       }
@@ -277,7 +285,7 @@
         },
         "scheme-3": {
           "settings": {
-            "background": "#242833",
+            "background": "#161614",
             "background_gradient": "",
             "text": "#FFFFFF",
             "button": "#FFFFFF",

@@ -13,7 +13,13 @@ Reference: `naturaw-light.png`, `naturaw-dark.png` (repo root). Tokens: `assets/
 | `--color-primary` | `#1e1f1c` | Announcement bar, primary buttons |
 | `--color-primary-text` | `#ffffff` | Text on primary |
 | `--color-border` | `#e5e3dd` | Dividers |
-| `--color-accent` | `#e8c547` | Cart badge, highlights |
+| `--color-inverse-bg` | `#161614` | Dark blocks (hero, newsletter, about hero, page titles) |
+| `--color-inverse-surface` | `#242422` | Inputs/cards inside dark blocks |
+| `--color-inverse-text` | `#f4f3ef` | Text on inverse blocks |
+| `--color-inverse-muted` | `#a9a8a1` | Secondary text on inverse blocks |
+| `--color-inverse-border` | translucent light | Dividers on inverse blocks |
+
+The palette is strictly black/white. Do not add pink, orange, green, or yellow; legacy colors are overridden in `NR-global.css` and `NR-judgeme.css`.
 
 Dark mode overrides live under `html.dark` in the same token file.
 
@@ -46,6 +52,8 @@ Dark mode overrides live under `html.dark` in the same token file.
 ## Motion
 
 - `--transition-theme` on surfaces and text that change with mode.
+- `--ease-premium` with `--duration-fast/base/slow` for hover and reveal motion.
+- Add `data-nr-reveal` to a section wrapper to fade it up on scroll (`NR-motion.css` + `NR-reveal.js`).
 - Respect `prefers-reduced-motion` when adding new animations.
 
 ## Responsiveness

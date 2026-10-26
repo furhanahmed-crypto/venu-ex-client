@@ -28,6 +28,7 @@
 | Revamp file prefix (`NR-*`) | Done |
 | Footer token revamp (NR Footer) | Done |
 | NR Newsletter section | Done |
+| NR Ingredients section | Done |
 | Homepage: legacy sections off order | Done |
 | Audit remaining homepage sections against PNGs | Pending |
 | Reduce legacy overrides in `base.css` where replaced | Pending |

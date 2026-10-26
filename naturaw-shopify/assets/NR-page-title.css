@@ -1,0 +1,81 @@
+/* Inverse title band shared by inner pages (page, blog, collections, search, 404) */
+.main-page-title,
+.template-blog .title--primary,
+.template-list-collections .title--primary,
+.template-search .template-search__header h1,
+.template-404 .title {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 var(--space-10) !important;
+  padding: var(--space-12) var(--space-6);
+  border-radius: 20px;
+  background-color: var(--color-inverse-bg);
+  background-image:
+    radial-gradient(60% 90% at 50% 0%, rgba(244, 243, 239, 0.1) 0%, transparent 70%),
+    radial-gradient(rgba(244, 243, 239, 0.06) 1px, transparent 1px);
+  background-size: auto, 22px 22px;
+  color: var(--color-inverse-text) !important;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(32px, 5vw, 56px) !important;
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  text-align: center;
+  word-break: break-word;
+  animation: nr-title-rise var(--duration-slow) var(--ease-premium) both;
+}
+
+/* Collection banner: full-width inverse hero */
+.collection-hero {
+  background-color: var(--color-inverse-bg) !important;
+  background-image: radial-gradient(60% 90% at 50% 0%, rgba(244, 243, 239, 0.1) 0%, transparent 70%) !important;
+  color: var(--color-inverse-text);
+}
+
+.collection-hero__inner {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+.collection-hero__title {
+  margin: 0;
+  color: var(--color-inverse-text) !important;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 600;
+}
+
+.collection-hero__description,
+.collection-hero__description p {
+  color: var(--color-inverse-muted) !important;
+  font-family: var(--font-body);
+}
+
+@keyframes nr-title-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 549px) {
+  .main-page-title,
+  .template-blog .title--primary,
+  .template-list-collections .title--primary,
+  .template-search .template-search__header h1,
+  .template-404 .title {
+    padding: var(--space-8) var(--space-4);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-8) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-page-title,
+  .template-blog .title--primary {
+    animation: none;
+  }
+}

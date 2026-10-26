@@ -1,0 +1,73 @@
+/**
+ * Inverse (dark) blocks: NR-global forces headings to --color-text,
+ * so text inside dark sections is switched back to the inverse tokens here.
+ */
+.nr-inverse,
+.naturaw-hero--revamp,
+.nr-newsletter,
+.nr-about,
+.nr-three-ways__card--inverse,
+.collection-hero,
+.color-scheme-3,
+.color-scheme-4,
+.color-scheme-5,
+.color-scheme-a1502f7a-d5ef-4a23-9e7a-60c11a7af412 {
+  color: var(--color-inverse-text);
+}
+
+.nr-inverse :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5),
+.naturaw-hero--revamp :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3),
+.nr-newsletter :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3),
+.nr-about :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3),
+.nr-three-ways__card--inverse :is(h1, h2, h3, h4, h5, h6),
+.collection-hero :is(h1, h2, h3, .h0, .h1, .h2),
+.color-scheme-3 :is(h1, h2, h3, h4, h5, h6),
+.color-scheme-4 :is(h1, h2, h3, h4, h5, h6),
+.color-scheme-5 :is(h1, h2, h3, h4, h5, h6),
+.color-scheme-a1502f7a-d5ef-4a23-9e7a-60c11a7af412 :is(h1, h2, h3, h4, h5, h6),
+.main-page-title,
+.template-blog .title--primary,
+.template-list-collections .title--primary,
+.template-search .template-search__header h1,
+.template-404 .title {
+  color: var(--color-inverse-text) !important;
+}
+
+/* Primary buttons inside dark blocks flip to light pills */
+.nr-inverse .button:not(.button--secondary):not(.button--tertiary),
+.color-scheme-3 .button:not(.button--secondary),
+.color-scheme-4 .button:not(.button--secondary),
+.color-scheme-5 .button:not(.button--secondary) {
+  background-color: var(--color-inverse-text) !important;
+  color: var(--color-inverse-bg) !important;
+}
+
+/* Remaining legacy brand colors from base.css / component-card.css */
+span.badge.badge--sale,
+.badge--sale {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.related-products__heading,
+.jm-review-widget-minimal-header__title {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  text-transform: none !important;
+}
+
+.price--on-sale .price-item--sale,
+.price-item--last {
+  color: var(--color-text) !important;
+}
+
+.link,
+.customer a,
+.rte a {
+  color: var(--color-text);
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline-color: var(--color-text);
+}

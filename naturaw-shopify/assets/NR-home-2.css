@@ -20,7 +20,7 @@
 }
 
 .playlist-section .slider-arrow:hover {
-  color: var(--color-accent) !important;
+  color: var(--color-text-muted) !important;
 }
 
 .playlist-section .add-btn {

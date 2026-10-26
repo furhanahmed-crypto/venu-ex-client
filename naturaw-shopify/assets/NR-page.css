@@ -1,0 +1,35 @@
+/**
+ * Generic Shopify pages (main-page section)
+ */
+
+.template-page #MainContent {
+  background: var(--color-bg);
+}
+
+.template-page .main-page-title,
+.template-page .page-title {
+  font-family: var(--font-heading) !important;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.template-page .rte,
+.template-page .rte p,
+.template-page .rte li {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.template-page .rte h2,
+.template-page .rte h3,
+.template-page .rte strong {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+}
+
+.template-page .rte a {
+  color: var(--color-text);
+  text-underline-offset: 3px;
+}

@@ -34,7 +34,20 @@ Same behavior on the full cart page and in the drawer.
 ## NR additions
 
 - **`NR-toast.js`** — brief “Item added to cart” when add succeeds from **NR Shop** (drawer still opens via Dawn).
-- **`NR-cart-drawer.css`** — token-based styling on top of Dawn’s cart drawer markup.
+- **`NR-cart-drawer.css`** / **`NR-cart-drawer.js`** — token styling + guaranteed cart icon opens drawer (no `/cart` navigation).
+- **`NR-cart-page.css`** — `/cart` page token styling if user lands there directly.
+- Cart drawer is **always** rendered from `theme.liquid` (not gated on theme setting).
+
+## Build your own box
+
+- Configured in **Theme settings → NR Build your own box** (box products for 4 and 8 packs, two flavour products, optional gift note product).
+- The card appears first on collection pages and in the NR Shop grid; **Select options** opens the global modal (`snippets/nr-byob-modal.liquid`).
+- **Add box to cart** is enabled only when the picked quantity equals the box size. It posts to `/cart/add.js` with the box variant plus line item properties (`Box size`, each flavour `× n`, `Gift box`, `Gift note`, hidden `_box_id`), then opens the cart drawer via `renderContents()`.
+- The price charged is the **box product's variant price** in Shopify. The gift charge is only added if a gift note product is selected.
+
+## Checkout
+
+See **`docs/CHECKOUT.md`** — colors/fonts in Shopify Admin checkout branding (checkout UI itself is not Liquid-themed on standard plans).
 
 ## Best practice for new sections
 

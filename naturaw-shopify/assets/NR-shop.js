@@ -124,6 +124,11 @@
       empty.classList.add('hidden');
     }
 
+    var byobTemplate = sectionEl.querySelector('[data-nr-shop-byob]');
+    if (byobTemplate && byobTemplate.content.querySelector('.nr-byob-card')) {
+      grid.appendChild(byobTemplate.content.cloneNode(true));
+    }
+
     items.forEach(function (product) {
       grid.appendChild(buildCard(product, sectionId, spinnerHtml));
     });

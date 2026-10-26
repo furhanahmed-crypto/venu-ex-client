@@ -1,0 +1,120 @@
+{{ 'NR-ingredients.css' | asset_url | stylesheet_tag }}
+
+<section class="nr-ingredients" id="nr-ingredients-{{ section.id }}">
+  <div class="nr-ingredients__inner page-width" data-nr-reveal>
+    <div class="nr-ingredients__card">
+      <div class="nr-ingredients__copy">
+        {%- if section.settings.title_line_1 != blank or section.settings.title_line_2 != blank -%}
+          <h2 class="nr-ingredients__title">
+            {%- if section.settings.title_line_1 != blank -%}
+              <span class="nr-ingredients__title-line">{{ section.settings.title_line_1 | escape }}</span>
+            {%- endif -%}
+            {%- if section.settings.title_line_2 != blank -%}
+              <span class="nr-ingredients__title-line">{{ section.settings.title_line_2 | escape }}</span>
+            {%- endif -%}
+          </h2>
+        {%- elsif section.settings.title != blank -%}
+          <h2 class="nr-ingredients__title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <p class="nr-ingredients__text">{{ section.settings.text | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <a
+            class="nr-ingredients__cta"
+            href="{{ section.settings.button_link | default: '#' }}"
+          >
+            {{ section.settings.button_label | escape }}
+            <span class="nr-ingredients__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="nr-ingredients__media">
+        {%- if section.settings.image != blank -%}
+          {%- assign nr_ingredients_alt = section.settings.image.alt | default: section.settings.title -%}
+          {{
+            section.settings.image
+            | image_url: width: 1400
+            | image_tag:
+              class: 'nr-ingredients__image',
+              loading: 'lazy',
+              widths: '600, 900, 1200, 1400',
+              sizes: '(min-width: 990px) 50vw, 100vw',
+              alt: nr_ingredients_alt
+          }}
+        {%- elsif section.settings.image_url != blank -%}
+          <img
+            class="nr-ingredients__image"
+            src="{{ section.settings.image_url | escape }}"
+            alt="{{ section.settings.title | escape }}"
+            loading="lazy"
+            width="900"
+            height="700"
+          >
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NR Ingredients",
+  "tag": "section",
+  "class": "section-nr-ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_line_1",
+      "label": "Heading line 1",
+      "default": "Real Ingredients."
+    },
+    {
+      "type": "text",
+      "id": "title_line_2",
+      "label": "Heading line 2",
+      "default": "Real Nutrition."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading (fallback single line)",
+      "default": "Real Ingredients. Real Nutrition."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "We believe in complete transparency. That's why we share every ingredient and nutritional detail — because you deserve to know what you're eating."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Our Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Image URL (fallback)",
+      "info": "Used when no image is selected above."
+    }
+  ],
+  "presets": [
+    {
+      "name": "NR Ingredients"
+    }
+  ]
+}
+{% endschema %}

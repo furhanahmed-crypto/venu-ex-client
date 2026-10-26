@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -16,9 +7,23 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "about_naturaw_page": {
+      "type": "about-naturaw",
+      "settings": {
+        "left_main_image": "shopify://shop_images/grandma.png",
+        "top_left_image": "shopify://shop_images/image1.png",
+        "top_right_image": "shopify://shop_images/image2.png",
+        "bottom_right_image": "shopify://shop_images/image3.png",
+        "heading": "ABOUT US",
+        "content": "<p>At <strong>Naturaw</strong>, we believe good food should come from <strong>good roots</strong>. Our journey began with a simple mission — to bring you snacks that are as pure as nature and as real as tradition.</p>",
+        "button_text": "",
+        "button_link": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "about_naturaw_page"
   ]
 }

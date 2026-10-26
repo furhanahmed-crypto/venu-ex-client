@@ -1,0 +1,119 @@
+/**
+ * Global token overrides for legacy Naturaw brand colors in base.css
+ * (green #3b5005, orange #f99f11, purple #6b1ca8, pink hover #fc2d9a).
+ */
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h0,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+}
+
+/* Primary buttons (Add to cart, etc.) */
+.button,
+.shopify-challenge__button,
+.customer button,
+.quick-add__submit {
+  font-family: var(--font-body) !important;
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  border-radius: var(--radius-full) !important;
+  box-shadow: none !important;
+  text-transform: uppercase;
+}
+
+.button:hover,
+.shopify-challenge__button:hover,
+.customer button:hover,
+.quick-add__submit:hover {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  opacity: 0.92;
+}
+
+.button:before,
+.button:after,
+.shopify-challenge__button:before,
+.shopify-challenge__button:after,
+.customer button:before,
+.customer button:after {
+  box-shadow: none !important;
+}
+
+.button--secondary,
+.button--tertiary {
+  background-color: transparent !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.button--secondary:hover,
+.button--tertiary:hover {
+  background-color: var(--color-card) !important;
+  opacity: 1;
+}
+
+/* Buy it now / accelerated checkout */
+.shopify-payment-button__button--unbranded,
+button.shopify-payment-button__button--unbranded {
+  font-family: var(--font-body) !important;
+  background-color: transparent !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-text) !important;
+  border-radius: var(--radius-full) !important;
+  box-shadow: none !important;
+}
+
+.shopify-payment-button__button--unbranded:hover,
+.shopify-payment-button__button--unbranded:hover:not([disabled]),
+button.shopify-payment-button__button--unbranded:hover,
+button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  border-color: var(--color-primary) !important;
+  opacity: 1;
+}
+
+.shopify-payment-button__button--unbranded:before,
+.shopify-payment-button__button--unbranded:after {
+  box-shadow: none !important;
+}
+
+/* Sale / sold-out badges */
+.badge {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  font-family: var(--font-body) !important;
+  border-radius: var(--radius-full) !important;
+}
+
+/* Header cart count */
+.cart-count-bubble {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+}
+
+/* Announcement / utility bar leftover green */
+.utility-bar {
+  background-color: var(--color-primary) !important;
+}
+
+/* Product cards on collections */
+.card__heading,
+.card__heading a {
+  font-family: var(--font-heading) !important;
+  color: var(--color-text) !important;
+  text-transform: none;
+}

@@ -1,0 +1,33 @@
+{%- comment -%}
+  Products mega menu: Chips and Millet Mixtures only.
+  Product list is filtered in NR-header-products.js.
+{%- endcomment -%}
+<div class="nr-mega-products" data-nr-mega-products>
+  <div class="nr-mega-products__cols" data-nr-mega-cols></div>
+  <script type="application/json" data-nr-mega-catalog>
+    [
+    {%- assign nr_mega_source = collections.all -%}
+    {%- if nr_mega_source == blank -%}
+      {%- assign nr_mega_source = collections.products -%}
+    {%- endif -%}
+    {%- if nr_mega_source != blank -%}
+      {%- paginate nr_mega_source.products by 250 -%}
+        {%- assign nr_mega_first = true -%}
+        {%- for product in nr_mega_source.products -%}
+          {%- assign nr_mega_type = product.type | strip | downcase -%}
+          {%- if nr_mega_type == 'chips' or nr_mega_type == 'millet mixtures' -%}
+            {%- unless nr_mega_first -%},{%- endunless -%}
+            {
+              "title": {{ product.title | json }},
+              "url": {{ product.url | json }},
+              "type": {{ product.type | json }}
+            }
+            {%- assign nr_mega_first = false -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endpaginate -%}
+    {%- endif -%}
+    ]
+  </script>
+</div>
+<script src="{{ 'NR-header-products.js' | asset_url }}" defer="defer"></script>

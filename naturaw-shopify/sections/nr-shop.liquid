@@ -18,7 +18,7 @@
   data-section-id="{{ section.id }}"
 >
   <div class="nr-shop__inner page-width">
-    <header class="nr-shop__header">
+    <header class="nr-shop__header" data-nr-reveal>
       {%- if section.settings.kicker != blank -%}
         <p class="nr-shop__kicker">{{ section.settings.kicker | escape }}</p>
       {%- endif -%}
@@ -70,6 +70,10 @@
     </p>
   </div>
 
+  <template data-nr-shop-byob>
+    {%- render 'nr-byob-card', variant: 'shop' -%}
+  </template>
+
   <template data-nr-shop-spinner>
     {%- render 'loading-spinner' -%}
   </template>
@@ -98,7 +102,7 @@
               "url": {{ product.url | json }},
               "image": {% if product.featured_media %}{{ product.featured_media | image_url: width: 720 | json }}{% else %}""{% endif %},
               "imageAlt": {{ product.featured_media.alt | default: product.title | json }},
-              "priceFormatted": {{ variant.price | money | json }},
+              "priceFormatted": {{ variant.price | money | strip_html | json }},
               "weight": {{ weight_label | json }},
               "variantId": {{ variant.id | json }},
               "available": {{ variant.available | json }}

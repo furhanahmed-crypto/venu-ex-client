@@ -1,0 +1,199 @@
+{%- comment -%}
+  Global Build your own box modal. Rendered once in layout/theme.liquid.
+  Data comes from Theme settings → NR Build your own box.
+{%- endcomment -%}
+{%- liquid
+  assign box_4 = settings.nr_byob_box_4
+  assign box_8 = settings.nr_byob_box_8
+  assign gift_product = settings.nr_byob_gift_product
+  assign flavour_1 = settings.nr_byob_flavour_1
+  assign flavour_2 = settings.nr_byob_flavour_2
+-%}
+
+{%- if settings.nr_byob_enable and box_4 != blank or settings.nr_byob_enable and box_8 != blank -%}
+  {{ 'NR-byob.css' | asset_url | stylesheet_tag }}
+
+  <nr-byob-modal id="NRByobModal" class="nr-byob" hidden>
+    <div class="nr-byob__overlay" data-nr-byob-close></div>
+    <div
+      class="nr-byob__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="NRByobTitle"
+      tabindex="-1"
+    >
+      <button type="button" class="nr-byob__close" data-nr-byob-close aria-label="{{ 'accessibility.close' | t }}">
+        <span class="svg-wrapper">{{- 'icon-close.svg' | inline_asset_content -}}</span>
+      </button>
+
+      <header class="nr-byob__header">
+        <p class="nr-byob__kicker">Build your own box</p>
+        <h2 class="nr-byob__title" id="NRByobTitle">Make it yours.</h2>
+        <p class="nr-byob__subtitle">Pick a box size, choose your flavours, and add a gift note if you like.</p>
+      </header>
+
+      <div class="nr-byob__layout">
+        <div class="nr-byob__main">
+          <section class="nr-byob__step">
+            <h3 class="nr-byob__step-title"><span class="nr-byob__step-num">1</span>Choose a box size</h3>
+            <div class="nr-byob__sizes" role="radiogroup" aria-label="Box size">
+              {%- for box in (1..2) -%}
+                {%- liquid
+                  if forloop.index == 1
+                    assign box_product = box_4
+                    assign box_size = 4
+                  else
+                    assign box_product = box_8
+                    assign box_size = 8
+                  endif
+                -%}
+                {%- if box_product != blank -%}
+                  {%- assign box_variant = box_product.selected_or_first_available_variant -%}
+                  <button
+                    type="button"
+                    class="nr-byob__size"
+                    role="radio"
+                    aria-checked="false"
+                    data-nr-byob-size="{{ box_size }}"
+                    {% unless box_variant.available %}
+                      disabled
+                    {% endunless %}
+                  >
+                    <span class="nr-byob__size-label">{{ box_size }} packs</span>
+                    <span class="nr-byob__size-price">{{ box_variant.price | money }}</span>
+                  </button>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </section>
+
+          <section class="nr-byob__step">
+            <div class="nr-byob__step-head">
+              <h3 class="nr-byob__step-title"><span class="nr-byob__step-num">2</span>Pick your flavours</h3>
+              <p class="nr-byob__remaining" data-nr-byob-remaining aria-live="polite"></p>
+            </div>
+            <ul class="nr-byob__flavours" role="list">
+              {%- for i in (1..2) -%}
+                {%- liquid
+                  if forloop.index == 1
+                    assign flavour = flavour_1
+                    assign flavour_size = settings.nr_byob_flavour_1_size
+                  else
+                    assign flavour = flavour_2
+                    assign flavour_size = settings.nr_byob_flavour_2_size
+                  endif
+                -%}
+                {%- if flavour != blank -%}
+                  {%- assign flavour_variant = flavour.selected_or_first_available_variant -%}
+                  <li
+                    class="nr-byob__flavour"
+                    data-nr-byob-flavour="{{ flavour_variant.id }}"
+                    data-title="{{ flavour.title | escape }}"
+                    data-image="{% if flavour.featured_media %}{{ flavour.featured_media | image_url: width: 200 }}{% endif %}"
+                  >
+                    <div class="nr-byob__flavour-media">
+                      {%- if flavour.featured_media -%}
+                        {{
+                          flavour.featured_media
+                          | image_url: width: 160
+                          | image_tag: loading: 'lazy', alt: flavour.title, class: 'nr-byob__flavour-img'
+                        }}
+                      {%- endif -%}
+                    </div>
+                    <div class="nr-byob__flavour-info">
+                      <p class="nr-byob__flavour-name">{{ flavour.title | escape }}</p>
+                      <p class="nr-byob__flavour-size">{{ flavour_size | escape }}</p>
+                    </div>
+                    <div class="nr-byob__qty" role="group" aria-label="Quantity for {{ flavour.title | escape }}">
+                      <button type="button" class="nr-byob__qty-btn" data-nr-byob-step="-1" aria-label="Remove one">
+                        −
+                      </button>
+                      <span class="nr-byob__qty-value" data-nr-byob-qty>0</span>
+                      <button type="button" class="nr-byob__qty-btn" data-nr-byob-step="1" aria-label="Add one">
+                        +
+                      </button>
+                    </div>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </section>
+
+          <section class="nr-byob__step">
+            <h3 class="nr-byob__step-title">
+              <span class="nr-byob__step-num">3</span>Make it a gift <span class="nr-byob__optional">(optional)</span>
+            </h3>
+            <label class="nr-byob__gift">
+              <input type="checkbox" data-nr-byob-gift>
+              <span>
+                Gift box with a note
+                {%- if gift_product != blank %}
+                  · +{{ gift_product.selected_or_first_available_variant.price | money }}
+                {%- endif -%}
+              </span>
+            </label>
+            <div class="nr-byob__gift-note" data-nr-byob-gift-note hidden>
+              <label class="visually-hidden" for="NRByobGiftMessage">Gift message</label>
+              <textarea
+                id="NRByobGiftMessage"
+                class="nr-byob__textarea"
+                rows="3"
+                maxlength="250"
+                placeholder="Write a short note (optional)"
+                data-nr-byob-gift-message
+              ></textarea>
+            </div>
+          </section>
+        </div>
+
+        <aside class="nr-byob__summary" aria-label="Your box">
+          <h3 class="nr-byob__summary-title">Your box</h3>
+          <ul class="nr-byob__slots" role="list" data-nr-byob-slots></ul>
+          <ul class="nr-byob__lines" role="list" data-nr-byob-lines></ul>
+          <div class="nr-byob__total">
+            <span>Total</span>
+            <span class="nr-byob__total-value" data-nr-byob-total></span>
+          </div>
+          <button type="button" class="nr-byob__submit" data-nr-byob-submit disabled>
+            <span data-nr-byob-submit-label>Add box to cart</span>
+            {%- render 'loading-spinner' -%}
+          </button>
+          <p class="nr-byob__hint" data-nr-byob-hint aria-live="polite"></p>
+          <p class="nr-byob__error" data-nr-byob-error role="alert" hidden></p>
+        </aside>
+      </div>
+    </div>
+
+    <script type="application/json" data-nr-byob-config>
+      {
+        "currency": {{ cart.currency.iso_code | json }},
+        "moneyFormat": {{ shop.money_format | json }},
+        "sizes": [
+          {%- if box_4 != blank -%}
+            {
+              "size": 4,
+              "variantId": {{ box_4.selected_or_first_available_variant.id | json }},
+              "price": {{ box_4.selected_or_first_available_variant.price | json }}
+            }
+          {%- endif -%}
+          {%- if box_4 != blank and box_8 != blank -%},{%- endif -%}
+          {%- if box_8 != blank -%}
+            {
+              "size": 8,
+              "variantId": {{ box_8.selected_or_first_available_variant.id | json }},
+              "price": {{ box_8.selected_or_first_available_variant.price | json }}
+            }
+          {%- endif -%}
+        ],
+        "gift": {%- if gift_product != blank -%}
+          {
+            "variantId": {{ gift_product.selected_or_first_available_variant.id | json }},
+            "price": {{ gift_product.selected_or_first_available_variant.price | json }}
+          }
+        {%- else -%}null{%- endif -%}
+      }
+    </script>
+  </nr-byob-modal>
+
+  <script src="{{ 'NR-byob.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}

@@ -1,11 +1,8 @@
 .naturaw-hero--revamp {
   position: relative;
-  background-color: var(--color-pink);
+  background-color: var(--color-inverse-bg);
+  color: var(--color-inverse-text);
   transition: var(--transition-theme);
-}
-
-html.dark .naturaw-hero--revamp {
-  background-color: var(--color-bg);
 }
 
 /* Horizontal track slider — same layout every slide */
@@ -26,14 +23,10 @@ html.dark .naturaw-hero--revamp {
   min-width: 100%;
   box-sizing: border-box;
   position: relative;
-  background-color: var(--color-pink);
+  background-color: var(--color-inverse-bg);
   background-image: none !important;
   padding: var(--space-16) 0 calc(var(--space-20) + var(--space-8));
   transition: background-color 0.35s ease, color 0.35s ease;
-}
-
-html.dark .naturaw-hero--revamp .naturaw-slide {
-  background-color: var(--color-bg);
 }
 
 .naturaw-hero--revamp .naturaw-hero__dots {
@@ -48,12 +41,8 @@ html.dark .naturaw-hero--revamp .naturaw-slide {
   gap: var(--space-3);
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-full);
-  background: rgba(30, 31, 28, 0.06);
-  backdrop-filter: blur(6px);
-}
-
-html.dark .naturaw-hero--revamp .naturaw-hero__dots {
   background: rgba(244, 243, 239, 0.08);
+  backdrop-filter: blur(6px);
 }
 
 .naturaw-hero--revamp .naturaw-hero__dot {
@@ -62,7 +51,7 @@ html.dark .naturaw-hero--revamp .naturaw-hero__dots {
   padding: 0;
   border: none;
   border-radius: var(--radius-full);
-  background: var(--color-border);
+  background: var(--color-inverse-border);
   cursor: pointer;
   transition:
     transform 0.25s ease,
@@ -72,11 +61,11 @@ html.dark .naturaw-hero--revamp .naturaw-hero__dots {
 
 .naturaw-hero--revamp .naturaw-hero__dot.is-active {
   width: 22px;
-  background: var(--color-text);
+  background: var(--color-inverse-text);
 }
 
 .naturaw-hero--revamp .naturaw-hero__dot:focus-visible {
-  outline: 2px solid var(--color-text);
+  outline: 2px solid var(--color-inverse-text);
   outline-offset: 2px;
 }
 
@@ -111,7 +100,7 @@ html.dark .naturaw-hero--revamp .naturaw-hero__dots {
   font-weight: 600;
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-inverse-muted);
 }
 
 .naturaw-hero--revamp .naturaw-heading {
@@ -121,7 +110,7 @@ html.dark .naturaw-hero--revamp .naturaw-hero__dots {
   font-size: clamp(44px, 4.6vw, 76px) !important;
   font-weight: 600;
   line-height: 1.12 !important;
-  color: var(--color-text) !important;
+  color: var(--color-inverse-text) !important;
 }
 
 .naturaw-hero--revamp .naturaw-heading__line {
@@ -141,7 +130,7 @@ html.dark .naturaw-hero--revamp .naturaw-hero__dots {
   font-family: var(--font-body);
   font-size: var(--text-lg);
   line-height: var(--leading-normal);
-  color: var(--color-text-muted);
+  color: var(--color-inverse-muted);
   max-width: var(--content-narrow);
 }
 
@@ -152,23 +141,21 @@ html.dark .naturaw-hero--revamp .naturaw-hero__dots {
   width: fit-content;
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-full);
-  background-color: var(--color-primary) !important;
-  color: var(--color-primary-text) !important;
+  background-color: var(--color-inverse-text) !important;
+  color: var(--color-inverse-bg) !important;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 600;
   text-decoration: none;
-  transition: var(--transition-theme), transform 0.2s ease;
-}
-
-html.dark .naturaw-hero--revamp .naturaw-hero__btn {
-  background-color: var(--color-text) !important;
-  color: var(--color-bg) !important;
+  transition:
+    var(--transition-theme),
+    transform var(--duration-fast) var(--ease-premium),
+    box-shadow var(--duration-base) var(--ease-premium);
 }
 
 .naturaw-hero--revamp .naturaw-hero__btn:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -10px rgba(244, 243, 239, 0.35);
 }
 
 .naturaw-hero--revamp .naturaw-hero__btn-icon {

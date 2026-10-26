@@ -8,6 +8,52 @@
     padding-left: var(--space-5) !important;
     padding-right: var(--space-5) !important;
   }
+
+  /* Country/currency lives in the menu drawer on small screens */
+  .shopify-section-group-header-group .header__icons > .desktop-localization-wrapper {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 549px) {
+  .shopify-section-group-header-group .header {
+    min-height: 60px;
+    padding-left: var(--space-3) !important;
+    padding-right: var(--space-3) !important;
+    column-gap: var(--space-2);
+  }
+
+  .shopify-section-group-header-group .header__heading-logo-wrapper img.header__heading-logo {
+    max-height: 30px;
+    max-width: 132px;
+  }
+
+  .shopify-section-group-header-group .header__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .shopify-section-group-header-group .header__icons {
+    gap: 0;
+    padding-right: 0;
+  }
+
+  .announcement-bar-section .announcement-bar__message.h5 {
+    font-size: var(--text-xs) !important;
+    padding: var(--space-2) var(--space-3);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .shopify-section-group-header-group .header__heading-logo-wrapper img.header__heading-logo {
+    max-height: 26px;
+    max-width: 108px;
+  }
+
+  .shopify-section-group-header-group .header__icon {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 @media screen and (min-width: 990px) {

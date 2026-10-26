@@ -1,0 +1,130 @@
+/**
+ * Shopify Customer Privacy banner — NR tokens + slide in/out.
+ */
+
+#shopify-pc__banner {
+  position: fixed !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 24px !important;
+  top: auto !important;
+  z-index: 9999 !important;
+  width: min(560px, calc(100vw - 32px)) !important;
+  max-width: calc(100vw - 32px) !important;
+  margin: 0 !important;
+  transform: translate(-50%, calc(100% + 40px)) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease !important;
+  will-change: transform, opacity;
+}
+
+#shopify-pc__banner.nr-cookie-banner--open {
+  transform: translate(-50%, 0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#shopify-pc__banner.nr-cookie-banner--closing {
+  transform: translate(-50%, calc(100% + 40px)) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+#shopify-pc__banner .shopify-pc__banner__dialog,
+#shopify-pc__banner .shopify-pc__prefs__dialog,
+#shopify-pc__banner [role='dialog'] {
+  font-family: var(--font-body) !important;
+  color: var(--color-text) !important;
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-md) !important;
+  padding: var(--space-5) !important;
+}
+
+#shopify-pc__banner .shopify-pc__banner__body-title,
+#shopify-pc__banner h2,
+#shopify-pc__banner [class*='title'] {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  color: var(--color-text) !important;
+}
+
+#shopify-pc__banner p,
+#shopify-pc__banner .shopify-pc__banner__body,
+#shopify-pc__banner a {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+}
+
+#shopify-pc__banner a {
+  color: var(--color-text) !important;
+  text-underline-offset: 2px;
+}
+
+#shopify-pc__banner button,
+#shopify-pc__banner .shopify-pc__banner__btn-accept,
+#shopify-pc__banner .shopify-pc__banner__btn-decline {
+  font-family: var(--font-body) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-full) !important;
+  min-height: 40px !important;
+  padding: 8px 18px !important;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+#shopify-pc__banner .shopify-pc__banner__btn-accept,
+#shopify-pc__banner button[name='accept'],
+#shopify-pc__banner button[data-action='accept'] {
+  background: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+  border: none !important;
+}
+
+#shopify-pc__banner .shopify-pc__banner__btn-decline,
+#shopify-pc__banner button[name='decline'],
+#shopify-pc__banner button[data-action='decline'] {
+  background: transparent !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+#shopify-pc__banner .shopify-pc__banner__btn-manage-prefs,
+#shopify-pc__banner button[name='manage'],
+#shopify-pc__banner a[href*='prefs'] {
+  font-family: var(--font-body) !important;
+  color: var(--color-text) !important;
+  text-decoration: underline;
+  background: transparent !important;
+  border: none !important;
+}
+
+@media screen and (max-width: 749px) {
+  #shopify-pc__banner {
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    max-width: none !important;
+    bottom: 16px !important;
+    transform: translateY(calc(100% + 40px)) !important;
+  }
+
+  #shopify-pc__banner.nr-cookie-banner--open {
+    transform: translateY(0) !important;
+  }
+
+  #shopify-pc__banner.nr-cookie-banner--closing {
+    transform: translateY(calc(100% + 40px)) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #shopify-pc__banner {
+    transition: opacity 0.2s ease !important;
+  }
+}
