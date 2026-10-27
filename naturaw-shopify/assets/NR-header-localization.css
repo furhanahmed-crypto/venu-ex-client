@@ -1,4 +1,6 @@
-/* Beast Currency Converter (Doubly) app embed — duplicate of Shopify country/currency picker */
+/* Beast Currency Converter (Doubly) app embed — duplicate of Shopify country/currency picker.
+   Hide the whole wrapper: children alone were display:none but the absolute shell (min-width:86px) remained. */
+.shopify-section-group-header-group .header__icons .doubly-wrapper,
 .shopify-section-group-header-group .header__icons .doubly-nice-select,
 .shopify-section-group-header-group .header__icons .currency-switcher,
 .shopify-section-group-header-group .header__icons select.currency-switcher,
