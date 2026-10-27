@@ -71,10 +71,9 @@
       "settings": {
         "kicker": "SHOP",
         "title": "Real snacks, ready to go.",
-        "subtitle": "Choose chips or millet mixtures — same clean ingredients, straight from our store.",
-        "tab_chips_label": "Chips",
-        "tab_millet_label": "Millet Mixtures",
-        "tabs_aria_label": "Product categories",
+        "subtitle": "Chips and millet mixtures — same clean ingredients, straight from our store.",
+        "chips_heading": "Chips",
+        "millet_heading": "Millet Mixtures",
         "empty_message": "No products in this category right now."
       }
     },
@@ -428,7 +427,7 @@
       "type": "about-naturaw",
       "name": "About Naturaw Section",
       "settings": {
-        "bg_image": "shopify://shop_images/about-background.png",
+        "bg_image": "",
         "left_main_image": "shopify://shop_images/grandma.png",
         "top_left_image": "shopify://shop_images/image1.png",
         "top_right_image": "shopify://shop_images/image2.png",

@@ -30,44 +30,23 @@
       {%- endif -%}
     </header>
 
-    <div class="nr-shop__tabs-wrap">
-    <div class="nr-shop__tabs" role="tablist" aria-label="{{ section.settings.tabs_aria_label | escape }}">
-      <button
-        type="button"
-        class="nr-shop__tab is-active"
-        role="tab"
-        id="nr-shop-tab-chips-{{ section.id }}"
-        aria-selected="true"
-        aria-controls="nr-shop-panel-{{ section.id }}"
-        data-nr-shop-tab="chips"
-      >
-        {{ section.settings.tab_chips_label | escape }}
-      </button>
-      <button
-        type="button"
-        class="nr-shop__tab"
-        role="tab"
-        id="nr-shop-tab-millet-{{ section.id }}"
-        aria-selected="false"
-        aria-controls="nr-shop-panel-{{ section.id }}"
-        data-nr-shop-tab="millet mixtures"
-      >
-        {{ section.settings.tab_millet_label | escape }}
-      </button>
-    </div>
-    </div>
+    <div class="nr-shop__groups">
+      <div class="nr-shop__group" data-nr-shop-group="chips">
+        <h3 class="nr-shop__group-title">{{ section.settings.chips_heading | escape }}</h3>
+        <div class="nr-shop__grid" data-nr-shop-grid="chips"></div>
+        <p class="nr-shop__empty hidden" data-nr-shop-empty="chips" hidden>
+          {{ section.settings.empty_message | escape }}
+        </p>
+      </div>
 
-    <div
-      class="nr-shop__panel"
-      id="nr-shop-panel-{{ section.id }}"
-      role="tabpanel"
-      aria-labelledby="nr-shop-tab-chips-{{ section.id }}"
-      data-nr-shop-grid
-    ></div>
-
-    <p class="nr-shop__empty hidden" data-nr-shop-empty hidden>
-      {{ section.settings.empty_message | escape }}
-    </p>
+      <div class="nr-shop__group" data-nr-shop-group="millet mixtures">
+        <h3 class="nr-shop__group-title">{{ section.settings.millet_heading | escape }}</h3>
+        <div class="nr-shop__grid" data-nr-shop-grid="millet mixtures"></div>
+        <p class="nr-shop__empty hidden" data-nr-shop-empty="millet mixtures" hidden>
+          {{ section.settings.empty_message | escape }}
+        </p>
+      </div>
+    </div>
   </div>
 
   <template data-nr-shop-byob>
@@ -130,7 +109,7 @@
       "type": "collection",
       "id": "collection",
       "label": "Product source collection",
-      "info": "Products are filtered by Product type: chips and Millet Mixtures. Gifts and other types are excluded."
+      "info": "Products are filtered by Product type: chips and Millet Mixtures."
     },
     {
       "type": "text",
@@ -148,30 +127,24 @@
       "type": "textarea",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "Choose chips or millet mixtures — same clean ingredients, straight from our store."
+      "default": "Chips and millet mixtures — same clean ingredients, straight from our store."
     },
     {
       "type": "text",
-      "id": "tab_chips_label",
-      "label": "Chips tab label",
+      "id": "chips_heading",
+      "label": "Chips section heading",
       "default": "Chips"
     },
     {
       "type": "text",
-      "id": "tab_millet_label",
-      "label": "Millet mixtures tab label",
+      "id": "millet_heading",
+      "label": "Millet mixtures section heading",
       "default": "Millet Mixtures"
     },
     {
       "type": "text",
-      "id": "tabs_aria_label",
-      "label": "Tabs accessibility label",
-      "default": "Product categories"
-    },
-    {
-      "type": "text",
       "id": "empty_message",
-      "label": "Empty tab message",
+      "label": "Empty category message",
       "default": "No products in this category right now."
     }
   ],

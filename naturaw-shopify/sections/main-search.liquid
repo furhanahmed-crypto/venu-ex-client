@@ -263,6 +263,13 @@
                     {%- assign lazy_load = true -%}
                   {%- endif -%}
 
+                  {%- if item.object_type == 'product' -%}
+                    {%- assign nr_snack_type = item.type | strip | downcase -%}
+                    {%- unless nr_snack_type == 'chips' or nr_snack_type == 'millet mixtures' -%}
+                      {%- continue -%}
+                    {%- endunless -%}
+                  {%- endif -%}
+
                   <li
                     class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                     {% if settings.animations_reveal_on_scroll %}

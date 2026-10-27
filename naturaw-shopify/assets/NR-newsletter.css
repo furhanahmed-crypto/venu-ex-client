@@ -1,11 +1,13 @@
 .nr-newsletter {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-inverse-bg);
+  background-color: var(--color-card);
   background-image:
-    radial-gradient(50% 80% at 50% 0%, rgba(244, 243, 239, 0.08) 0%, transparent 70%),
-    radial-gradient(rgba(244, 243, 239, 0.06) 1px, transparent 1px);
+    radial-gradient(50% 80% at 50% 0%, rgba(30, 31, 28, 0.04) 0%, transparent 70%),
+    radial-gradient(rgba(30, 31, 28, 0.05) 1px, transparent 1px);
   background-size: auto, 24px 24px;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   padding: var(--space-20) var(--space-4) var(--space-16);
   transition: var(--transition-theme);
 }
@@ -22,7 +24,7 @@
   font-size: clamp(28px, 3vw, 36px);
   font-weight: 600;
   line-height: var(--leading-tight);
-  color: var(--color-inverse-text);
+  color: var(--color-text);
 }
 
 .nr-newsletter__subtitle {
@@ -30,7 +32,7 @@
   font-family: var(--font-body);
   font-size: var(--text-lg);
   line-height: var(--leading-normal);
-  color: var(--color-inverse-muted);
+  color: var(--color-text-muted);
 }
 
 .nr-newsletter__form {
@@ -44,17 +46,17 @@
   max-width: 520px;
   margin: 0 auto;
   padding: var(--space-1);
-  border: 1px solid var(--color-inverse-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
-  background: var(--color-inverse-surface);
+  background: var(--color-surface);
   transition:
     var(--transition-theme),
     box-shadow var(--duration-base) var(--ease-premium);
 }
 
 .nr-newsletter__field:focus-within {
-  border-color: var(--color-inverse-text);
-  box-shadow: 0 0 0 4px rgba(244, 243, 239, 0.08);
+  border-color: var(--color-text);
+  box-shadow: 0 0 0 4px rgba(30, 31, 28, 0.06);
 }
 
 .nr-newsletter__input {
@@ -65,11 +67,11 @@
   padding: var(--space-3) var(--space-5);
   font-family: var(--font-body);
   font-size: var(--text-base);
-  color: var(--color-inverse-text);
+  color: var(--color-text);
 }
 
 .nr-newsletter__input::placeholder {
-  color: var(--color-inverse-muted);
+  color: var(--color-text-muted);
   opacity: 0.85;
 }
 
@@ -82,8 +84,8 @@
   border: none;
   border-radius: var(--radius-full);
   padding: var(--space-3) var(--space-6);
-  background: var(--color-inverse-text);
-  color: var(--color-inverse-bg);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 600;
@@ -104,11 +106,11 @@
 }
 
 .nr-newsletter__message--error {
-  color: #ff7a7a;
+  color: var(--color-error);
 }
 
 .nr-newsletter__message--success {
-  color: var(--color-inverse-muted);
+  color: var(--color-text-muted);
 }
 
 @media screen and (max-width: 549px) {

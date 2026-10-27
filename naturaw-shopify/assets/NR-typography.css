@@ -20,7 +20,7 @@
 .naturaw-hero--revamp .naturaw-heading span,
 .naturaw-hero--revamp .naturaw-heading .highlight-word {
   font-family: var(--font-heading) !important;
-  color: var(--color-inverse-text) !important;
+  color: var(--color-text) !important;
 }
 
 .naturaw-hero--revamp .naturaw-subtitle,

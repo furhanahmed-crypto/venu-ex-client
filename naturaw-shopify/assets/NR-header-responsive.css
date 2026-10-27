@@ -3,6 +3,36 @@
  * Overrides legacy rules still present in base.css (kept for revert).
  */
 
+/*
+ * Search toggle: Dawn keeps both search + close SVGs in the summary, and the
+ * modal close button is position:absolute over the header. NR icon sizing
+ * (display:inline-flex on .svg-wrapper) was un-hiding the summary X; the
+ * modal close could also paint beside search while opacity was only 0.
+ */
+.shopify-section-group-header-group .header__search details:not([open]) .header__icon-close,
+.shopify-section-group-header-group .header__search details:not([open]) .search-modal__close-button {
+  display: none !important;
+}
+
+.shopify-section-group-header-group .header__search details:not([open]) > .search-modal {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.shopify-section-group-header-group .header__search details[open] .header__icon-close {
+  display: inline-flex !important;
+}
+
+.shopify-section-group-header-group .header__search details[open] .header__icon--search > span > .svg-wrapper:not(.header__icon-close) {
+  display: none !important;
+}
+
+.shopify-section-group-header-group .header__search details[open] > .search-modal {
+  display: flex !important;
+}
+
 @media screen and (max-width: 989px) {
   .shopify-section-group-header-group .header {
     padding-left: var(--space-5) !important;
@@ -12,12 +42,6 @@
   /* Country/currency lives in the menu drawer on small screens */
   .shopify-section-group-header-group .header__icons > .desktop-localization-wrapper {
     display: none !important;
-  }
-
-  /* Closed search modal uses opacity:0 only — also hide it so the close (X) can't show through */
-  .shopify-section-group-header-group .header__search details:not([open]) > .search-modal {
-    visibility: hidden;
-    pointer-events: none;
   }
 }
 

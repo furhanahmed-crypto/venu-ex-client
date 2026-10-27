@@ -3,9 +3,6 @@
 <section
   class="nw-about-full nr-about"
   id="about-naturaw-{{ section.id }}"
-  {% if section.settings.bg_image %}
-    style="background-image:url({{ section.settings.bg_image | image_url: width: 2000 }});"
-  {% endif %}
 >
   {% if section.settings.top_left_image %}
     <img

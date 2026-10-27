@@ -1,4 +1,4 @@
-/* Inverse title band shared by inner pages (page, blog, collections, search, 404) */
+/* Soft title band shared by inner pages (page, blog, collections, search, 404) */
 .main-page-title,
 .template-blog .title--primary,
 .template-list-collections .title--primary,
@@ -9,26 +9,31 @@
   margin: 0 0 var(--space-10) !important;
   padding: var(--space-12) var(--space-6);
   border-radius: 20px;
-  background-color: var(--color-inverse-bg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
   background-image:
-    radial-gradient(60% 90% at 50% 0%, rgba(244, 243, 239, 0.1) 0%, transparent 70%),
-    radial-gradient(rgba(244, 243, 239, 0.06) 1px, transparent 1px);
+    radial-gradient(60% 90% at 50% 0%, rgba(30, 31, 28, 0.04) 0%, transparent 70%),
+    radial-gradient(rgba(30, 31, 28, 0.05) 1px, transparent 1px);
   background-size: auto, 22px 22px;
-  color: var(--color-inverse-text) !important;
+  color: var(--color-text) !important;
   font-family: var(--font-heading) !important;
   font-size: clamp(32px, 5vw, 56px) !important;
   font-weight: 600;
   line-height: var(--leading-tight);
   text-align: center;
   word-break: break-word;
-  animation: nr-title-rise var(--duration-slow) var(--ease-premium) both;
+  /* Override Dawn scroll-trigger fade so titles stay readable on light bands */
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
 }
 
-/* Collection banner: full-width inverse hero */
+/* Collection banner: soft light band */
 .collection-hero {
-  background-color: var(--color-inverse-bg) !important;
-  background-image: radial-gradient(60% 90% at 50% 0%, rgba(244, 243, 239, 0.1) 0%, transparent 70%) !important;
-  color: var(--color-inverse-text);
+  background-color: var(--color-card) !important;
+  background-image: radial-gradient(60% 90% at 50% 0%, rgba(30, 31, 28, 0.04) 0%, transparent 70%) !important;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
 }
 
 .collection-hero__inner {
@@ -38,7 +43,7 @@
 
 .collection-hero__title {
   margin: 0;
-  color: var(--color-inverse-text) !important;
+  color: var(--color-text) !important;
   font-family: var(--font-heading) !important;
   font-size: clamp(32px, 5vw, 56px);
   font-weight: 600;
@@ -46,19 +51,8 @@
 
 .collection-hero__description,
 .collection-hero__description p {
-  color: var(--color-inverse-muted) !important;
+  color: var(--color-text-muted) !important;
   font-family: var(--font-body);
-}
-
-@keyframes nr-title-rise {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 @media screen and (max-width: 549px) {
@@ -70,12 +64,5 @@
     padding: var(--space-8) var(--space-4);
     border-radius: var(--radius-lg);
     margin-bottom: var(--space-8) !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .main-page-title,
-  .template-blog .title--primary {
-    animation: none;
   }
 }

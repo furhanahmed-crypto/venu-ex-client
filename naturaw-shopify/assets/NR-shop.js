@@ -1,8 +1,5 @@
 (function () {
-  var TAB_TYPES = {
-    chips: 'chips',
-    'millet mixtures': 'millet mixtures',
-  };
+  var GROUPS = ['chips', 'millet mixtures'];
 
   function normalizeType(value) {
     return String(value || '')
@@ -98,18 +95,16 @@
     return article;
   }
 
-  function renderGrid(sectionEl, catalog, activeTab, sectionId, spinnerHtml) {
-    var grid = sectionEl.querySelector('[data-nr-shop-grid]');
-    var empty = sectionEl.querySelector('[data-nr-shop-empty]');
+  function renderGroup(sectionEl, catalog, typeKey, sectionId, spinnerHtml, withByob) {
+    var grid = sectionEl.querySelector('[data-nr-shop-grid="' + typeKey + '"]');
+    var empty = sectionEl.querySelector('[data-nr-shop-empty="' + typeKey + '"]');
     if (!grid) return;
 
-    var typeKey = TAB_TYPES[activeTab];
     var items = catalog.filter(function (p) {
       return normalizeType(p.type) === typeKey;
     });
 
     grid.innerHTML = '';
-    grid.className = 'nr-shop__grid';
 
     if (!items.length) {
       if (empty) {
@@ -124,9 +119,11 @@
       empty.classList.add('hidden');
     }
 
-    var byobTemplate = sectionEl.querySelector('[data-nr-shop-byob]');
-    if (byobTemplate && byobTemplate.content.querySelector('.nr-byob-card')) {
-      grid.appendChild(byobTemplate.content.cloneNode(true));
+    if (withByob) {
+      var byobTemplate = sectionEl.querySelector('[data-nr-shop-byob]');
+      if (byobTemplate && byobTemplate.content.querySelector('.nr-byob-card')) {
+        grid.appendChild(byobTemplate.content.cloneNode(true));
+      }
     }
 
     items.forEach(function (product) {
@@ -134,32 +131,13 @@
     });
   }
 
-  function setActiveTab(sectionEl, tabKey) {
-    sectionEl.querySelectorAll('[data-nr-shop-tab]').forEach(function (btn) {
-      var isActive = btn.dataset.nrShopTab === tabKey;
-      btn.classList.toggle('is-active', isActive);
-      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-    });
-    sectionEl.dataset.nrShopActiveTab = tabKey;
-  }
-
   function initSection(sectionEl) {
     var catalog = parseCatalog(sectionEl);
     var sectionId = sectionEl.dataset.sectionId || '';
     var spinnerHtml = getSpinnerHtml(sectionEl);
-    var activeTab = 'chips';
 
-    renderGrid(sectionEl, catalog, activeTab, sectionId, spinnerHtml);
-    setActiveTab(sectionEl, activeTab);
-
-    sectionEl.querySelectorAll('[data-nr-shop-tab]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var tabKey = btn.dataset.nrShopTab;
-        if (!tabKey || tabKey === activeTab) return;
-        activeTab = tabKey;
-        setActiveTab(sectionEl, activeTab);
-        renderGrid(sectionEl, catalog, activeTab, sectionId, spinnerHtml);
-      });
+    GROUPS.forEach(function (typeKey, index) {
+      renderGroup(sectionEl, catalog, typeKey, sectionId, spinnerHtml, index === 0);
     });
 
     if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {

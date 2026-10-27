@@ -6,20 +6,21 @@ Reference: `naturaw-light.png`, `naturaw-dark.png` (repo root). Tokens: `assets/
 
 | Token | Light | Usage |
 |-------|-------|--------|
-| `--color-bg` | `#faf9f6` | Page background |
-| `--color-surface` | `#ffffff` | Cards, panels |
+| `--color-bg` | `#faf9f6` | Page / hero / about section background |
+| `--color-surface` | `#ffffff` | Cards, panels, inputs |
+| `--color-card` | `#f0efeb` | Soft bands (newsletter, page title banners) |
 | `--color-text` | `#22221f` | Primary text |
 | `--color-text-muted` | `#77766f` | Secondary text |
 | `--color-primary` | `#1e1f1c` | Announcement bar, primary buttons |
 | `--color-primary-text` | `#ffffff` | Text on primary |
 | `--color-border` | `#e5e3dd` | Dividers |
-| `--color-inverse-bg` | `#161614` | Dark blocks (hero, newsletter, about hero, page titles) |
-| `--color-inverse-surface` | `#242422` | Inputs/cards inside dark blocks |
-| `--color-inverse-text` | `#f4f3ef` | Text on inverse blocks |
-| `--color-inverse-muted` | `#a9a8a1` | Secondary text on inverse blocks |
-| `--color-inverse-border` | translucent light | Dividers on inverse blocks |
+| `--color-inverse-bg` | `#161614` | Three Ways cards 1 & 3 only (light mode) |
+| `--color-inverse-surface` | `#242422` | Nested surfaces inside inverse cards |
+| `--color-inverse-text` | `#f4f3ef` | Text on inverse cards |
+| `--color-inverse-muted` | `#a9a8a1` | Secondary text on inverse cards |
+| `--color-inverse-border` | translucent light | Dividers on inverse cards |
 
-The palette is strictly black/white. Do not add pink, orange, green, or yellow; legacy colors are overridden in `NR-global.css` and `NR-judgeme.css`.
+Light mode uses white shades for section backgrounds — no full-width black bands except the two Three Ways inverse cards. Do not add pink, orange, green, or yellow; legacy colors are overridden in `NR-global.css` and `NR-judgeme.css`.
 
 Dark mode overrides live under `html.dark` in the same token file.
 

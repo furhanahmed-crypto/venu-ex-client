@@ -1,13 +1,9 @@
 /**
- * Inverse (dark) blocks: NR-global forces headings to --color-text,
- * so text inside dark sections is switched back to the inverse tokens here.
+ * Dark inverse blocks only (Three Ways cards 1 & 3, plus any dark color schemes).
+ * Hero / newsletter / about / page titles are light — they use normal text tokens.
  */
 .nr-inverse,
-.naturaw-hero--revamp,
-.nr-newsletter,
-.nr-about,
 .nr-three-ways__card--inverse,
-.collection-hero,
 .color-scheme-3,
 .color-scheme-4,
 .color-scheme-5,
@@ -16,24 +12,15 @@
 }
 
 .nr-inverse :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5),
-.naturaw-hero--revamp :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3),
-.nr-newsletter :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3),
-.nr-about :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3),
 .nr-three-ways__card--inverse :is(h1, h2, h3, h4, h5, h6),
-.collection-hero :is(h1, h2, h3, .h0, .h1, .h2),
 .color-scheme-3 :is(h1, h2, h3, h4, h5, h6),
 .color-scheme-4 :is(h1, h2, h3, h4, h5, h6),
 .color-scheme-5 :is(h1, h2, h3, h4, h5, h6),
-.color-scheme-a1502f7a-d5ef-4a23-9e7a-60c11a7af412 :is(h1, h2, h3, h4, h5, h6),
-.main-page-title,
-.template-blog .title--primary,
-.template-list-collections .title--primary,
-.template-search .template-search__header h1,
-.template-404 .title {
+.color-scheme-a1502f7a-d5ef-4a23-9e7a-60c11a7af412 :is(h1, h2, h3, h4, h5, h6) {
   color: var(--color-inverse-text) !important;
 }
 
-/* Primary buttons inside dark blocks flip to light pills */
+/* Primary buttons inside remaining dark blocks flip to light pills */
 .nr-inverse .button:not(.button--secondary):not(.button--tertiary),
 .color-scheme-3 .button:not(.button--secondary),
 .color-scheme-4 .button:not(.button--secondary),
