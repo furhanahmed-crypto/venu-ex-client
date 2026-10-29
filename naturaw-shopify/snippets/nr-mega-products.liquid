@@ -1,8 +1,13 @@
+{%- liquid
+  assign nr_mega_variant = variant | default: 'mega'
+-%}
 {%- comment -%}
-  Products mega menu: Chips and Millet Mixtures only.
-  Product list is filtered in NR-header-products.js.
+  Products menu: Chips and Millet Mixtures only (NR-header-products.js).
 {%- endcomment -%}
-<div class="nr-mega-products" data-nr-mega-products>
+<div
+  class="nr-mega-products{% if nr_mega_variant == 'drawer' %} nr-mega-products--drawer{% endif %}"
+  data-nr-mega-products
+>
   <div class="nr-mega-products__cols" data-nr-mega-cols></div>
   <script type="application/json" data-nr-mega-catalog>
     [
@@ -30,4 +35,3 @@
     ]
   </script>
 </div>
-<script src="{{ 'NR-header-products.js' | asset_url }}" defer="defer"></script>

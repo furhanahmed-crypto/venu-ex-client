@@ -42,3 +42,36 @@
 .nr-mega-products__link:hover {
   color: var(--color-text);
 }
+
+/* Mobile drawer — same catalog as desktop, single column */
+.menu-drawer__products-panel {
+  padding: 0 var(--space-5) var(--space-6);
+}
+
+.nr-mega-products--drawer .nr-mega-products__cols {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  grid-template-columns: none;
+  padding: var(--space-2) 0 0;
+}
+
+.nr-mega-products--drawer .nr-mega-products__col + .nr-mega-products__col {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.nr-mega-products--drawer .nr-mega-products__heading {
+  margin-bottom: var(--space-3);
+}
+
+.nr-mega-products--drawer .nr-mega-products__link {
+  display: block;
+  padding: var(--space-2) 0;
+  font-size: var(--text-base);
+  color: var(--color-text);
+}
+
+.nr-mega-products--drawer .nr-mega-products__list li + li {
+  margin-top: 0;
+}

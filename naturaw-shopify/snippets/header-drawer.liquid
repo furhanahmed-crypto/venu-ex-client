@@ -24,6 +24,11 @@
               {%- for link in section.settings.menu.links -%}
                 <li>
                   {%- if link.links != blank -%}
+                    {%- assign nr_drawer_link_title = link.title | downcase | strip -%}
+                    {%- assign nr_drawer_is_products = false -%}
+                    {%- if nr_drawer_link_title == 'products' or link.handle == 'products' -%}
+                      {%- assign nr_drawer_is_products = true -%}
+                    {%- endif -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
                       <summary
                         id="HeaderDrawer-{{ link.handle }}"
@@ -49,6 +54,11 @@
                             </span>
                             {{ link.title | escape }}
                           </button>
+                          {%- if nr_drawer_is_products -%}
+                            <div class="menu-drawer__products-panel">
+                              {% render 'nr-mega-products', variant: 'drawer' %}
+                            </div>
+                          {%- else -%}
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
                               <li>
@@ -116,6 +126,7 @@
                               </li>
                             {%- endfor -%}
                           </ul>
+                          {%- endif -%}
                         </div>
                       </div>
                     </details>
